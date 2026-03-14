@@ -1562,9 +1562,13 @@
       var T = 10;
       var A = {};
       var G = 0;
+      var quizStarted = false;
+      var quizFinished = false;
       var eiShown = false;
+      var pageLoadTime = Date.now();
 
       function startQuiz() {
+        quizStarted = true;
         document.getElementById("hero").style.display = "none";
         var quizEl = document.getElementById("quiz");
         quizEl.style.display = "block";
@@ -1622,6 +1626,8 @@
       }
 
       function showResult() {
+        quizFinished = true;
+
         for (var i = 1; i <= T; i++) {
           var c = document.getElementById("q" + i);
           if (c) c.classList.remove("active");
@@ -1679,6 +1685,7 @@
 
       function restart() {
         G = 0;
+        quizFinished = false;
         for (var k in A) {
           if (A.hasOwnProperty(k)) delete A[k];
         }
@@ -1743,32 +1750,44 @@
         setTimeout(updateLiveCount, next);
       }
 
+      // ========================================
+      // EXIT INTENT
+      // ========================================
+      function canShowEI() {
+        if (eiShown) return false;
+        if (sessionStorage.getItem("eiDismissed")) return false;
+        if (quizFinished) return false;
+        if (quizStarted && !quizFinished) return false;
+        if (Date.now() - pageLoadTime < 10000) return false;
+        return true;
+      }
+
+      function showEI() {
+        if (!canShowEI()) return;
+        document.getElementById("eiOverlay").classList.add("show");
+        eiShown = true;
+      }
+
       function closeEI() {
         document.getElementById("eiOverlay").classList.remove("show");
         sessionStorage.setItem("eiDismissed", "1");
       }
 
+      // Десктоп: мышь уходит вверх
       document.addEventListener("mouseleave", function (e) {
-        if (
-          e.clientY <= 10 &&
-          !eiShown &&
-          !sessionStorage.getItem("eiDismissed") &&
-          window.innerWidth > 768
-        ) {
-          document.getElementById("eiOverlay").classList.add("show");
-          eiShown = true;
+        if (e.clientY <= 10 && window.innerWidth > 768) {
+          showEI();
         }
       });
 
+      // Мобайл: через 90 секунд
       if (window.innerWidth <= 768) {
         setTimeout(function () {
-          if (!eiShown && !sessionStorage.getItem("eiDismissed")) {
-            document.getElementById("eiOverlay").classList.add("show");
-            eiShown = true;
-          }
-        }, 45000);
+          showEI();
+        }, 90000);
       }
 
+      // Закрытие
       document.addEventListener("click", function (e) {
         if (e.target === document.getElementById("eiOverlay")) closeEI();
       });
