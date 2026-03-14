@@ -1,0 +1,1791 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Он точно готов — или снова кажется? | Тест</title>
+    <meta
+      name="description"
+      content="10 маркеров зрелого мужчины. Бесплатный тест от нейропсихолога. 3 минуты."
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      :root {
+        --accent: #d4574a;
+        --accent-hover: #b8463b;
+        --accent-light: #fff5f3;
+        --green: #2ecc71;
+        --green-light: #f0fff4;
+        --bg: #fafafa;
+        --cream: #fff8f0;
+        --card: #ffffff;
+        --dark: #222;
+        --text: #333;
+        --text-light: #666;
+        --text-muted: #999;
+        --border: #ebebeb;
+        --border-light: #f5f0ea;
+        --shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+        --radius: 12px;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.7;
+        font-size: 16px;
+        -webkit-font-smoothing: antialiased;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: "DM Serif Display", serif;
+        font-weight: 400;
+        color: var(--dark);
+      }
+
+      /* ========== HERO ========== */
+      .hero {
+        min-height: 100svh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 60px 20px 40px;
+        background: var(--card);
+        position: relative;
+        overflow: hidden;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: -150px;
+        right: -150px;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(
+          circle,
+          rgba(212, 87, 74, 0.06) 0%,
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+      .hero::after {
+        content: "";
+        position: absolute;
+        bottom: -100px;
+        left: -100px;
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(
+          circle,
+          rgba(46, 204, 113, 0.04) 0%,
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: var(--accent-light);
+        color: var(--accent);
+        padding: 6px 16px;
+        border-radius: 50px;
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        margin-bottom: 24px;
+        animation: fadeDown 0.5s ease;
+      }
+      @keyframes fadeDown {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(15px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .hero h1 {
+        font-size: clamp(1.8rem, 5vw, 3rem);
+        line-height: 1.15;
+        margin-bottom: 12px;
+        animation: fadeUp 0.6s ease 0.1s both;
+      }
+      .hero h1 em {
+        font-style: italic;
+        color: var(--accent);
+        display: block;
+      }
+      .hero-sub {
+        font-size: 0.85rem;
+        color: var(--text-light);
+        margin-bottom: 16px;
+        max-width: 420px;
+        line-height: 1.65;
+        animation: fadeUp 0.6s ease 0.2s both;
+      }
+      .hero-pain {
+        font-size: 0.82rem;
+        color: var(--text);
+        max-width: 400px;
+        line-height: 1.65;
+        margin-bottom: 28px;
+        animation: fadeUp 0.6s ease 0.25s both;
+        background: var(--cream);
+        padding: 14px 20px;
+        border-radius: 10px;
+        border-left: 3px solid var(--accent);
+        text-align: left;
+      }
+      .hero-pain strong {
+        color: var(--accent);
+        font-weight: 600;
+      }
+      .hero-author {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 28px;
+        animation: fadeUp 0.6s ease 0.3s both;
+      }
+      .hero-author img {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid var(--border);
+      }
+      .hero-author-info {
+        text-align: left;
+      }
+      .hero-author-name {
+        font-family: "DM Serif Display", serif;
+        font-size: 0.95rem;
+        color: var(--dark);
+      }
+      .hero-author-role {
+        font-size: 0.68rem;
+        color: var(--text-muted);
+        letter-spacing: 0.3px;
+      }
+      .btn-start {
+        background: var(--accent);
+        color: #fff;
+        border: none;
+        padding: 16px 48px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        cursor: pointer;
+        border-radius: 60px;
+        transition: all 0.3s;
+        font-family: "Inter", sans-serif;
+        animation: fadeUp 0.6s ease 0.4s both;
+        position: relative;
+        overflow: hidden;
+      }
+      .btn-start:hover {
+        background: var(--accent-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(212, 87, 74, 0.3);
+      }
+      .btn-start::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.15),
+          transparent
+        );
+        animation: shimmer 2.5s infinite;
+        pointer-events: none;
+      }
+      @keyframes shimmer {
+        0% {
+          transform: translateX(-100%);
+        }
+        100% {
+          transform: translateX(100%);
+        }
+      }
+      .hero-note {
+        font-size: 0.72rem;
+        color: var(--text-muted);
+        margin-top: 12px;
+        animation: fadeUp 0.6s ease 0.5s both;
+      }
+      .hero-note strong {
+        color: var(--text-light);
+      }
+      .hero-why {
+        font-size: 0.72rem;
+        color: var(--accent);
+        margin-top: 6px;
+        font-weight: 500;
+        animation: fadeUp 0.6s ease 0.55s both;
+      }
+
+      /* ========== QUIZ ========== */
+      .quiz-section {
+        padding: 60px 20px 80px;
+        background: var(--bg);
+      }
+      .quiz-inner {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      .q-progress {
+        margin-bottom: 24px;
+      }
+      .q-progress-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8px;
+      }
+      .q-progress-label {
+        font-size: 0.72rem;
+        color: var(--text-muted);
+        font-weight: 500;
+      }
+      .q-progress-score {
+        font-size: 0.72rem;
+        color: var(--accent);
+        font-weight: 600;
+      }
+      .q-progress-bar {
+        height: 4px;
+        background: var(--border);
+        border-radius: 4px;
+        overflow: hidden;
+      }
+      .q-progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, var(--accent), #e8785a);
+        border-radius: 4px;
+        transition: width 0.4s ease;
+        width: 0%;
+      }
+      .q-card {
+        background: var(--card);
+        border-radius: var(--radius);
+        padding: 32px 28px;
+        box-shadow: var(--shadow);
+        display: none;
+      }
+      .q-card.active {
+        display: block;
+        animation: cardSlide 0.35s ease;
+      }
+      @keyframes cardSlide {
+        from {
+          opacity: 0;
+          transform: translateY(12px) scale(0.98);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      .q-card-num {
+        font-size: 0.65rem;
+        color: var(--text-muted);
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+      }
+      .q-card-q {
+        font-family: "DM Serif Display", serif;
+        font-size: 1.25rem;
+        color: var(--dark);
+        line-height: 1.3;
+        margin-bottom: 8px;
+      }
+      .q-card-hint {
+        font-size: 0.8rem;
+        color: var(--text-light);
+        font-style: italic;
+        margin-bottom: 24px;
+        line-height: 1.5;
+      }
+      .q-options {
+        display: grid;
+        gap: 12px;
+      }
+      .q-opt {
+        padding: 18px 20px;
+        border: 2px solid var(--border);
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.25s;
+        background: var(--card);
+        -webkit-tap-highlight-color: transparent;
+      }
+      .q-opt:hover {
+        border-color: var(--dark);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+      }
+      .q-opt:active {
+        transform: scale(0.98);
+      }
+      .q-opt-text {
+        font-size: 0.88rem;
+        color: var(--text);
+        line-height: 1.6;
+      }
+      .q-opt.sel-green {
+        border-color: var(--green);
+        background: var(--green-light);
+        opacity: 1 !important;
+      }
+      .q-opt.sel-red {
+        border-color: var(--accent);
+        background: var(--accent-light);
+        opacity: 1 !important;
+      }
+      .q-opt.disabled {
+        opacity: 0.5;
+        cursor: default;
+        pointer-events: none;
+      }
+      .q-nudge {
+        text-align: center;
+        padding: 16px 20px;
+        margin-top: 16px;
+        background: var(--cream);
+        border-radius: 10px;
+        font-size: 0.78rem;
+        color: var(--text-light);
+        line-height: 1.6;
+        display: none;
+      }
+      .q-nudge strong {
+        color: var(--accent);
+        font-weight: 600;
+      }
+
+      /* ========== RESULT ========== */
+      .q-result {
+        display: none;
+      }
+      .q-result.active {
+        display: block;
+        animation: cardSlide 0.4s ease;
+      }
+      .res-card {
+        background: var(--card);
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+      }
+      .res-top {
+        padding: 40px 28px 28px;
+        text-align: center;
+        background: var(--card);
+      }
+      .res-score {
+        font-family: "DM Serif Display", serif;
+        font-size: 5rem;
+        color: var(--accent);
+        line-height: 1;
+        margin-bottom: 4px;
+      }
+      .res-of {
+        font-size: 0.68rem;
+        color: var(--text-muted);
+        font-weight: 500;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+      }
+      .res-title {
+        font-family: "DM Serif Display", serif;
+        font-size: 1.5rem;
+        color: var(--dark);
+        margin-bottom: 12px;
+        line-height: 1.25;
+      }
+      .res-desc {
+        font-size: 0.9rem;
+        color: var(--text-light);
+        line-height: 1.8;
+        max-width: 440px;
+        margin: 0 auto;
+      }
+      .res-personal {
+        margin: 20px 28px 0;
+        padding: 20px 24px;
+        background: linear-gradient(135deg, var(--cream), #fff5f0);
+        border-radius: 10px;
+        text-align: left;
+        border-left: 3px solid var(--accent);
+      }
+      .res-personal p {
+        font-size: 0.85rem;
+        color: var(--text);
+        line-height: 1.7;
+        margin-bottom: 8px;
+      }
+      .res-personal p:last-child {
+        margin-bottom: 0;
+      }
+      .res-personal strong {
+        color: var(--accent);
+        font-weight: 600;
+      }
+      .res-personal em {
+        font-style: italic;
+        color: var(--dark);
+      }
+      .res-hook {
+        font-size: 0.82rem;
+        color: var(--text-light);
+        line-height: 1.7;
+        text-align: center;
+        margin: 20px 28px 0;
+        padding: 16px 20px;
+        background: var(--bg);
+        border-radius: 8px;
+      }
+      .res-hook strong {
+        color: var(--dark);
+        font-weight: 600;
+      }
+      .res-hook-bridge {
+        display: block;
+        font-size: 0.82rem;
+        color: var(--accent);
+        font-weight: 600;
+        margin-top: 10px;
+      }
+      .res-gate {
+        background: linear-gradient(135deg, #2d2117 0%, #1a1a1a 100%);
+        padding: 36px 28px;
+        text-align: center;
+        margin-top: 20px;
+      }
+      .res-gate-title {
+        font-family: "DM Serif Display", serif;
+        font-size: 1.2rem;
+        color: #fff;
+        margin-bottom: 8px;
+        font-style: italic;
+        line-height: 1.3;
+        display: block;
+      }
+      .res-gate-sub {
+        font-size: 0.78rem;
+        color: rgba(255, 255, 255, 0.5);
+        margin-bottom: 20px;
+        display: block;
+      }
+      .gate-bonuses {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        max-width: 400px;
+        margin: 0 auto 24px;
+        text-align: left;
+      }
+      .gate-bonus {
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+        font-size: 0.82rem;
+        color: rgba(255, 255, 255, 0.85);
+        line-height: 1.55;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        padding: 16px 18px;
+        transition: all 0.3s;
+      }
+      .gate-bonus:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.2);
+        transform: translateY(-1px);
+      }
+      .gate-bonus-icon {
+        font-size: 1.3rem;
+        flex-shrink: 0;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 8px;
+      }
+      .gate-bonus-label {
+        display: block;
+        font-size: 0.6rem;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: rgba(243, 229, 205, 0.7);
+        margin-bottom: 4px;
+      }
+      .gate-bonus-text {
+        display: block;
+        color: rgba(255, 255, 255, 0.85);
+      }
+      .gate-no-spam {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        max-width: 300px;
+        margin: 0 auto 24px;
+        font-size: 0.7rem;
+        color: rgba(255, 255, 255, 0.4);
+        text-align: left;
+      }
+      .gate-no-spam span {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .gate-no-spam span::before {
+        content: "✓";
+        color: rgba(46, 204, 113, 0.6);
+        font-weight: 700;
+        font-size: 0.75rem;
+      }
+      .btn-bot {
+        background: #f3e5cd;
+        color: #1a1a1a;
+        border: none;
+        padding: 18px 44px;
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        cursor: pointer;
+        border-radius: 60px;
+        transition: all 0.3s;
+        font-family: "Inter", sans-serif;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        animation: btnPulse 2s infinite;
+      }
+      @keyframes btnPulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(243, 229, 205, 0.4);
+        }
+        70% {
+          box-shadow: 0 0 0 12px rgba(243, 229, 205, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(243, 229, 205, 0);
+        }
+      }
+      .btn-bot:hover {
+        background: #e8d5b8;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        animation: none;
+      }
+      .res-gate-note {
+        font-size: 0.62rem;
+        color: rgba(255, 255, 255, 0.3);
+        margin-top: 14px;
+        letter-spacing: 0.5px;
+        display: block;
+      }
+      .res-share {
+        padding: 24px 28px;
+        background: var(--cream);
+        text-align: center;
+        border-radius: 0 0 var(--radius) var(--radius);
+        border-top: 1px solid var(--border-light);
+      }
+      .res-share-text {
+        font-size: 0.82rem;
+        color: var(--text);
+        margin-bottom: 12px;
+        font-weight: 500;
+      }
+      .btn-share {
+        background: var(--card);
+        border: 1.5px solid var(--border);
+        color: var(--text);
+        padding: 12px 28px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        cursor: pointer;
+        border-radius: 60px;
+        transition: all 0.3s;
+        font-family: "Inter", sans-serif;
+      }
+      .btn-share:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+        background: var(--accent-light);
+        transform: translateY(-1px);
+      }
+      .res-share-live {
+        font-size: 0.68rem;
+        color: var(--text-muted);
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+      }
+      .live-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--green);
+        animation: livePulse 1.5s infinite;
+      }
+      @keyframes livePulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.3;
+        }
+      }
+      .q-restart {
+        text-align: center;
+        margin-top: 16px;
+      }
+      .q-restart button {
+        background: none;
+        border: none;
+        color: var(--text-muted);
+        font-size: 0.72rem;
+        cursor: pointer;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        font-family: "Inter", sans-serif;
+        transition: color 0.3s;
+      }
+      .q-restart button:hover {
+        color: var(--dark);
+      }
+
+      /* ========== TRUST ========== */
+      .trust {
+        max-width: 600px;
+        margin: 40px auto 0;
+        padding: 0 20px 60px;
+      }
+      .trust-author {
+        display: flex;
+        gap: 16px;
+        align-items: flex-start;
+        background: var(--card);
+        border-radius: var(--radius);
+        padding: 24px;
+        box-shadow: var(--shadow);
+        margin-bottom: 20px;
+      }
+      .trust-author img {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        object-fit: cover;
+        flex-shrink: 0;
+        border: 2px solid var(--border-light);
+      }
+      .trust-author-info h3 {
+        font-size: 1.05rem;
+        margin-bottom: 4px;
+      }
+      .trust-author-info p {
+        font-size: 0.8rem;
+        color: var(--text-light);
+        line-height: 1.6;
+      }
+      .trust-stats {
+        display: flex;
+        gap: 12px;
+        margin-top: 10px;
+        flex-wrap: wrap;
+      }
+      .trust-stat {
+        background: var(--cream);
+        padding: 4px 12px;
+        border-radius: 50px;
+        font-size: 0.68rem;
+        color: var(--text-light);
+        font-weight: 500;
+      }
+      .trust-stat strong {
+        color: var(--accent);
+      }
+      .mini-reviews {
+        display: grid;
+        gap: 12px;
+      }
+      .mini-review {
+        background: var(--card);
+        border-radius: var(--radius);
+        padding: 20px 24px;
+        box-shadow: var(--shadow);
+        border-left: 3px solid var(--accent);
+      }
+      .mini-review-name {
+        font-weight: 600;
+        font-size: 0.78rem;
+        color: var(--dark);
+        margin-bottom: 2px;
+      }
+      .mini-review-meta {
+        font-size: 0.65rem;
+        color: var(--text-muted);
+        margin-bottom: 8px;
+      }
+      .mini-review-text {
+        font-size: 0.85rem;
+        color: var(--text-light);
+        line-height: 1.7;
+        font-style: italic;
+      }
+      .soft-cta {
+        background: var(--card);
+        border-radius: var(--radius);
+        padding: 24px;
+        box-shadow: var(--shadow);
+        text-align: center;
+        margin-top: 20px;
+      }
+      .soft-cta p {
+        font-size: 0.85rem;
+        color: var(--text-light);
+        margin-bottom: 12px;
+        line-height: 1.6;
+      }
+      .soft-cta a {
+        font-size: 0.78rem;
+        color: var(--accent);
+        font-weight: 500;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      /* ========== EXIT INTENT ========== */
+      .ei-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 99999;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        backdrop-filter: blur(3px);
+      }
+      .ei-overlay.show {
+        display: flex;
+      }
+      .ei-popup {
+        background: white;
+        max-width: 440px;
+        width: 100%;
+        padding: 40px 32px;
+        border-radius: 16px;
+        text-align: center;
+        position: relative;
+        animation: eiIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.25);
+      }
+      @keyframes eiIn {
+        from {
+          transform: scale(0.85) translateY(20px);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1) translateY(0);
+          opacity: 1;
+        }
+      }
+      .ei-close {
+        position: absolute;
+        top: 12px;
+        right: 16px;
+        font-size: 1.2rem;
+        color: #bbb;
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 4px 8px;
+        transition: color 0.2s;
+      }
+      .ei-close:hover {
+        color: var(--dark);
+      }
+      .ei-popup h3 {
+        font-family: "DM Serif Display", serif;
+        font-size: 1.35rem;
+        font-style: italic;
+        color: var(--dark);
+        margin-bottom: 12px;
+        line-height: 1.3;
+      }
+      .ei-popup h3 em {
+        color: var(--accent);
+      }
+      .ei-popup p {
+        font-size: 0.85rem;
+        color: var(--text-light);
+        line-height: 1.7;
+        margin-bottom: 20px;
+      }
+      .ei-btn {
+        background: var(--accent);
+        color: white;
+        padding: 14px 32px;
+        border: none;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        cursor: pointer;
+        border-radius: 60px;
+        text-decoration: none;
+        display: inline-block;
+        transition: all 0.3s;
+        font-family: "Inter", sans-serif;
+      }
+      .ei-btn:hover {
+        background: var(--accent-hover);
+        transform: translateY(-2px);
+      }
+      .ei-skip {
+        display: block;
+        margin-top: 12px;
+        font-size: 0.62rem;
+        color: #bbb;
+        cursor: pointer;
+        background: none;
+        border: none;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        font-family: "Inter", sans-serif;
+      }
+
+      /* ========== TOAST ========== */
+      .toast {
+        position: fixed;
+        bottom: -60px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--dark);
+        color: #fff;
+        padding: 12px 24px;
+        border-radius: 60px;
+        font-size: 0.82rem;
+        font-weight: 500;
+        transition: bottom 0.3s ease;
+        z-index: 9999;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        white-space: nowrap;
+      }
+      .toast.show {
+        bottom: 24px;
+      }
+
+      /* ========== FOOTER ========== */
+      footer {
+        text-align: center;
+        padding: 40px 20px;
+        font-size: 0.68rem;
+        color: var(--text-muted);
+      }
+
+      /* ========== RESPONSIVE ========== */
+      @media (max-width: 640px) {
+        .hero {
+          padding: 40px 16px 32px;
+        }
+        .hero h1 {
+          font-size: 1.7rem;
+        }
+        .hero-sub {
+          font-size: 0.82rem;
+          margin-bottom: 12px;
+        }
+        .hero-pain {
+          font-size: 0.78rem;
+          padding: 12px 16px;
+          margin-bottom: 24px;
+        }
+        .hero-author img {
+          width: 42px;
+          height: 42px;
+        }
+        .btn-start {
+          padding: 14px 36px;
+          font-size: 0.8rem;
+        }
+        .quiz-section {
+          padding: 40px 16px 60px;
+        }
+        .q-card {
+          padding: 24px 20px;
+        }
+        .q-card-q {
+          font-size: 1.1rem;
+        }
+        .q-opt {
+          padding: 16px 18px;
+        }
+        .q-opt-text {
+          font-size: 0.84rem;
+        }
+        .res-top {
+          padding: 32px 20px 24px;
+        }
+        .res-score {
+          font-size: 4rem;
+        }
+        .res-title {
+          font-size: 1.25rem;
+        }
+        .res-desc {
+          font-size: 0.85rem;
+        }
+        .res-personal {
+          margin: 16px 20px 0;
+          padding: 16px 18px;
+        }
+        .res-hook {
+          margin: 16px 20px 0;
+          padding: 14px 16px;
+          font-size: 0.78rem;
+        }
+        .res-gate {
+          padding: 28px 20px;
+        }
+        .gate-bonuses {
+          max-width: 100%;
+        }
+        .gate-bonus {
+          padding: 14px 16px;
+          font-size: 0.78rem;
+        }
+        .gate-bonus-icon {
+          width: 28px;
+          height: 28px;
+          font-size: 1.1rem;
+        }
+        .gate-no-spam {
+          max-width: 100%;
+        }
+        .btn-bot {
+          padding: 16px 36px;
+          font-size: 0.75rem;
+        }
+        .res-share {
+          padding: 20px 20px;
+        }
+        .trust {
+          padding: 0 16px 40px;
+        }
+        .trust-author {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          padding: 20px;
+        }
+        .trust-author img {
+          width: 56px;
+          height: 56px;
+        }
+        .trust-stats {
+          justify-content: center;
+        }
+        .mini-review {
+          padding: 18px 20px;
+        }
+        .soft-cta {
+          padding: 20px;
+        }
+        .ei-popup {
+          padding: 32px 22px;
+        }
+        .ei-popup h3 {
+          font-size: 1.15rem;
+        }
+      }
+      ::-webkit-scrollbar {
+        width: 4px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--bg);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #ddd;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+      <div class="hero-badge">✦ Бесплатный тест · 3 минуты</div>
+      <h1>Он точно готов —<em>или снова кажется?</em></h1>
+      <p class="hero-sub">
+        Эти 10 признаков видны с первой встречи — но почти никто их не замечает.
+      </p>
+      <div class="hero-pain">
+        Почти каждая влюблялась не в того хотя бы раз. Но есть способ увидеть
+        правду <strong>до того, как сердце скажет «да»</strong>. Проверь — не
+        наступаешь ли на те же грабли прямо сейчас.
+      </div>
+      <div class="hero-author">
+        <img
+          src="https://i.ibb.co/WpB6TzVr/1-37-resized.jpg"
+          alt="Юлия Люмен"
+        />
+        <div class="hero-author-info">
+          <div class="hero-author-name">Юлия Люмен</div>
+          <div class="hero-author-role">
+            Нейропсихолог · 5000+ часов практики
+          </div>
+        </div>
+      </div>
+      <button class="btn-start" onclick="startQuiz()">Пройти тест →</button>
+      <div class="hero-note">Без регистрации · Результат сразу</div>
+      <div class="hero-why">
+        Лучше 3 минуты сейчас, чем год на восстановление
+      </div>
+    </section>
+
+    <!-- ===== QUIZ ===== -->
+    <section class="quiz-section" id="quiz" style="display: none">
+      <div class="quiz-inner">
+        <div class="q-progress" id="qProgress">
+          <div class="q-progress-top">
+            <span class="q-progress-label"
+              >Вопрос <span id="pCur">1</span> из 10</span
+            >
+            <span class="q-progress-score" id="pScore">0 🟢</span>
+          </div>
+          <div class="q-progress-bar">
+            <div class="q-progress-fill" id="pFill"></div>
+          </div>
+        </div>
+
+        <!-- Q1 -->
+        <div class="q-card active" id="q1">
+          <div class="q-card-num">Вопрос 1 из 10</div>
+          <div class="q-card-q">
+            Вы ужинаете, и он вдруг упоминает бывшую. Что ты слышишь?
+          </div>
+          <div class="q-card-hint">
+            Не что он говорит, а что ты чувствуешь в этот момент.
+          </div>
+          <div class="q-options">
+            <div class="q-opt" onclick="ans(1,'red',this)">
+              <div class="q-opt-text">
+                «Она была психованная». Или «не ценила». Виноваты всегда они, он
+                тут ни при чём.
+              </div>
+            </div>
+            <div class="q-opt" onclick="ans(1,'green',this)">
+              <div class="q-opt-text">
+                «Мы просто были на разных этапах». Спокойно, коротко, без
+                злости. И переключился на тебя.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="q-card" id="q2">
+          <div class="q-card-num">Вопрос 2 из 10</div>
+          <div class="q-card-q">
+            Ты собираешься на свидание. Как обычно выглядят ваши договорённости?
+          </div>
+          <div class="q-card-hint">
+            Честно: ты знаешь куда идёшь завтра, или ждёшь «я напишу»?
+          </div>
+          <div class="q-options">
+            <div class="q-opt" onclick="ans(2,'red',this)">
+              <div class="q-opt-text">
+                «Давай на связи будем». Переносит за час. Ты уже накрасилась, а
+                он: «Ой, давай лучше завтра».
+              </div>
+            </div>
+            <div class="q-opt" onclick="ans(2,'green',this)">
+              <div class="q-opt-text">
+                Пятница, 19:30, он забронировал. Если что-то меняется — пишет
+                заранее. Ты не висишь в ожидании.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="q-card" id="q3">
+          <div class="q-card-num">Вопрос 3 из 10</div>
+          <div class="q-card-q">
+            Прошёл месяц. Ты хочешь увидеться в среду. Что происходит?
+          </div>
+          <div class="q-card-hint">
+            Он ищет окошко, или ты для него и есть план?
+          </div>
+          <div class="q-options">
+            <div class="q-opt" onclick="ans(3,'red',this)">
+              <div class="q-opt-text">
+                «Среда сложно, может на выходных, я напишу…» И тишина до пятницы
+                вечера.
+              </div>
+            </div>
+            <div class="q-opt" onclick="ans(3,'green',this)">
+              <div class="q-opt-text">
+                «Среда отлично, давай в 7?» Или: «Среда занята, но я могу
+                четверг — хочу тебя увидеть».
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="q-card" id="q4">
+          <div class="q-card-num">Вопрос 4 из 10</div>
+          <div class="q-card-q">
+            Вы в ресторане. Официант перепутал заказ. Что делает он?
+          </div>
+          <div class="q-card-hint">Смотри не на слова, а на тон.</div>
+          <div class="q-options">
+            <div class="q-opt" onclick="ans(4,'red',this)">
+              <div class="q-opt-text">
+                Вздыхает, закатывает глаза. Или подчёркнуто вежлив — но ты
+                чувствуешь, что это на публику.
+              </div>
+            </div>
+            <div class="q-opt" onclick="ans(4,'green',this)">
+              <div class="q-opt-text">
+                «Ничего страшного, заменим». Спокойно, без спектакля. Официанту
+                сказал «спасибо» — не глядя на тебя.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="q-card" id="q5">
+          <div class="q-card-num">Вопрос 5 из 10</div>
+          <div class="q-card-q">
+            Счёт в ресторане. Или разговор про отпуск. Как он с деньгами?
+          </div>
+          <div class="q-card-hint">
+            Не сумма важна. Важно, есть ли вокруг денег напряжение.
+          </div>
+          <div class="q-options">
+            <div class="q-opt" onclick="ans(5,'red',this)">
+              <div class="q-opt-text">
+                Показывает тебе ценник на часах. Или наоборот, тема денег — как
+                минное поле, не подходи.
+              </div>
+            </div>
+            <div class="q-opt" onclick="ans(5,'green',this)">
+              <div class="q-opt-text">
+                Платит спокойно, не комментирует. Не хвастается, не жалуется.
+                Деньги просто есть — и не тема для драмы.
+              </div>
+            </div>
+          </div>
+          <div class="q-nudge" id="midNudge">
+            Ты на полпути. Осталось 5 вопросов — и увидишь честный результат.<br />
+            <strong
+              >Почти все повторяют одни и те же ошибки — потому что не знают
+              один секрет. Он ждёт тебя в бонусах после теста.</strong
+            >
+          </div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="q-card" id="q6">
+          <div class="q-card-num">Вопрос 6 из 10</div>
+          <div class="q-card-q">
+            Вы приехали, а ресторан закрыт. Дождь. Планы рухнули. И?
+          </div>
+          <div class="q-card-hint">В этот момент видно всё.</div>
+          <div class="q-options">
+            <div class="q-opt" onclick="ans(6,'red',this)">
+              <div class="q-opt-text">
+                Психует. Или замолкает и ждёт, пока ты разрулишь. Вечер
+                испорчен, и ты чувствуешь что это как-то твоя вина.
+              </div>
+            </div>
+            <div class="q-opt" onclick="ans(6,'green',this)">
+              <div class="q-opt-text">
+                Секунда — и он уже гуглит другое место. «Ну и ладно, зато
+                приключение». Вечер продолжается.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="q-card" id="q7">
+          <div class="q-card-num">Вопрос 7 из 10</div>
+          <div class="q-card-q">
+            Ты говоришь «нет». Не важно чему — просто «нет, не хочу». Что
+            дальше?
+          </div>
+          <div class="q-card-hint">
+            «Нет» — лучший тест на зрелость мужчины.
+          </div>
+          <div class="q-options">
+            <div class="q-opt" onclick="ans(7,'red',this)">
+              <div class="q-opt-text">
+                Пауза. Холод. «Ну ладно…» с таким лицом, что ты уже жалеешь что
+                отказала. Или шутка с давлением.
+              </div>
+            </div>
+            <div class="q-opt" onclick="ans(7,'green',this)">
+              <div class="q-opt-text">
+                «Окей, без проблем». И правда без проблем. Ни обиды, ни
+                подтекста. Просто принял.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q8 -->
+        <div class="q-card" id="q8">
+          <div class="q-card-num">Вопрос 8 из 10</div>
+          <div class="q-card-q">
+            Ты рассказываешь что-то важное. Может про работу, может про маму.
+            Что он делает?
+          </div>
+          <div class="q-card-hint">
+            Замолчи после рассказа. Посмотри что будет.
+          </div>
+          <div class="q-options">
+            <div class="q-opt" onclick="ans(8,'red',this)">
+              <div class="q-opt-text">
+                «А у меня тоже был похожий случай…» — и дальше 20 минут про
+                него. Или совет, которого ты не просила.
+              </div>
+            </div>
+            <div class="q-opt" onclick="ans(8,'green',this)">
+              <div class="q-opt-text">
+                «И что ты чувствуешь?» Пауза. Он не спешит заполнить тишину. Ему
+                правда интересно.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q9 -->
+        <div class="q-card" id="q9">
+          <div class="q-card-num">Вопрос 9 из 10</div>
+          <div class="q-card-q">
+            Зазвонил телефон — мама. Вы на свидании. Что происходит?
+          </div>
+          <div class="q-card-hint">
+            Не про маму. Про то, есть ли у него своя жизнь.
+          </div>
+          <div class="q-options">
+            <div class="q-opt" onclick="ans(9,'red',this)">
+              <div class="q-opt-text">
+                Берёт трубку, говорит 15 минут. Или наоборот — «я с ней не
+                общаюсь» с такой злостью, что тебе не по себе.
+              </div>
+            </div>
+            <div class="q-opt" onclick="ans(9,'green',this)">
+              <div class="q-opt-text">
+                «Мам, я перезвоню через час». Спокойно, тепло, коротко. У него
+                есть семья — и есть границы.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q10 -->
+        <div class="q-card" id="q10">
+          <div class="q-card-num">Вопрос 10 из 10</div>
+          <div class="q-card-q">
+            Вы вместе уже пару месяцев. Он говорит о будущем?
+          </div>
+          <div class="q-card-hint">
+            Не «где мы будем через 5 лет». А есть ли ты в его завтра.
+          </div>
+          <div class="q-options">
+            <div class="q-opt" onclick="ans(10,'red',this)">
+              <div class="q-opt-text">
+                «Зачем загадывать, давай просто кайфовать». На третий месяц — ни
+                одного плана дальше выходных.
+              </div>
+            </div>
+            <div class="q-opt" onclick="ans(10,'green',this)">
+              <div class="q-opt-text">
+                «Хочу показать тебе одно место летом…» Ты в его картине мира, и
+                он не боится это произнести.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== RESULT ===== -->
+        <div class="q-result" id="qResult">
+          <div class="res-card">
+            <div class="res-top">
+              <div class="res-score" id="resScore">0</div>
+              <div class="res-of">зелёных маркеров из 10</div>
+              <div class="res-title" id="resTitle"></div>
+              <p class="res-desc" id="resDesc"></p>
+            </div>
+            <div class="res-personal" id="resPersonal"></div>
+            <div class="res-hook">
+              Ты увидела счёт. Но самое важное — понять
+              <strong>почему</strong> ты выбираешь именно так. И что с этим
+              делать.
+              <span class="res-hook-bridge"
+                >Знать маркеры — это 20%. Остальные 80% — изменить то, что
+                внутри ↓</span
+              >
+            </div>
+            <div class="res-gate">
+              <span class="res-gate-title"
+                >Забери подробный разбор + 2 бонуса</span
+              >
+              <span class="res-gate-sub">Бесплатно, в Telegram-боте:</span>
+              <div class="gate-bonuses">
+                <div class="gate-bonus">
+                  <span class="gate-bonus-icon">📖</span>
+                  <span>
+                    <span class="gate-bonus-label">Бонус 1 — Разбор</span>
+                    <span class="gate-bonus-text"
+                      >Подробный разбор всех 10 маркеров: как проверить, красные
+                      и зелёные флаги, почему важно</span
+                    >
+                  </span>
+                </div>
+                <div class="gate-bonus">
+                  <span class="gate-bonus-icon">🎬</span>
+                  <span>
+                    <span class="gate-bonus-label"
+                      >Бонус 2 — Видео (8 мин)</span
+                    >
+                    <span class="gate-bonus-text"
+                      >3 нейронных ловушки, которые мешают выбрать правильного
+                      мужчину</span
+                    >
+                  </span>
+                </div>
+                <div class="gate-bonus">
+                  <span class="gate-bonus-icon">🎧</span>
+                  <span>
+                    <span class="gate-bonus-label"
+                      >Бонус 3 — Аудио (10 мин)</span
+                    >
+                    <span class="gate-bonus-text"
+                      >Практика «Как отключить тягу к не тем» — слушай перед
+                      сном</span
+                    >
+                  </span>
+                </div>
+              </div>
+              <div class="gate-no-spam">
+                <span>Бонусы сразу, без ожидания</span>
+                <span>Никакой воды — только конкретика</span>
+                <span>Без навязчивой рассылки</span>
+              </div>
+              <a
+                href="https://t.me/your_bot?start=quiz"
+                target="_blank"
+                class="btn-bot"
+                onclick="trackBot()"
+              >
+                🎁 Забрать 3 бонуса бесплатно →
+              </a>
+              <span class="res-gate-note"
+                >Telegram-бот · анонимно · выдаём бонусы и всё</span
+              >
+            </div>
+            <div class="res-share">
+              <div class="res-share-text">
+                💛 Знаешь подругу, которой стоит пройти этот тест?
+              </div>
+              <button class="btn-share" onclick="shareTest()">
+                Отправить ей ссылку
+              </button>
+              <div class="res-share-live">
+                <span class="live-dot"></span>
+                Сейчас проходят тест: <strong id="liveCount">5</strong> человек
+              </div>
+            </div>
+          </div>
+          <div class="q-restart">
+            <button onclick="restart()">↩ Пройти тест заново</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TRUST ===== -->
+    <section class="trust" id="trustBlock" style="display: none">
+      <div class="trust-author">
+        <img
+          src="https://i.ibb.co/WpB6TzVr/1-37-resized.jpg"
+          alt="Юлия Люмен"
+        />
+        <div class="trust-author-info">
+          <h3>Юлия Люмен</h3>
+          <p>
+            Нейропсихолог. 20 лет в бизнесе. Знает мир состоятельных мужчин
+            изнутри. Помогла сотням женщин перестать притягивать не тех — и
+            наконец выбрать правильного.
+          </p>
+          <p
+            style="
+              margin-top: 8px;
+              font-size: 0.78rem;
+              font-style: italic;
+              color: var(--accent);
+            "
+          >
+            «Я сама прошла этот путь. Всё, чем делюсь — настоящий опыт, а не
+            теория из книжек.»
+          </p>
+          <div class="trust-stats">
+            <span class="trust-stat"><strong>5000+</strong> часов</span>
+            <span class="trust-stat"><strong>12</strong> стран</span>
+            <span class="trust-stat"><strong>20</strong> лет</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="mini-reviews">
+        <div class="mini-review">
+          <div class="mini-review-name">Екатерина, 29 лет</div>
+          <div class="mini-review-meta">Москва · за 5 сессий</div>
+          <div class="mini-review-text">
+            «Покупка сессий — одна из лучших инвестиций всей моей жизни. Я не
+            ожидала таких быстрых результатов. На 3-й сессии мужчина подарил
+            браслет Cartier за 13 000€.»
+          </div>
+        </div>
+        <div class="mini-review">
+          <div class="mini-review-name">Мария, 32 года</div>
+          <div class="mini-review-meta">Дубай · за 1 месяц</div>
+          <div class="mini-review-text">
+            «Была любовницей 3 года. Не верила, что заслуживаю нормальных
+            отношений. Через месяц после начала работы — встретила будущего
+            мужа. Через 3 месяца — свадьба.»
+          </div>
+        </div>
+        <div class="mini-review">
+          <div class="mini-review-name">Алёна, 38 лет</div>
+          <div class="mini-review-meta">Лондон · за 3 сессии</div>
+          <div class="mini-review-text">
+            «Притягивала только абьюзеров. За 3 сессии — полностью пропал
+            интерес к токсичным мужчинам. Когда изменилась изнутри — пришли
+            совершенно другие мужчины.»
+          </div>
+        </div>
+      </div>
+
+      <div class="soft-cta">
+        <p>
+          Твой сценарий реально можно изменить. Не надо пытаться менять мужчину
+          — начни с выбора других мужчин. У Юлии есть программа, которая делает
+          это за 41 день.
+        </p>
+        <a href="https://t.me/your_bot?start=quiz" target="_blank"
+          >Узнать подробнее в боте →</a
+        >
+      </div>
+    </section>
+
+    <!-- ===== EXIT INTENT POPUP ===== -->
+    <div class="ei-overlay" id="eiOverlay">
+      <div class="ei-popup">
+        <button class="ei-close" onclick="closeEI()">✕</button>
+        <h3>Подожди —<br /><em>не уходи без бонусов</em></h3>
+        <p>
+          Ты можешь получить подробный разбор своей ситуации — анонимно и
+          бесплатно. Просто перейди в бот.
+        </p>
+        <a
+          href="https://t.me/your_bot?start=exit"
+          target="_blank"
+          class="ei-btn"
+          onclick="closeEI()"
+          >Забрать бонусы бесплатно →</a
+        >
+        <button class="ei-skip" onclick="closeEI()">Нет, спасибо</button>
+      </div>
+    </div>
+
+    <!-- ===== TOAST ===== -->
+    <div class="toast" id="toast">✓ Ссылка скопирована — отправь подруге!</div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+      <p>© 2026 Юлия Люмен · Нейропсихолог</p>
+    </footer>
+
+    <script>
+      var T = 10;
+      var A = {};
+      var G = 0;
+      var eiShown = false;
+
+      function startQuiz() {
+        document.getElementById("hero").style.display = "none";
+        var quizEl = document.getElementById("quiz");
+        quizEl.style.display = "block";
+        setTimeout(function () {
+          quizEl.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 50);
+      }
+
+      function ans(n, type, el) {
+        if (A[n]) return;
+        A[n] = type;
+        G = 0;
+        for (var k in A) {
+          if (A[k] === "green") G++;
+        }
+        document.getElementById("pScore").textContent = G + " 🟢";
+
+        var card = document.getElementById("q" + n);
+        var opts = card.querySelectorAll(".q-opt");
+        for (var i = 0; i < opts.length; i++) {
+          opts[i].classList.add("disabled");
+        }
+        el.classList.remove("disabled");
+        el.classList.add(type === "green" ? "sel-green" : "sel-red");
+
+        if (n === 5) {
+          var nudge = document.getElementById("midNudge");
+          if (nudge) nudge.style.display = "block";
+        }
+
+        setTimeout(function () {
+          if (n < T) {
+            goTo(n + 1);
+          } else {
+            showResult();
+          }
+        }, 400);
+      }
+
+      function goTo(n) {
+        for (var i = 1; i <= T; i++) {
+          var c = document.getElementById("q" + i);
+          if (c) c.classList.remove("active");
+        }
+        var next = document.getElementById("q" + n);
+        if (next) next.classList.add("active");
+
+        document.getElementById("pCur").textContent = n;
+        document.getElementById("pFill").style.width =
+          ((n - 1) / T) * 100 + "%";
+
+        document
+          .getElementById("quiz")
+          .scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+
+      function showResult() {
+        for (var i = 1; i <= T; i++) {
+          var c = document.getElementById("q" + i);
+          if (c) c.classList.remove("active");
+        }
+
+        document.getElementById("qProgress").style.display = "none";
+
+        setTimeout(function () {
+          var r = document.getElementById("qResult");
+          r.classList.add("active");
+
+          document.getElementById("resScore").textContent = G;
+
+          var title, desc, personal;
+
+          if (G >= 8) {
+            title = "Высокий уровень зрелости";
+            desc =
+              "У тебя " +
+              G +
+              " из 10 зелёных маркеров — это редкость. Перед тобой мужчина, который уже готов к серьёзным отношениям.";
+            personal =
+              "<p>Ты — <em>одна из немногих</em>, кто выбирает осознанно. Но даже в этой ситуации есть риск — <strong>саботировать хорошее своими старыми программами</strong>.</p><p>В бонусах — как не упустить то, что уже есть.</p>";
+          } else if (G >= 5) {
+            title = "Есть потенциал — но есть и слепые зоны";
+            desc =
+              "У тебя " +
+              G +
+              " из 10 зелёных маркеров. Есть зоны, которые стоит прояснить до того, как вложишь ещё больше времени и сердца.";
+            personal =
+              "<p>Ты видишь часть картины, но <strong>не всю</strong>. И именно в этих слепых зонах обычно прячется то, что потом причиняет боль.</p><p>В бонусах — разбор каждого маркера + техника, которая помогает <em>увидеть то, что мозг прячет</em>.</p>";
+          } else {
+            title = "Похоже на повторяющийся сценарий";
+            desc =
+              "У тебя " +
+              G +
+              " из 10 зелёных маркеров. Это не приговор — это сигнал. Скорее всего, дело не в нём, а в нейронной программе.";
+            personal =
+              "<p>Ты снова и снова выбираешь похожих мужчин — и это <strong>не случайность</strong>. Это нейронный паттерн, который работает на автомате.</p><p>Хорошая новость: его можно перепрошить. В бонусах — <em>первый шаг к этому</em>.</p>";
+          }
+
+          document.getElementById("resTitle").textContent = title;
+          document.getElementById("resDesc").textContent = desc;
+          document.getElementById("resPersonal").innerHTML = personal;
+
+          document.getElementById("trustBlock").style.display = "block";
+
+          updateLiveCount();
+
+          setTimeout(function () {
+            r.scrollIntoView({ behavior: "smooth", block: "start" });
+          }, 50);
+        }, 150);
+      }
+
+      function restart() {
+        G = 0;
+        for (var k in A) {
+          if (A.hasOwnProperty(k)) delete A[k];
+        }
+
+        document.getElementById("pScore").textContent = "0 🟢";
+        document.getElementById("pCur").textContent = "1";
+        document.getElementById("pFill").style.width = "0%";
+        document.getElementById("qProgress").style.display = "block";
+
+        var nudge = document.getElementById("midNudge");
+        if (nudge) nudge.style.display = "none";
+
+        for (var i = 1; i <= T; i++) {
+          var card = document.getElementById("q" + i);
+          if (card) {
+            card.classList.remove("active");
+            var opts = card.querySelectorAll(".q-opt");
+            for (var j = 0; j < opts.length; j++) {
+              opts[j].classList.remove("sel-green", "sel-red", "disabled");
+            }
+          }
+        }
+
+        document.getElementById("qResult").classList.remove("active");
+        document.getElementById("trustBlock").style.display = "none";
+        document.getElementById("q1").classList.add("active");
+        document
+          .getElementById("quiz")
+          .scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+
+      function shareTest() {
+        var url = window.location.origin + window.location.pathname;
+        var text =
+          "Проверь его ещё до того, как сердце скажет «да». 10 маркеров зрелого мужчины — бесплатный тест за 3 минуты:";
+
+        if (navigator.share) {
+          navigator
+            .share({
+              title: "Он точно готов — или снова кажется?",
+              text: text,
+              url: url,
+            })
+            .catch(function () {});
+        } else {
+          navigator.clipboard.writeText(text + " " + url).then(function () {
+            var t = document.getElementById("toast");
+            t.classList.add("show");
+            setTimeout(function () {
+              t.classList.remove("show");
+            }, 2500);
+          });
+        }
+      }
+
+      function updateLiveCount() {
+        var el = document.getElementById("liveCount");
+        if (!el) return;
+        var num = Math.floor(Math.random() * 6) + 3;
+        el.textContent = num;
+        var next = (Math.floor(Math.random() * 16) + 15) * 1000;
+        setTimeout(updateLiveCount, next);
+      }
+
+      function closeEI() {
+        document.getElementById("eiOverlay").classList.remove("show");
+        sessionStorage.setItem("eiDismissed", "1");
+      }
+
+      document.addEventListener("mouseleave", function (e) {
+        if (
+          e.clientY <= 10 &&
+          !eiShown &&
+          !sessionStorage.getItem("eiDismissed") &&
+          window.innerWidth > 768
+        ) {
+          document.getElementById("eiOverlay").classList.add("show");
+          eiShown = true;
+        }
+      });
+
+      if (window.innerWidth <= 768) {
+        setTimeout(function () {
+          if (!eiShown && !sessionStorage.getItem("eiDismissed")) {
+            document.getElementById("eiOverlay").classList.add("show");
+            eiShown = true;
+          }
+        }, 45000);
+      }
+
+      document.addEventListener("click", function (e) {
+        if (e.target === document.getElementById("eiOverlay")) closeEI();
+      });
+
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") closeEI();
+      });
+
+      function trackBot() {
+        console.log("bot_click");
+      }
+
+      if (window.location.search.indexOf("start=test") > -1) {
+        window.addEventListener("load", function () {
+          setTimeout(startQuiz, 300);
+        });
+      }
+    </script>
+  </body>
+</html>
