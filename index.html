@@ -4,22 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Он точно готов — или снова кажется? | Тест</title>
-
-    <!-- Yandex.Metrika counter -->
-    <script type="text/javascript">
-      (function(m,e,t,r,i,k,a){
-          m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-          m[i].l=1*new Date();
-          for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-          k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-      })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=108210263', 'ym');
-
-      ym(108210263, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
-    </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/108210263" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-    <!-- /Yandex.Metrika counter -->
-
-    <!-- дальше у тебя уже идут description, стили и т.д. -->
     <meta
       name="description"
       content="10 маркеров зрелого мужчины. Бесплатный тест от нейропсихолога. 3 минуты."
@@ -1070,9 +1054,73 @@
         background: #ddd;
         border-radius: 4px;
       }
+      .cookie-banner {
+        flex-direction: column;
+        gap: 10px;
+        padding: 12px 16px;
+        text-align: center;
+      }
+      /* ========== COOKIE BANNER ========== */
+      .cookie-banner {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(34, 34, 34, 0.97);
+        backdrop-filter: blur(10px);
+        padding: 14px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        z-index: 99998;
+        border-top: 1px solid rgba(212, 87, 74, 0.15);
+        transform: translateY(100%);
+        transition: transform 0.4s ease;
+      }
+      .cookie-banner.show {
+        transform: translateY(0);
+      }
+      .cookie-banner p {
+        font-size: 0.7rem;
+        color: rgba(255, 255, 255, 0.6);
+        line-height: 1.6;
+      }
+      .cookie-banner a {
+        color: var(--accent);
+        text-decoration: underline;
+        text-underline-offset: 2px;
+      }
+      .cookie-accept {
+        background: var(--accent);
+        color: #fff;
+        border: none;
+        padding: 8px 20px;
+        font-size: 0.65rem;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        font-weight: 600;
+        cursor: pointer;
+        border-radius: 50px;
+        font-family: "Inter", sans-serif;
+        flex-shrink: 0;
+        transition: all 0.3s;
+      }
+      .cookie-accept:hover {
+        background: var(--accent-hover);
+      }
     </style>
   </head>
   <body>
+    <!-- ===== COOKIE BANNER ===== -->
+    <div class="cookie-banner" id="cookieBanner">
+      <p>
+        Мы используем файлы cookie и сервисы аналитики (Яндекс.Метрика) для
+        улучшения работы сайта. Продолжая, вы соглашаетесь с этим.
+        <a href="privacy.html">Подробнее</a>
+      </p>
+      <button class="cookie-accept" onclick="acceptCookies()">Принять</button>
+    </div>
     <!-- ===== HERO ===== -->
     <section class="hero" id="hero">
       <div class="hero-badge">✦ Бесплатный тест · 3 минуты</div>
@@ -1428,7 +1476,7 @@
                       >Бонус 3 — Аудио (10 мин)</span
                     >
                     <span class="gate-bonus-text"
-                      >Практика «Выбор партнёра: твои стратегии, желания и страхи» — слушай перед
+                      >Практика «Как отключить тягу к не тем» — слушай перед
                       сном</span
                     >
                   </span>
@@ -1440,12 +1488,12 @@
                 <span>Без навязчивой рассылки</span>
               </div>
               <a
-                href="https://t.me/lumen_bonus_bot"
+                href="https://t.me/lumen_bonus_bot?start=quiz"
                 target="_blank"
                 class="btn-bot"
                 onclick="trackBot()"
               >
-                🎁 Забрать 3 бонуса бесплатно →
+                > 🎁 Забрать 3 бонуса бесплатно →
               </a>
               <span class="res-gate-note"
                 >Telegram-бот · анонимно · выдаём бонусы и всё</span
@@ -1540,8 +1588,9 @@
           — начни с выбора других мужчин. У Юлии есть программа, которая делает
           это за 41 день.
         </p>
-        <a href="https://t.me/lumen_bonus_bot" target="_blank"
+        <a href="https://t.me/lumen_bonus_bot?start=quiz" target="_blank"
           >Узнать подробнее в боте →</a
+        >
         >
       </div>
     </section>
@@ -1556,10 +1605,11 @@
           бесплатно. Просто перейди в бот.
         </p>
         <a
-          href="https://t.me/lumen_bonus_bot"
+          href="https://t.me/lumen_bonus_bot?start=exit"
           target="_blank"
           class="ei-btn"
           onclick="closeEI()"
+        >
           >Забрать бонусы бесплатно →</a
         >
         <button class="ei-skip" onclick="closeEI()">Нет, спасибо</button>
@@ -1572,6 +1622,52 @@
     <!-- ===== FOOTER ===== -->
     <footer>
       <p>© 2026 Юлия Люмен · Нейропсихолог</p>
+      <p style="margin-top: 8px">
+        <a
+          href="oferta.html"
+          style="
+            color: var(--text-muted);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            font-size: 0.62rem;
+          "
+          >Публичная оферта</a
+        >
+        <span style="margin: 0 6px; color: #ddd">·</span>
+        <a
+          href="privacy.html"
+          style="
+            color: var(--text-muted);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            font-size: 0.62rem;
+          "
+          >Политика конфиденциальности</a
+        >
+      </p>
+      <p
+        style="
+          margin-top: 10px;
+          font-size: 0.58rem;
+          color: #ccc;
+          line-height: 1.7;
+        "
+      >
+        ИП Воробьева Юлия Олеговна · ИНН 622800682806 · ОГРНИП 308623400900025 ·
+        г. Москва<br />
+        <a
+          href="mailto:atru8292@gmail.com"
+          style="color: #bbb; text-decoration: none"
+          >atru8292@gmail.com</a
+        >
+        <span style="margin: 0 4px; color: #ddd">·</span>
+        <a
+          href="https://t.me/JuliaEnergopraktika"
+          target="_blank"
+          style="color: #bbb; text-decoration: none"
+          >Telegram: @JuliaEnergopraktika</a
+        >
+      </p>
     </footer>
 
     <script>
@@ -1820,6 +1916,21 @@
         window.addEventListener("load", function () {
           setTimeout(startQuiz, 300);
         });
+      }
+      // ========================================
+      // COOKIE BANNER
+      // ========================================
+      (function () {
+        if (!localStorage.getItem("cookiesAccepted")) {
+          setTimeout(function () {
+            document.getElementById("cookieBanner").classList.add("show");
+          }, 1500);
+        }
+      })();
+
+      function acceptCookies() {
+        localStorage.setItem("cookiesAccepted", "1");
+        document.getElementById("cookieBanner").classList.remove("show");
       }
     </script>
   </body>
