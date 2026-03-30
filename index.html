@@ -1645,7 +1645,7 @@
           >Политика конфиденциальности</a
         >
       </p>
-      <p
+            <p
         style="
           margin-top: 10px;
           font-size: 0.58rem;
@@ -1656,12 +1656,6 @@
         ИП Воробьева Юлия Олеговна · ИНН 622800682806 · ОГРНИП 308623400900025 ·
         г. Москва<br />
         <a
-          href="mailto:atru8292@gmail.com"
-          style="color: #bbb; text-decoration: none"
-          >atru8292@gmail.com</a
-        >
-        <span style="margin: 0 4px; color: #ddd">·</span>
-        <a
           href="https://t.me/JuliaEnergopraktika"
           target="_blank"
           style="color: #bbb; text-decoration: none"
@@ -1671,7 +1665,7 @@
     </footer>
 
     <script>
-      var T = 10;
+            var T = 10;
       var A = {};
       var G = 0;
       var quizStarted = false;
@@ -1706,11 +1700,6 @@
         el.classList.remove("disabled");
         el.classList.add(type === "green" ? "sel-green" : "sel-red");
 
-        if (n === 5) {
-          var nudge = document.getElementById("midNudge");
-          if (nudge) nudge.style.display = "block";
-        }
-
         setTimeout(function () {
           if (n < T) {
             goTo(n + 1);
@@ -1731,6 +1720,11 @@
         document.getElementById("pCur").textContent = n;
         document.getElementById("pFill").style.width =
           ((n - 1) / T) * 100 + "%";
+
+        if (n === 5) {
+          var nudge = document.getElementById("midNudge");
+          if (nudge) nudge.style.display = "block";
+        }
 
         document
           .getElementById("quiz")
@@ -1885,21 +1879,18 @@
         sessionStorage.setItem("eiDismissed", "1");
       }
 
-      // Десктоп: мышь уходит вверх
       document.addEventListener("mouseleave", function (e) {
         if (e.clientY <= 10 && window.innerWidth > 768) {
           showEI();
         }
       });
 
-      // Мобайл: через 90 секунд
       if (window.innerWidth <= 768) {
         setTimeout(function () {
           showEI();
         }, 90000);
       }
 
-      // Закрытие
       document.addEventListener("click", function (e) {
         if (e.target === document.getElementById("eiOverlay")) closeEI();
       });
@@ -1917,6 +1908,7 @@
           setTimeout(startQuiz, 300);
         });
       }
+
       // ========================================
       // COOKIE BANNER
       // ========================================
