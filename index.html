@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Он точно готов — или снова кажется? | Тест</title>
+    <title>Почему ты снова выбираешь не того? | Тест</title>
     <meta
       name="description"
-      content="10 маркеров зрелого мужчины. Бесплатный тест от нейропсихолога. 3 минуты."
+      content="10 вопросов. 5 типов результата. Бесплатный тест от нейропсихолога. Узнай свой паттерн выбора мужчин."
     />
     <link
       href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap"
@@ -24,6 +24,12 @@
         --accent-light: #fff5f3;
         --green: #2ecc71;
         --green-light: #f0fff4;
+        --gold: #c9a84c;
+        --gold-light: #f9f3e3;
+        --blue: #5b8def;
+        --blue-light: #eef3ff;
+        --purple: #9b6dff;
+        --purple-light: #f3eeff;
         --bg: #fafafa;
         --cream: #fff8f0;
         --card: #ffffff;
@@ -55,7 +61,7 @@
         color: var(--dark);
       }
 
-      /* ========== HERO ========== */
+      /* HERO */
       .hero {
         min-height: 100svh;
         display: flex;
@@ -78,20 +84,6 @@
         background: radial-gradient(
           circle,
           rgba(212, 87, 74, 0.06) 0%,
-          transparent 70%
-        );
-        pointer-events: none;
-      }
-      .hero::after {
-        content: "";
-        position: absolute;
-        bottom: -100px;
-        left: -100px;
-        width: 300px;
-        height: 300px;
-        background: radial-gradient(
-          circle,
-          rgba(46, 204, 113, 0.04) 0%,
           transparent 70%
         );
         pointer-events: none;
@@ -150,29 +142,44 @@
         line-height: 1.65;
         animation: fadeUp 0.6s ease 0.2s both;
       }
+      .hero-features {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 20px;
+        animation: fadeUp 0.6s ease 0.25s both;
+      }
+      .hero-feat {
+        background: var(--cream);
+        padding: 6px 14px;
+        border-radius: 8px;
+        font-size: 0.72rem;
+        color: var(--text-light);
+        font-weight: 500;
+      }
+      .hero-feat strong {
+        color: var(--accent);
+      }
       .hero-pain {
         font-size: 0.82rem;
         color: var(--text);
         max-width: 400px;
         line-height: 1.65;
         margin-bottom: 28px;
-        animation: fadeUp 0.6s ease 0.25s both;
+        animation: fadeUp 0.6s ease 0.3s both;
         background: var(--cream);
         padding: 14px 20px;
         border-radius: 10px;
         border-left: 3px solid var(--accent);
         text-align: left;
       }
-      .hero-pain strong {
-        color: var(--accent);
-        font-weight: 600;
-      }
       .hero-author {
         display: flex;
         align-items: center;
         gap: 12px;
         margin-bottom: 28px;
-        animation: fadeUp 0.6s ease 0.3s both;
+        animation: fadeUp 0.6s ease 0.35s both;
       }
       .hero-author img {
         width: 48px;
@@ -243,20 +250,10 @@
         margin-top: 12px;
         animation: fadeUp 0.6s ease 0.5s both;
       }
-      .hero-note strong {
-        color: var(--text-light);
-      }
-      .hero-why {
-        font-size: 0.72rem;
-        color: var(--accent);
-        margin-top: 6px;
-        font-weight: 500;
-        animation: fadeUp 0.6s ease 0.55s both;
-      }
 
-      /* ========== QUIZ ========== */
+      /* QUIZ */
       .quiz-section {
-        padding: 60px 20px 80px;
+        padding: 40px 20px 80px;
         background: var(--bg);
       }
       .quiz-inner {
@@ -277,7 +274,7 @@
         color: var(--text-muted);
         font-weight: 500;
       }
-      .q-progress-score {
+      .q-progress-type {
         font-size: 0.72rem;
         color: var(--accent);
         font-weight: 600;
@@ -295,6 +292,7 @@
         transition: width 0.4s ease;
         width: 0%;
       }
+
       .q-card {
         background: var(--card);
         border-radius: var(--radius);
@@ -326,21 +324,14 @@
       }
       .q-card-q {
         font-family: "DM Serif Display", serif;
-        font-size: 1.25rem;
+        font-size: 1.2rem;
         color: var(--dark);
         line-height: 1.3;
-        margin-bottom: 8px;
-      }
-      .q-card-hint {
-        font-size: 0.8rem;
-        color: var(--text-light);
-        font-style: italic;
         margin-bottom: 24px;
-        line-height: 1.5;
       }
       .q-options {
         display: grid;
-        gap: 12px;
+        gap: 10px;
       }
       .q-opt {
         padding: 18px 20px;
@@ -350,6 +341,7 @@
         transition: all 0.25s;
         background: var(--card);
         -webkit-tap-highlight-color: transparent;
+        position: relative;
       }
       .q-opt:hover {
         border-color: var(--dark);
@@ -359,26 +351,111 @@
       .q-opt:active {
         transform: scale(0.98);
       }
+      .q-opt-letter {
+        position: absolute;
+        top: 18px;
+        left: 18px;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: var(--bg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.65rem;
+        font-weight: 700;
+        color: var(--text-muted);
+      }
       .q-opt-text {
-        font-size: 0.88rem;
+        font-size: 0.86rem;
         color: var(--text);
         line-height: 1.6;
+        padding-left: 32px;
       }
-      .q-opt.sel-green {
-        border-color: var(--green);
-        background: var(--green-light);
-        opacity: 1 !important;
-      }
-      .q-opt.sel-red {
+      .q-opt.selected {
         border-color: var(--accent);
         background: var(--accent-light);
-        opacity: 1 !important;
+      }
+      .q-opt.selected .q-opt-letter {
+        background: var(--accent);
+        color: #fff;
       }
       .q-opt.disabled {
         opacity: 0.5;
         cursor: default;
         pointer-events: none;
       }
+
+      .q-context-card {
+        background: var(--card);
+        border-radius: var(--radius);
+        padding: 36px 28px;
+        box-shadow: var(--shadow);
+        display: none;
+        text-align: center;
+      }
+      .q-context-card.active {
+        display: block;
+        animation: cardSlide 0.35s ease;
+      }
+      .q-context-title {
+        font-family: "DM Serif Display", serif;
+        font-size: 1.3rem;
+        color: var(--dark);
+        line-height: 1.3;
+        margin-bottom: 8px;
+      }
+      .q-context-sub {
+        font-size: 0.84rem;
+        color: var(--text-light);
+        line-height: 1.6;
+        margin-bottom: 28px;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .q-context-options {
+        display: grid;
+        gap: 10px;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+      .q-ctx-opt {
+        padding: 20px;
+        border: 2px solid var(--border);
+        border-radius: 12px;
+        cursor: pointer;
+        transition: all 0.25s;
+        background: var(--card);
+        text-align: left;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+      .q-ctx-opt:hover {
+        border-color: var(--accent);
+        background: var(--accent-light);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+      }
+      .q-ctx-icon {
+        font-size: 1.4rem;
+        flex-shrink: 0;
+      }
+      .q-ctx-text {
+        font-size: 0.88rem;
+        color: var(--text);
+        line-height: 1.5;
+        font-weight: 500;
+      }
+      .q-ctx-desc {
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        line-height: 1.4;
+        margin-top: 2px;
+        font-weight: 400;
+      }
+
       .q-nudge {
         text-align: center;
         padding: 16px 20px;
@@ -395,7 +472,7 @@
         font-weight: 600;
       }
 
-      /* ========== RESULT ========== */
+      /* RESULT */
       .q-result {
         display: none;
       }
@@ -409,74 +486,97 @@
         overflow: hidden;
         box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
       }
-      .res-top {
+
+      .res-type-header {
         padding: 40px 28px 28px;
         text-align: center;
-        background: var(--card);
+        position: relative;
+        overflow: hidden;
       }
-      .res-score {
+      .res-type-header::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        opacity: 0.06;
+        pointer-events: none;
+      }
+      .res-type-header.rescuer {
+        background: linear-gradient(135deg, #fff5f3, #fff0ee);
+      }
+      .res-type-header.pursuer {
+        background: linear-gradient(135deg, #f3eeff, #ece4ff);
+      }
+      .res-type-header.grayzone {
+        background: linear-gradient(135deg, #f5f5f5, #efefef);
+      }
+      .res-type-header.chameleon {
+        background: linear-gradient(135deg, #eef3ff, #e4ecff);
+      }
+      .res-type-header.secure {
+        background: linear-gradient(135deg, #f0fff4, #e8ffee);
+      }
+
+      .res-type-icon {
+        font-size: 3rem;
+        margin-bottom: 12px;
+        display: block;
+      }
+      .res-type-label {
+        font-size: 0.65rem;
+        color: var(--text-muted);
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        margin-bottom: 6px;
+      }
+      .res-type-name {
         font-family: "DM Serif Display", serif;
-        font-size: 5rem;
-        color: var(--accent);
-        line-height: 1;
+        font-size: 1.8rem;
+        color: var(--dark);
+        line-height: 1.2;
         margin-bottom: 4px;
       }
-      .res-of {
-        font-size: 0.68rem;
-        color: var(--text-muted);
-        font-weight: 500;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        margin-bottom: 20px;
-      }
-      .res-title {
-        font-family: "DM Serif Display", serif;
-        font-size: 1.5rem;
-        color: var(--dark);
-        margin-bottom: 12px;
-        line-height: 1.25;
+
+      .res-body {
+        padding: 28px;
       }
       .res-desc {
         font-size: 0.9rem;
-        color: var(--text-light);
-        line-height: 1.8;
-        max-width: 440px;
-        margin: 0 auto;
+        color: var(--text);
+        line-height: 1.85;
+        margin-bottom: 24px;
       }
+      .res-desc strong {
+        color: var(--dark);
+        font-weight: 600;
+      }
+
       .res-personal {
-        margin: 20px 28px 0;
         padding: 20px 24px;
-        background: linear-gradient(135deg, var(--cream), #fff5f0);
+        background: var(--cream);
         border-radius: 10px;
-        text-align: left;
         border-left: 3px solid var(--accent);
+        margin-bottom: 24px;
       }
       .res-personal p {
         font-size: 0.85rem;
         color: var(--text);
-        line-height: 1.7;
+        line-height: 1.75;
         margin-bottom: 8px;
       }
       .res-personal p:last-child {
         margin-bottom: 0;
       }
-      .res-personal strong {
-        color: var(--accent);
-        font-weight: 600;
-      }
-      .res-personal em {
-        font-style: italic;
-        color: var(--dark);
-      }
+
       .res-hook {
-        font-size: 0.82rem;
-        color: var(--text-light);
-        line-height: 1.7;
+        font-size: 0.85rem;
+        color: var(--text);
+        line-height: 1.75;
         text-align: center;
-        margin: 20px 28px 0;
-        padding: 16px 20px;
+        padding: 20px;
         background: var(--bg);
-        border-radius: 8px;
+        border-radius: 10px;
+        margin-bottom: 0;
       }
       .res-hook strong {
         color: var(--dark);
@@ -484,16 +584,16 @@
       }
       .res-hook-bridge {
         display: block;
-        font-size: 0.82rem;
+        font-size: 0.85rem;
         color: var(--accent);
         font-weight: 600;
-        margin-top: 10px;
+        margin-top: 12px;
       }
+
       .res-gate {
         background: linear-gradient(135deg, #2d2117 0%, #1a1a1a 100%);
         padding: 36px 28px;
         text-align: center;
-        margin-top: 20px;
       }
       .res-gate-title {
         font-family: "DM Serif Display", serif;
@@ -624,6 +724,7 @@
         letter-spacing: 0.5px;
         display: block;
       }
+
       .res-share {
         padding: 24px 28px;
         background: var(--cream);
@@ -680,6 +781,7 @@
           opacity: 0.3;
         }
       }
+
       .q-restart {
         text-align: center;
         margin-top: 16px;
@@ -699,7 +801,7 @@
         color: var(--dark);
       }
 
-      /* ========== TRUST ========== */
+      /* TRUST */
       .trust {
         max-width: 600px;
         margin: 40px auto 0;
@@ -799,7 +901,7 @@
         text-underline-offset: 3px;
       }
 
-      /* ========== EXIT INTENT ========== */
+      /* EXIT INTENT */
       .ei-overlay {
         position: fixed;
         inset: 0;
@@ -900,7 +1002,7 @@
         font-family: "Inter", sans-serif;
       }
 
-      /* ========== TOAST ========== */
+      /* TOAST */
       .toast {
         position: fixed;
         bottom: -60px;
@@ -921,146 +1023,7 @@
         bottom: 24px;
       }
 
-      /* ========== FOOTER ========== */
-      footer {
-        text-align: center;
-        padding: 40px 20px;
-        font-size: 0.68rem;
-        color: var(--text-muted);
-      }
-
-      /* ========== RESPONSIVE ========== */
-      @media (max-width: 640px) {
-        .hero {
-          padding: 40px 16px 32px;
-        }
-        .hero h1 {
-          font-size: 1.7rem;
-        }
-        .hero-sub {
-          font-size: 0.82rem;
-          margin-bottom: 12px;
-        }
-        .hero-pain {
-          font-size: 0.78rem;
-          padding: 12px 16px;
-          margin-bottom: 24px;
-        }
-        .hero-author img {
-          width: 42px;
-          height: 42px;
-        }
-        .btn-start {
-          padding: 14px 36px;
-          font-size: 0.8rem;
-        }
-        .quiz-section {
-          padding: 40px 16px 60px;
-        }
-        .q-card {
-          padding: 24px 20px;
-        }
-        .q-card-q {
-          font-size: 1.1rem;
-        }
-        .q-opt {
-          padding: 16px 18px;
-        }
-        .q-opt-text {
-          font-size: 0.84rem;
-        }
-        .res-top {
-          padding: 32px 20px 24px;
-        }
-        .res-score {
-          font-size: 4rem;
-        }
-        .res-title {
-          font-size: 1.25rem;
-        }
-        .res-desc {
-          font-size: 0.85rem;
-        }
-        .res-personal {
-          margin: 16px 20px 0;
-          padding: 16px 18px;
-        }
-        .res-hook {
-          margin: 16px 20px 0;
-          padding: 14px 16px;
-          font-size: 0.78rem;
-        }
-        .res-gate {
-          padding: 28px 20px;
-        }
-        .gate-bonuses {
-          max-width: 100%;
-        }
-        .gate-bonus {
-          padding: 14px 16px;
-          font-size: 0.78rem;
-        }
-        .gate-bonus-icon {
-          width: 28px;
-          height: 28px;
-          font-size: 1.1rem;
-        }
-        .gate-no-spam {
-          max-width: 100%;
-        }
-        .btn-bot {
-          padding: 16px 36px;
-          font-size: 0.75rem;
-        }
-        .res-share {
-          padding: 20px 20px;
-        }
-        .trust {
-          padding: 0 16px 40px;
-        }
-        .trust-author {
-          flex-direction: column;
-          align-items: center;
-          text-align: center;
-          padding: 20px;
-        }
-        .trust-author img {
-          width: 56px;
-          height: 56px;
-        }
-        .trust-stats {
-          justify-content: center;
-        }
-        .mini-review {
-          padding: 18px 20px;
-        }
-        .soft-cta {
-          padding: 20px;
-        }
-        .ei-popup {
-          padding: 32px 22px;
-        }
-        .ei-popup h3 {
-          font-size: 1.15rem;
-        }
-      }
-      ::-webkit-scrollbar {
-        width: 4px;
-      }
-      ::-webkit-scrollbar-track {
-        background: var(--bg);
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #ddd;
-        border-radius: 4px;
-      }
-      .cookie-banner {
-        flex-direction: column;
-        gap: 10px;
-        padding: 12px 16px;
-        text-align: center;
-      }
-      /* ========== COOKIE BANNER ========== */
+      /* COOKIE */
       .cookie-banner {
         position: fixed;
         bottom: 0;
@@ -1109,29 +1072,167 @@
       .cookie-accept:hover {
         background: var(--accent-hover);
       }
+
+      footer {
+        text-align: center;
+        padding: 40px 20px;
+        font-size: 0.68rem;
+        color: var(--text-muted);
+      }
+      footer a {
+        color: var(--text-muted);
+        text-decoration: underline;
+        text-underline-offset: 2px;
+        font-size: 0.62rem;
+      }
+
+      @media (max-width: 640px) {
+        .hero {
+          padding: 40px 16px 32px;
+        }
+        .hero h1 {
+          font-size: 1.6rem;
+        }
+        .hero-sub {
+          font-size: 0.82rem;
+        }
+        .hero-pain {
+          font-size: 0.78rem;
+          padding: 12px 16px;
+        }
+        .hero-features {
+          gap: 6px;
+        }
+        .hero-feat {
+          font-size: 0.65rem;
+          padding: 5px 10px;
+        }
+        .btn-start {
+          padding: 14px 36px;
+          font-size: 0.8rem;
+        }
+        .quiz-section {
+          padding: 30px 16px 60px;
+        }
+        .q-card {
+          padding: 24px 20px;
+        }
+        .q-card-q {
+          font-size: 1.05rem;
+        }
+        .q-opt {
+          padding: 16px 18px;
+        }
+        .q-opt-text {
+          font-size: 0.82rem;
+        }
+        .q-context-card {
+          padding: 28px 20px;
+        }
+        .q-context-title {
+          font-size: 1.15rem;
+        }
+        .q-ctx-opt {
+          padding: 16px;
+        }
+        .res-type-header {
+          padding: 32px 20px 24px;
+        }
+        .res-type-name {
+          font-size: 1.4rem;
+        }
+        .res-body {
+          padding: 22px 20px;
+        }
+        .res-desc {
+          font-size: 0.85rem;
+        }
+        .res-personal {
+          padding: 16px 18px;
+        }
+        .res-hook {
+          padding: 16px;
+          font-size: 0.8rem;
+        }
+        .res-gate {
+          padding: 28px 20px;
+        }
+        .gate-bonus {
+          padding: 14px 16px;
+          font-size: 0.78rem;
+        }
+        .btn-bot {
+          padding: 16px 36px;
+          font-size: 0.75rem;
+        }
+        .res-share {
+          padding: 20px;
+        }
+        .trust {
+          padding: 0 16px 40px;
+        }
+        .trust-author {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          padding: 20px;
+        }
+        .trust-stats {
+          justify-content: center;
+        }
+        .ei-popup {
+          padding: 32px 22px;
+        }
+        .ei-popup h3 {
+          font-size: 1.15rem;
+        }
+        .cookie-banner {
+          flex-direction: column;
+          gap: 10px;
+          padding: 12px 16px;
+          text-align: center;
+        }
+      }
+      ::-webkit-scrollbar {
+        width: 4px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--bg);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #ddd;
+        border-radius: 4px;
+      }
     </style>
   </head>
   <body>
-    <!-- ===== COOKIE BANNER ===== -->
     <div class="cookie-banner" id="cookieBanner">
       <p>
-        Мы используем файлы cookie и сервисы аналитики (Яндекс.Метрика) для
-        улучшения работы сайта. Продолжая, вы соглашаетесь с этим.
+        Мы используем файлы cookie и сервисы аналитики для улучшения работы
+        сайта. Продолжая, вы соглашаетесь с этим.
         <a href="privacy.html">Подробнее</a>
       </p>
       <button class="cookie-accept" onclick="acceptCookies()">Принять</button>
     </div>
-    <!-- ===== HERO ===== -->
+
+    <!-- HERO -->
     <section class="hero" id="hero">
-      <div class="hero-badge">✦ Бесплатный тест · 3 минуты</div>
-      <h1>Он точно готов —<em>или снова кажется?</em></h1>
+      <div class="hero-badge">
+        ✦ Бесплатный тест · 3 минуты · 5 типов результата
+      </div>
+      <h1>Почему ты снова выбираешь<em>не того?</em></h1>
       <p class="hero-sub">
-        Эти 10 признаков видны с первой встречи — но почти никто их не замечает.
+        Дело не в мужчинах. Дело в нейронной программе, которая включается
+        раньше, чем ты успеваешь подумать.
       </p>
+      <div class="hero-features">
+        <span class="hero-feat">⏱ 3 минуты</span>
+        <span class="hero-feat">🔒 Анонимно</span>
+        <span class="hero-feat">🎁 Бонус в конце</span>
+      </div>
       <div class="hero-pain">
-        Почти каждая влюблялась не в того хотя бы раз. Но есть способ увидеть
-        правду <strong>до того, как сердце скажет «да»</strong>. Проверь — не
-        наступаешь ли на те же грабли прямо сейчас.
+        Это не тест про мужчин. Это тест про тебя. Про то, как ты выбираешь,
+        почему повторяешь один сценарий и что с этим можно сделать.
       </div>
       <div class="hero-author">
         <img
@@ -1145,369 +1246,1019 @@
           </div>
         </div>
       </div>
-      <button class="btn-start" onclick="startQuiz()">Пройти тест →</button>
+      <button class="btn-start" onclick="startQuiz()">
+        Узнать свой паттерн →
+      </button>
       <div class="hero-note">Без регистрации · Результат сразу</div>
-      <div class="hero-why">
-        Лучше 3 минуты сейчас, чем год на восстановление
-      </div>
     </section>
 
-    <!-- ===== QUIZ ===== -->
+    <!-- QUIZ -->
     <section class="quiz-section" id="quiz" style="display: none">
       <div class="quiz-inner">
         <div class="q-progress" id="qProgress">
           <div class="q-progress-top">
             <span class="q-progress-label"
-              >Вопрос <span id="pCur">1</span> из 10</span
+              >Вопрос <span id="pCur">0</span> из 10</span
             >
-            <span class="q-progress-score" id="pScore">0 🟢</span>
+            <span class="q-progress-type" id="pType"></span>
           </div>
           <div class="q-progress-bar">
             <div class="q-progress-fill" id="pFill"></div>
           </div>
         </div>
 
-        <!-- Q1 -->
-        <div class="q-card active" id="q1">
-          <div class="q-card-num">Вопрос 1 из 10</div>
-          <div class="q-card-q">
-            Вы ужинаете, и он вдруг упоминает бывшую. Что ты слышишь?
+        <!-- CONTEXT -->
+        <div class="q-context-card active" id="ctxCard">
+          <div class="q-context-title">
+            Прежде чем начнём, подумай о мужчине.
           </div>
-          <div class="q-card-hint">
-            Не что он говорит, а что ты чувствуешь в этот момент.
+          <div class="q-context-sub">
+            Не идеальном. Не выдуманном. О том, кто сейчас занимает твои мысли.
+            Или занимал недавно.
           </div>
-          <div class="q-options">
-            <div class="q-opt" onclick="ans(1,'red',this)">
-              <div class="q-opt-text">
-                «Она была психованная». Или «не ценила». Виноваты всегда они, он
-                тут ни при чём.
+          <div class="q-context-options">
+            <div class="q-ctx-opt" onclick="setContext('new')">
+              <span class="q-ctx-icon">💫</span>
+              <div>
+                <div class="q-ctx-text">Новый</div>
+                <div class="q-ctx-desc">
+                  Вы недавно познакомились, ты пока присматриваешься
+                </div>
               </div>
             </div>
-            <div class="q-opt" onclick="ans(1,'green',this)">
-              <div class="q-opt-text">
-                «Мы просто были на разных этапах». Спокойно, коротко, без
-                злости. И переключился на тебя.
+            <div class="q-ctx-opt" onclick="setContext('current')">
+              <span class="q-ctx-icon">💑</span>
+              <div>
+                <div class="q-ctx-text">Мой мужчина</div>
+                <div class="q-ctx-desc">Мы вместе, но что-то не даёт покоя</div>
+              </div>
+            </div>
+            <div class="q-ctx-opt" onclick="setContext('ex')">
+              <span class="q-ctx-icon">💔</span>
+              <div>
+                <div class="q-ctx-text">Бывший</div>
+                <div class="q-ctx-desc">
+                  Всё закончилось, но в голове он до сих пор
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Q2 -->
+        <!-- BLOCK 1: FILTER Q1-Q3 -->
+        <div class="q-card" id="q1">
+          <div class="q-card-num">Вопрос 1 из 10</div>
+          <div class="q-card-q">
+            Вечер. Вы разговариваете, и он вдруг рассказывает что-то личное. Про
+            сложный период, про семью, про боль. Что поднимается внутри тебя?
+          </div>
+          <div class="q-options">
+            <div class="q-opt" onclick="ans(1,'a',this)">
+              <span class="q-opt-letter">А</span>
+              <div class="q-opt-text">
+                Тёплая волна. Хочется придвинуться ближе, сказать «я рядом». Ты
+                чувствуешь: вот он настоящий, и ты можешь быть для него тем
+                человеком, кто поймёт.
+              </div>
+            </div>
+            <div class="q-opt" onclick="ans(1,'b',this)">
+              <span class="q-opt-letter">Б</span>
+              <div class="q-opt-text">
+                Что-то ёкает. Тебе нравится, что он открылся, но ты ловишь себя
+                на мысли: он сейчас стал ближе, и от этого почему-то тревожно.
+                Как будто это может закончиться в любой момент.
+              </div>
+            </div>
+            <div class="q-opt" onclick="ans(1,'c',this)">
+              <span class="q-opt-letter">В</span>
+              <div class="q-opt-text">
+                Ты слушаешь. Но внутри лёгкий холодок: он говорит про себя уже
+                давно. Тебе интересно, но ты замечаешь, что он так и не спросил,
+                как ты.
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="q-card" id="q2">
           <div class="q-card-num">Вопрос 2 из 10</div>
           <div class="q-card-q">
-            Ты собираешься на свидание. Как обычно выглядят ваши договорённости?
-          </div>
-          <div class="q-card-hint">
-            Честно: ты знаешь куда идёшь завтра, или ждёшь «я напишу»?
+            Ты написала ему. Прошёл час. Два. Он онлайн, но не отвечает. Что
+            происходит у тебя внутри, честно?
           </div>
           <div class="q-options">
-            <div class="q-opt" onclick="ans(2,'red',this)">
+            <div class="q-opt" onclick="ans(2,'a',this)">
+              <span class="q-opt-letter">А</span>
               <div class="q-opt-text">
-                «Давай на связи будем». Переносит за час. Ты уже накрасилась, а
-                он: «Ой, давай лучше завтра».
+                Ты перечитываешь своё сообщение. Может, написала что-то не то?
+                Может, слишком много? Начинаешь прокручивать: что я сделала не
+                так.
               </div>
             </div>
-            <div class="q-opt" onclick="ans(2,'green',this)">
+            <div class="q-opt" onclick="ans(2,'b',this)">
+              <span class="q-opt-letter">Б</span>
               <div class="q-opt-text">
-                Пятница, 19:30, он забронировал. Если что-то меняется — пишет
-                заранее. Ты не висишь в ожидании.
+                Тебя накрывает. Не злость, а что-то глубже. Как будто тебя не
+                выбрали. Опять. Ты знаешь, что это иррационально. Но тело уже
+                среагировало.
+              </div>
+            </div>
+            <div class="q-opt" onclick="ans(2,'c',this)">
+              <span class="q-opt-letter">В</span>
+              <div class="q-opt-text">
+                Замечаешь, что не ответил. Немного неприятно. Но ты не
+                проваливаешься, у тебя свои дела. Ответит — поговорите. Нет —
+                тоже информация.
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Q3 -->
         <div class="q-card" id="q3">
           <div class="q-card-num">Вопрос 3 из 10</div>
           <div class="q-card-q">
-            Прошёл месяц. Ты хочешь увидеться в среду. Что происходит?
-          </div>
-          <div class="q-card-hint">
-            Он ищет окошко, или ты для него и есть план?
+            Подруга спрашивает: «Ну как он?» Ты начинаешь рассказывать. Какая
+            фраза ближе всего к тому, что ты реально говоришь?
           </div>
           <div class="q-options">
-            <div class="q-opt" onclick="ans(3,'red',this)">
+            <div class="q-opt" onclick="ans(3,'a',this)">
+              <span class="q-opt-letter">А</span>
               <div class="q-opt-text">
-                «Среда сложно, может на выходных, я напишу…» И тишина до пятницы
-                вечера.
+                «Он сложный. Но когда он хочет, он невероятный. Просто ему
+                сейчас тяжело, и я вижу, что ему нужен кто-то, кто поверит в
+                него.»
               </div>
             </div>
-            <div class="q-opt" onclick="ans(3,'green',this)">
+            <div class="q-opt" onclick="ans(3,'b',this)">
+              <span class="q-opt-letter">Б</span>
               <div class="q-opt-text">
-                «Среда отлично, давай в 7?» Или: «Среда занята, но я могу
-                четверг — хочу тебя увидеть».
+                «Не знаю. Вроде всё нормально, но я постоянно не уверена. Он
+                вроде рядом, но я не чувствую, что точно знаю, где я стою.»
+              </div>
+            </div>
+            <div class="q-opt" onclick="ans(3,'c',this)">
+              <span class="q-opt-letter">В</span>
+              <div class="q-opt-text">
+                «Мне с ним спокойно. Не скучно, именно спокойно. Он делает то,
+                что говорит. Я не трачу время на расшифровку.»
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Q4 -->
-        <div class="q-card" id="q4">
+        <!-- BRANCH: RESCUER Q4R-Q7R -->
+        <div class="q-card" id="q4r">
           <div class="q-card-num">Вопрос 4 из 10</div>
           <div class="q-card-q">
-            Вы в ресторане. Официант перепутал заказ. Что делает он?
+            Ты замечаешь, что всё чаще думаешь не «что я хочу», а «что ему
+            сейчас нужно». Когда это началось?
           </div>
-          <div class="q-card-hint">Смотри не на слова, а на тон.</div>
           <div class="q-options">
-            <div class="q-opt" onclick="ans(4,'red',this)">
+            <div class="q-opt" onclick="ans('4r','a',this)">
+              <span class="q-opt-letter">А</span>
               <div class="q-opt-text">
-                Вздыхает, закатывает глаза. Или подчёркнуто вежлив — но ты
-                чувствуешь, что это на публику.
+                С самого начала. Ты увидела в нём что-то раненое, и что-то
+                внутри тебя сказало: «Я могу это исправить. Я буду той, кто его
+                поймёт.»
               </div>
             </div>
-            <div class="q-opt" onclick="ans(4,'green',this)">
+            <div class="q-opt" onclick="ans('4r','b',this)">
+              <span class="q-opt-letter">Б</span>
               <div class="q-opt-text">
-                «Ничего страшного, заменим». Спокойно, без спектакля. Официанту
-                сказал «спасибо» — не глядя на тебя.
+                Постепенно. Сначала было легко. Но чем больше ты узнавала его,
+                тем больше он нуждался. И ты не заметила, как стала отвечать за
+                его эмоции.
+              </div>
+            </div>
+            <div class="q-opt" onclick="ans('4r','c',this)">
+              <span class="q-opt-letter">В</span>
+              <div class="q-opt-text">
+                Ты поймала себя на этом недавно, и тебя это испугало. Потому что
+                ты знаешь: это не любовь. Это старый паттерн.
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Q5 -->
-        <div class="q-card" id="q5">
+        <div class="q-card" id="q5r">
           <div class="q-card-num">Вопрос 5 из 10</div>
           <div class="q-card-q">
-            Счёт в ресторане. Или разговор про отпуск. Как он с деньгами?
-          </div>
-          <div class="q-card-hint">
-            Не сумма важна. Важно, есть ли вокруг денег напряжение.
+            Он говорит: «Без тебя я бы не справился.» Что ты чувствуешь?
           </div>
           <div class="q-options">
-            <div class="q-opt" onclick="ans(5,'red',this)">
+            <div class="q-opt" onclick="ans('5r','a',this)">
+              <span class="q-opt-letter">А</span>
               <div class="q-opt-text">
-                Показывает тебе ценник на часах. Или наоборот, тема денег — как
-                минное поле, не подходи.
+                Гордость. Значит, ты нужна. Значит, ты не зря. Это лучшее, что
+                он мог сказать.
               </div>
             </div>
-            <div class="q-opt" onclick="ans(5,'green',this)">
+            <div class="q-opt" onclick="ans('5r','b',this)">
+              <span class="q-opt-letter">Б</span>
               <div class="q-opt-text">
-                Платит спокойно, не комментирует. Не хвастается, не жалуется.
-                Деньги просто есть — и не тема для драмы.
+                Приятно… но где-то на дне усталость. Ты хочешь быть любимой, а
+                не необходимой. Но эти два слова в твоей жизни всегда путались.
+              </div>
+            </div>
+            <div class="q-opt" onclick="ans('5r','c',this)">
+              <span class="q-opt-letter">В</span>
+              <div class="q-opt-text">
+                Тебе неуютно. Потому что взрослый мужчина должен справляться
+                сам. А ты не его мама и не его терапевт.
               </div>
             </div>
           </div>
           <div class="q-nudge" id="midNudge">
-            Ты на полпути. Осталось 5 вопросов — и увидишь честный результат.<br />
-            <strong
-              >Почти все повторяют одни и те же ошибки — потому что не знают
-              один секрет. Он ждёт тебя в бонусах после теста.</strong
+            Ты на полпути. Осталось 5 вопросов, и ты увидишь свой паттерн.<br /><strong
+              >То, что ты узнаешь, может изменить твой следующий выбор.</strong
             >
           </div>
         </div>
 
-        <!-- Q6 -->
-        <div class="q-card" id="q6">
+        <div class="q-card" id="q6r">
           <div class="q-card-num">Вопрос 6 из 10</div>
           <div class="q-card-q">
-            Вы приехали, а ресторан закрыт. Дождь. Планы рухнули. И?
+            Была ли в детстве ситуация, когда ты чувствовала: если я не помогу,
+            всё развалится? Мама расстроится, папа уйдёт, дома будет плохо?
           </div>
-          <div class="q-card-hint">В этот момент видно всё.</div>
           <div class="q-options">
-            <div class="q-opt" onclick="ans(6,'red',this)">
+            <div class="q-opt" onclick="ans('6r','a',this)">
+              <span class="q-opt-letter">А</span>
               <div class="q-opt-text">
-                Психует. Или замолкает и ждёт, пока ты разрулишь. Вечер
-                испорчен, и ты чувствуешь что это как-то твоя вина.
+                Да. И я справлялась. Я была тем клеем, который держал всё
+                вместе. И до сих пор так, в каждых отношениях.
               </div>
             </div>
-            <div class="q-opt" onclick="ans(6,'green',this)">
+            <div class="q-opt" onclick="ans('6r','b',this)">
+              <span class="q-opt-letter">Б</span>
               <div class="q-opt-text">
-                Секунда — и он уже гуглит другое место. «Ну и ладно, зато
-                приключение». Вечер продолжается.
+                Может быть. Я не помню ничего драматичного. Но я всегда была
+                «удобным» ребёнком. Тем, кто не создаёт проблем.
+              </div>
+            </div>
+            <div class="q-opt" onclick="ans('6r','c',this)">
+              <span class="q-opt-letter">В</span>
+              <div class="q-opt-text">
+                Нет. Но я вижу, как этот вопрос может задеть. У меня другая
+                история.
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Q7 -->
-        <div class="q-card" id="q7">
+        <div class="q-card" id="q7r">
           <div class="q-card-num">Вопрос 7 из 10</div>
           <div class="q-card-q">
-            Ты говоришь «нет». Не важно чему — просто «нет, не хочу». Что
-            дальше?
-          </div>
-          <div class="q-card-hint">
-            «Нет» — лучший тест на зрелость мужчины.
+            Представь: он вдруг стал полностью самостоятельным. Ему не нужна
+            твоя помощь, твои советы, твоя забота. Он справляется сам. Что ты
+            чувствуешь?
           </div>
           <div class="q-options">
-            <div class="q-opt" onclick="ans(7,'red',this)">
+            <div class="q-opt" onclick="ans('7r','a',this)">
+              <span class="q-opt-letter">А</span>
               <div class="q-opt-text">
-                Пауза. Холод. «Ну ладно…» с таким лицом, что ты уже жалеешь что
-                отказала. Или шутка с давлением.
+                Если честно, пустоту. Как будто моя роль исчезла. А без роли кто
+                я рядом с ним?
               </div>
             </div>
-            <div class="q-opt" onclick="ans(7,'green',this)">
+            <div class="q-opt" onclick="ans('7r','b',this)">
+              <span class="q-opt-letter">Б</span>
               <div class="q-opt-text">
-                «Окей, без проблем». И правда без проблем. Ни обиды, ни
-                подтекста. Просто принял.
+                Облегчение и страх одновременно. Облегчение, потому что
+                наконец-то свободна. Страх, потому что вдруг без этого он меня
+                не захочет.
+              </div>
+            </div>
+            <div class="q-opt" onclick="ans('7r','c',this)">
+              <span class="q-opt-letter">В</span>
+              <div class="q-opt-text">
+                Радость. Наконец-то можно быть просто вместе. Не в роли
+                спасателя, а в роли партнёра.
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Q8 -->
+        <!-- BRANCH: PURSUER Q4P-Q7P -->
+        <div class="q-card" id="q4p">
+          <div class="q-card-num">Вопрос 4 из 10</div>
+          <div class="q-card-q">
+            Вспомни мужчину, от которого тебя реально накрывало. Было с ним
+            спокойно или как на качелях?
+          </div>
+          <div class="q-options">
+            <div class="q-opt" onclick="ans('4p','a',this)">
+              <span class="q-opt-letter">А</span>
+              <div class="q-opt-text">
+                Качели. Взлёты, когда он рядом, и падения, когда исчезает. Но
+                именно это и цепляло. Спокойные казались пресными.
+              </div>
+            </div>
+            <div class="q-opt" onclick="ans('4p','b',this)">
+              <span class="q-opt-letter">Б</span>
+              <div class="q-opt-text">
+                Качели, но я себе говорила, что это «страсть». Что настоящая
+                любовь и должна быть такой. С надрывом, с болью, с бессонными
+                ночами.
+              </div>
+            </div>
+            <div class="q-opt" onclick="ans('4p','c',this)">
+              <span class="q-opt-letter">В</span>
+              <div class="q-opt-text">
+                Было по-разному. Но я помню момент, когда подумала: «Я не хочу
+                так больше». И что-то сдвинулось.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="q-card" id="q5p">
+          <div class="q-card-num">Вопрос 5 из 10</div>
+          <div class="q-card-q">
+            Он не пишет два дня. Потом одно сообщение: «Привет, красивая.» Что с
+            тобой происходит?
+          </div>
+          <div class="q-options">
+            <div class="q-opt" onclick="ans('5p','a',this)">
+              <span class="q-opt-letter">А</span>
+              <div class="q-opt-text">
+                Всё тело выдыхает. Он написал. Значит, не забыл, не ушёл, не
+                бросил. Ты тут же отвечаешь. Злость на молчание как будто
+                испарилась.
+              </div>
+            </div>
+            <div class="q-opt" onclick="ans('5p','b',this)">
+              <span class="q-opt-letter">Б</span>
+              <div class="q-opt-text">
+                Ты рада. Но ловишь себя: почему два слова от него, и ты уже
+                счастлива? Это ведь так мало. А ты реагируешь как на целый
+                букет.
+              </div>
+            </div>
+            <div class="q-opt" onclick="ans('5p','c',this)">
+              <span class="q-opt-letter">В</span>
+              <div class="q-opt-text">
+                Ты видишь сообщение и думаешь: «Два дня тишины, а потом "привет,
+                красивая"? Нет. Мне нужен человек, а не качели.»
+              </div>
+            </div>
+          </div>
+          <div class="q-nudge" id="midNudgeP">
+            Ты на полпути. Осталось 5 вопросов, и ты увидишь свой паттерн.<br /><strong
+              >То, что ты узнаешь, может изменить твой следующий выбор.</strong
+            >
+          </div>
+        </div>
+
+        <div class="q-card" id="q6p">
+          <div class="q-card-num">Вопрос 6 из 10</div>
+          <div class="q-card-q">
+            Был ли в твоей жизни мужчина, хороший, надёжный, рядом? И ты его
+            отпустила, потому что «не цепляло»?
+          </div>
+          <div class="q-options">
+            <div class="q-opt" onclick="ans('6p','a',this)">
+              <span class="q-opt-letter">А</span>
+              <div class="q-opt-text">
+                Да. И я до сих пор иногда думаю о нём. Он был хорошим. Но я не
+                могла заставить себя чувствовать. С ним было тихо, а мне нужен
+                был огонь.
+              </div>
+            </div>
+            <div class="q-opt" onclick="ans('6p','b',this)">
+              <span class="q-opt-letter">Б</span>
+              <div class="q-opt-text">
+                Да. Но я начинаю понимать, что то, что я называла «не цепляет»,
+                может быть, и было нормальное, здоровое чувство. Просто я не
+                умела его узнавать.
+              </div>
+            </div>
+            <div class="q-opt" onclick="ans('6p','c',this)">
+              <span class="q-opt-letter">В</span>
+              <div class="q-opt-text">
+                Нет. Я пока не встречала такого. Или, может, встречала, но не
+                заметила.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="q-card" id="q7p">
+          <div class="q-card-num">Вопрос 7 из 10</div>
+          <div class="q-card-q">
+            Если честно, тебя больше тянет к мужчине, с которым спокойно? Или к
+            тому, от которого колотит сердце?
+          </div>
+          <div class="q-options">
+            <div class="q-opt" onclick="ans('7p','a',this)">
+              <span class="q-opt-letter">А</span>
+              <div class="q-opt-text">
+                От которого колотит. Я знаю, что это неправильно. Но спокойствие
+                я путаю с равнодушием. Когда тихо, мне кажется, что ничего нет.
+              </div>
+            </div>
+            <div class="q-opt" onclick="ans('7p','b',this)">
+              <span class="q-opt-letter">Б</span>
+              <div class="q-opt-text">
+                Раньше однозначно второе. Сейчас я хочу первое, но тело всё ещё
+                реагирует на второе. Как будто два человека внутри.
+              </div>
+            </div>
+            <div class="q-opt" onclick="ans('7p','c',this)">
+              <span class="q-opt-letter">В</span>
+              <div class="q-opt-text">
+                Спокойствие. Я наконец поняла: если колотит, это не любовь. Это
+                тревога.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BRANCH: GRAYZONE Q4G-Q7G -->
+        <div class="q-card" id="q4g">
+          <div class="q-card-num">Вопрос 4 из 10</div>
+          <div class="q-card-q">
+            Подруга спрашивает: «Он нормально с тобой обращается?» Ты говоришь
+            «да». Но по дороге домой прокручиваешь этот разговор и думаешь: а
+            точно да?
+          </div>
+          <div class="q-options">
+            <div class="q-opt" onclick="ans('4g','a',this)">
+              <span class="q-opt-letter">А</span>
+              <div class="q-opt-text">
+                Постоянно. Он не делает ничего «такого». Но я всё время чувствую
+                себя неуверенно. Как будто стою на полу, который чуть-чуть
+                наклонён, но никто больше этого не видит.
+              </div>
+            </div>
+            <div class="q-opt" onclick="ans('4g','b',this)">
+              <span class="q-opt-letter">Б</span>
+              <div class="q-opt-text">
+                Иногда. Бывают моменты, когда я думаю, может, я придумываю?
+                Может, я слишком требовательная? А потом он делает что-то
+                тёплое, и я ругаю себя за сомнения.
+              </div>
+            </div>
+            <div class="q-opt" onclick="ans('4g','c',this)">
+              <span class="q-opt-letter">В</span>
+              <div class="q-opt-text">
+                Нет. Если мне некомфортно, я знаю это точно. И говорю об этом.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="q-card" id="q5g">
+          <div class="q-card-num">Вопрос 5 из 10</div>
+          <div class="q-card-q">
+            Он говорит одно, а делает другое. Не грубо. Не явно. Просто… слова и
+            действия не совпадают. Что ты делаешь?
+          </div>
+          <div class="q-options">
+            <div class="q-opt" onclick="ans('5g','a',this)">
+              <span class="q-opt-letter">А</span>
+              <div class="q-opt-text">
+                Замечаю, но молчу. Потому что если скажу, он найдёт объяснение.
+                И я буду чувствовать себя параноиком. Проще подождать и
+                посмотреть.
+              </div>
+            </div>
+            <div class="q-opt" onclick="ans('5g','b',this)">
+              <span class="q-opt-letter">Б</span>
+              <div class="q-opt-text">
+                Нахожу ему оправдания. Может, он так не хотел. Может, я
+                неправильно поняла. Может, у него был плохой день.
+              </div>
+            </div>
+            <div class="q-opt" onclick="ans('5g','c',this)">
+              <span class="q-opt-letter">В</span>
+              <div class="q-opt-text">
+                Говорю: «Ты сказал одно, а сделал другое. Мне важно понимать, на
+                что я могу рассчитывать.»
+              </div>
+            </div>
+          </div>
+          <div class="q-nudge" id="midNudgeG">
+            Ты на полпути. Осталось 5 вопросов, и ты увидишь свой паттерн.<br /><strong
+              >То, что ты узнаешь, может изменить твой следующий выбор.</strong
+            >
+          </div>
+        </div>
+
+        <div class="q-card" id="q6g">
+          <div class="q-card-num">Вопрос 6 из 10</div>
+          <div class="q-card-q">
+            Бывает ли, что после встречи с ним тебе сложно понять, было хорошо
+            или плохо? Как будто двоится: и вроде нормально, и что-то не так?
+          </div>
+          <div class="q-options">
+            <div class="q-opt" onclick="ans('6g','a',this)">
+              <span class="q-opt-letter">А</span>
+              <div class="q-opt-text">
+                Да, постоянно. Это самое мучительное. Я не могу ни уйти, ни
+                остаться, потому что нет «конкретной причины». Он не плохой. Он
+                просто… непонятный.
+              </div>
+            </div>
+            <div class="q-opt" onclick="ans('6g','b',this)">
+              <span class="q-opt-letter">Б</span>
+              <div class="q-opt-text">
+                Бывает. Но я списываю это на то, что отношения это всегда
+                сложно. Не бывает идеально. Надо работать.
+              </div>
+            </div>
+            <div class="q-opt" onclick="ans('6g','c',this)">
+              <span class="q-opt-letter">В</span>
+              <div class="q-opt-text">
+                Нет. После встречи с человеком, с которым мне хорошо, я это
+                знаю. Без сомнений.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="q-card" id="q7g">
+          <div class="q-card-num">Вопрос 7 из 10</div>
+          <div class="q-card-q">
+            Ты когда-нибудь ловила себя на мысли: «Если бы кто-то со стороны
+            увидел наши отношения, он бы, наверное, сказал, что это не ок»?
+          </div>
+          <div class="q-options">
+            <div class="q-opt" onclick="ans('7g','a',this)">
+              <span class="q-opt-letter">А</span>
+              <div class="q-opt-text">
+                Да. Но я тут же себя останавливаю: они не знают его как я. Они
+                не видят тех моментов, когда он нежный, когда он рядом. Они
+                судят по верхам.
+              </div>
+            </div>
+            <div class="q-opt" onclick="ans('7g','b',this)">
+              <span class="q-opt-letter">Б</span>
+              <div class="q-opt-text">
+                Да. И это мне кажется важным сигналом. Если я чувствую, что мне
+                нужно скрывать от подруг, значит, что-то не так.
+              </div>
+            </div>
+            <div class="q-opt" onclick="ans('7g','c',this)">
+              <span class="q-opt-letter">В</span>
+              <div class="q-opt-text">
+                Нет. Мои подруги знают о нём, и их реакция совпадает с моей.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BRANCH: CHAMELEON Q4C-Q7C -->
+        <div class="q-card" id="q4c">
+          <div class="q-card-num">Вопрос 4 из 10</div>
+          <div class="q-card-q">
+            Вспомни начало ваших отношений. Ты подстраивалась или была собой?
+          </div>
+          <div class="q-options">
+            <div class="q-opt" onclick="ans('4c','a',this)">
+              <span class="q-opt-letter">А</span>
+              <div class="q-opt-text">
+                Подстраивалась. Заметила, что ему нравится, и стала больше
+                такой. Меньше говорила о том, что ему неинтересно. Убирала углы.
+                Это было как дышать, я даже не замечала.
+              </div>
+            </div>
+            <div class="q-opt" onclick="ans('4c','b',this)">
+              <span class="q-opt-letter">Б</span>
+              <div class="q-opt-text">
+                Частично. Первые свидания это всегда немного игра, разве нет? Но
+                потом я начала замечать, что забыла, какая я «настоящая» с ним.
+              </div>
+            </div>
+            <div class="q-opt" onclick="ans('4c','c',this)">
+              <span class="q-opt-letter">В</span>
+              <div class="q-opt-text">
+                Была собой. Мне важно, чтобы человек узнал меня настоящую. Если
+                ему не подходит, лучше узнать сразу.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="q-card" id="q5c">
+          <div class="q-card-num">Вопрос 5 из 10</div>
+          <div class="q-card-q">
+            Он говорит что-то, с чем ты не согласна. Может, про политику. Может,
+            про твою подругу. Что ты делаешь?
+          </div>
+          <div class="q-options">
+            <div class="q-opt" onclick="ans('5c','a',this)">
+              <span class="q-opt-letter">А</span>
+              <div class="q-opt-text">
+                Молчу. Или мягко соглашаюсь. Мне проще не спорить. Конфликт это
+                то, чего я избегаю любой ценой. Даже если цена — это я.
+              </div>
+            </div>
+            <div class="q-opt" onclick="ans('5c','b',this)">
+              <span class="q-opt-letter">Б</span>
+              <div class="q-opt-text">
+                Говорю своё мнение, но потом переживаю: не слишком ли резко? Не
+                оттолкнула ли? Проверяю его реакцию.
+              </div>
+            </div>
+            <div class="q-opt" onclick="ans('5c','c',this)">
+              <span class="q-opt-letter">В</span>
+              <div class="q-opt-text">
+                Говорю как есть. Спокойно, без драмы. Если он взрослый,
+                выдержит. Если нет, зачем мне ребёнок?
+              </div>
+            </div>
+          </div>
+          <div class="q-nudge" id="midNudgeC">
+            Ты на полпути. Осталось 5 вопросов, и ты увидишь свой паттерн.<br /><strong
+              >То, что ты узнаешь, может изменить твой следующий выбор.</strong
+            >
+          </div>
+        </div>
+
+        <div class="q-card" id="q6c">
+          <div class="q-card-num">Вопрос 6 из 10</div>
+          <div class="q-card-q">
+            Если бы тебя попросили описать себя не в работе, не для друзей, а
+            именно в отношениях, ты смогла бы сразу сказать: «Вот такая я»?
+          </div>
+          <div class="q-options">
+            <div class="q-opt" onclick="ans('6c','a',this)">
+              <span class="q-opt-letter">А</span>
+              <div class="q-opt-text">
+                Нет. В отношениях я каждый раз немного другая. С одним весёлая и
+                лёгкая. С другим серьёзная и заботливая. Я как будто подбираю
+                версию себя под конкретного мужчину.
+              </div>
+            </div>
+            <div class="q-opt" onclick="ans('6c','b',this)">
+              <span class="q-opt-letter">Б</span>
+              <div class="q-opt-text">
+                Мне сложно ответить. Кажется, я знаю, какая я, но в отношениях
+                это знание куда-то уходит. Как будто я сама от себя отключаюсь.
+              </div>
+            </div>
+            <div class="q-opt" onclick="ans('6c','c',this)">
+              <span class="q-opt-letter">В</span>
+              <div class="q-opt-text">
+                Да. Я это я. В отношениях, на работе, с подругами. Меняется
+                контекст, но не суть.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="q-card" id="q7c">
+          <div class="q-card-num">Вопрос 7 из 10</div>
+          <div class="q-card-q">
+            Были ли отношения, после которых ты поняла: я так старалась быть
+            удобной, что потеряла себя?
+          </div>
+          <div class="q-options">
+            <div class="q-opt" onclick="ans('7c','a',this)">
+              <span class="q-opt-letter">А</span>
+              <div class="q-opt-text">
+                Да. И это случалось не раз. Каждый раз я обещаю себе больше
+                никогда. И каждый раз ловлю себя на том же.
+              </div>
+            </div>
+            <div class="q-opt" onclick="ans('7c','b',this)">
+              <span class="q-opt-letter">Б</span>
+              <div class="q-opt-text">
+                Не знаю. Может, я сейчас в таких отношениях и просто пока не
+                вижу этого.
+              </div>
+            </div>
+            <div class="q-opt" onclick="ans('7c','c',this)">
+              <span class="q-opt-letter">В</span>
+              <div class="q-opt-text">
+                Нет. Я научилась замечать момент, когда начинаю растворяться, и
+                останавливаюсь.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BRANCH: SECURE Q4S-Q7S -->
+        <div class="q-card" id="q4s">
+          <div class="q-card-num">Вопрос 4 из 10</div>
+          <div class="q-card-q">
+            Ты чувствуешь, что с ним хорошо. Но вот вопрос: тебе хорошо или тебе
+            удобно?
+          </div>
+          <div class="q-options">
+            <div class="q-opt" onclick="ans('4s','a',this)">
+              <span class="q-opt-letter">А</span>
+              <div class="q-opt-text">
+                Хорошо. Я чувствую себя увиденной, принятой, спокойной. Не
+                потому что он идеальный, а потому что мне не нужно быть кем-то
+                другой.
+              </div>
+            </div>
+            <div class="q-opt" onclick="ans('4s','b',this)">
+              <span class="q-opt-letter">Б</span>
+              <div class="q-opt-text">
+                Хороший вопрос. Может, и удобно. Он не создаёт проблем, не
+                вызывает тревоги. Но бабочек нет. И я иногда думаю, достаточно
+                ли этого.
+              </div>
+            </div>
+            <div class="q-opt" onclick="ans('4s','c',this)">
+              <span class="q-opt-letter">В</span>
+              <div class="q-opt-text">
+                Удобно. Я знаю. Но после того, через что я прошла, удобно звучит
+                неплохо.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="q-card" id="q5s">
+          <div class="q-card-num">Вопрос 5 из 10</div>
+          <div class="q-card-q">
+            Бывает ли, что ты ищешь в нём проблему просто на всякий случай? Как
+            будто ждёшь подвоха?
+          </div>
+          <div class="q-options">
+            <div class="q-opt" onclick="ans('5s','a',this)">
+              <span class="q-opt-letter">А</span>
+              <div class="q-opt-text">
+                Нет. Я доверяю тому, что вижу. Если что-то изменится, разберусь
+                тогда.
+              </div>
+            </div>
+            <div class="q-opt" onclick="ans('5s','b',this)">
+              <span class="q-opt-letter">Б</span>
+              <div class="q-opt-text">
+                Иногда ловлю себя на этом. Привычка сканировать на опасность.
+                Знаю, что это из прошлого, но отключить сложно.
+              </div>
+            </div>
+            <div class="q-opt" onclick="ans('5s','c',this)">
+              <span class="q-opt-letter">В</span>
+              <div class="q-opt-text">
+                Да. Потому что в прошлый раз тоже «всё было хорошо», а потом
+                развалилось. Не хочу повторять.
+              </div>
+            </div>
+          </div>
+          <div class="q-nudge" id="midNudgeS">
+            Ты на полпути. Осталось 5 вопросов, и ты увидишь свой паттерн.<br /><strong
+              >То, что ты узнаешь, может изменить твой следующий выбор.</strong
+            >
+          </div>
+        </div>
+
+        <div class="q-card" id="q6s">
+          <div class="q-card-num">Вопрос 6 из 10</div>
+          <div class="q-card-q">
+            Ты можешь сказать ему «нет» и знать, что ничего не сломается?
+          </div>
+          <div class="q-options">
+            <div class="q-opt" onclick="ans('6s','a',this)">
+              <span class="q-opt-letter">А</span>
+              <div class="q-opt-text">
+                Да. Он принимает моё «нет» спокойно. Без обиды, без манипуляций.
+                И я знаю: от моего «нет» его любовь не уменьшится.
+              </div>
+            </div>
+            <div class="q-opt" onclick="ans('6s','b',this)">
+              <span class="q-opt-letter">Б</span>
+              <div class="q-opt-text">
+                Да, но мне это стоит усилий. Каждый раз как маленький экзамен. Я
+                говорю «нет» и жду: отреагирует нормально или нет?
+              </div>
+            </div>
+            <div class="q-opt" onclick="ans('6s','c',this)">
+              <span class="q-opt-letter">В</span>
+              <div class="q-opt-text">
+                Мне сложно говорить «нет». Не потому что он плохо реагирует, а
+                потому что мне страшно, что я стану не нужна.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="q-card" id="q7s">
+          <div class="q-card-num">Вопрос 7 из 10</div>
+          <div class="q-card-q">
+            Когда ты думаешь о будущем с ним, ты улыбаешься или напрягаешься?
+          </div>
+          <div class="q-options">
+            <div class="q-opt" onclick="ans('7s','a',this)">
+              <span class="q-opt-letter">А</span>
+              <div class="q-opt-text">
+                Улыбаюсь. Не потому что всё идеально, а потому что с ним хочется
+                идти дальше. Даже когда сложно.
+              </div>
+            </div>
+            <div class="q-opt" onclick="ans('7s','b',this)">
+              <span class="q-opt-letter">Б</span>
+              <div class="q-opt-text">
+                Немного и то, и то. Хочу верить, но боюсь. Прошлый опыт шепчет:
+                «Не расслабляйся».
+              </div>
+            </div>
+            <div class="q-opt" onclick="ans('7s','c',this)">
+              <span class="q-opt-letter">В</span>
+              <div class="q-opt-text">
+                Напрягаюсь. Потому что я не уверена, что он это серьёзно. И не
+                хочу строить планы, которые снова развалятся.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BLOCK 3: FINAL Q8-Q10 -->
         <div class="q-card" id="q8">
           <div class="q-card-num">Вопрос 8 из 10</div>
           <div class="q-card-q">
-            Ты рассказываешь что-то важное. Может про работу, может про маму.
-            Что он делает?
-          </div>
-          <div class="q-card-hint">
-            Замолчи после рассказа. Посмотри что будет.
+            Закрой глаза на секунду. Вспомни последний раз, когда тебе с
+            мужчиной было по-настоящему хорошо. Не «красиво», не «правильно», а
+            вот прямо хорошо. Спокойно, тепло, настоящее. Это было…
           </div>
           <div class="q-options">
-            <div class="q-opt" onclick="ans(8,'red',this)">
+            <div class="q-opt" onclick="ans(8,'a',this)">
+              <span class="q-opt-letter">А</span>
               <div class="q-opt-text">
-                «А у меня тоже был похожий случай…» — и дальше 20 минут про
-                него. Или совет, которого ты не просила.
+                …давно. Или, может, никогда по-настоящему. Были вспышки, но
+                стабильного «хорошо» я не помню.
               </div>
             </div>
-            <div class="q-opt" onclick="ans(8,'green',this)">
+            <div class="q-opt" onclick="ans(8,'b',this)">
+              <span class="q-opt-letter">Б</span>
               <div class="q-opt-text">
-                «И что ты чувствуешь?» Пауза. Он не спешит заполнить тишину. Ему
-                правда интересно.
+                …с ним. Но ненадолго. Как будто он включается и выключается. И я
+                живу от одного «включения» до другого.
+              </div>
+            </div>
+            <div class="q-opt" onclick="ans(8,'c',this)">
+              <span class="q-opt-letter">В</span>
+              <div class="q-opt-text">
+                …сейчас. Или совсем недавно. Не идеально, но настоящее. И мне от
+                этого тепло.
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Q9 -->
         <div class="q-card" id="q9">
           <div class="q-card-num">Вопрос 9 из 10</div>
           <div class="q-card-q">
-            Зазвонил телефон — мама. Вы на свидании. Что происходит?
-          </div>
-          <div class="q-card-hint">
-            Не про маму. Про то, есть ли у него своя жизнь.
+            Будь честна с собой. Что тебя привело сюда, в этот тест? Что ты на
+            самом деле хочешь узнать?
           </div>
           <div class="q-options">
-            <div class="q-opt" onclick="ans(9,'red',this)">
+            <div class="q-opt" onclick="ans(9,'a',this)">
+              <span class="q-opt-letter">А</span>
               <div class="q-opt-text">
-                Берёт трубку, говорит 15 минут. Или наоборот — «я с ней не
-                общаюсь» с такой злостью, что тебе не по себе.
+                Я хочу понять: это нормально? То, что я чувствую, то, что я
+                терплю, то, что я принимаю. Это так и должно быть? Или я
+                заслуживаю другого?
               </div>
             </div>
-            <div class="q-opt" onclick="ans(9,'green',this)">
+            <div class="q-opt" onclick="ans(9,'b',this)">
+              <span class="q-opt-letter">Б</span>
               <div class="q-opt-text">
-                «Мам, я перезвоню через час». Спокойно, тепло, коротко. У него
-                есть семья — и есть границы.
+                Я хочу понять, почему я снова здесь. Почему один и тот же
+                сценарий. Почему я всё знаю, но ничего не могу изменить.
+              </div>
+            </div>
+            <div class="q-opt" onclick="ans(9,'c',this)">
+              <span class="q-opt-letter">В</span>
+              <div class="q-opt-text">
+                Мне стало интересно. У меня всё неплохо, но хочу убедиться, что
+                я вижу ситуацию ясно.
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Q10 -->
         <div class="q-card" id="q10">
           <div class="q-card-num">Вопрос 10 из 10</div>
           <div class="q-card-q">
-            Вы вместе уже пару месяцев. Он говорит о будущем?
-          </div>
-          <div class="q-card-hint">
-            Не «где мы будем через 5 лет». А есть ли ты в его завтра.
+            Последний. Самый важный. Представь: ты встречаешь мужчину, с которым
+            всё хорошо. Он надёжный, рядом, он тебя видит. С ним спокойно. Без
+            качелей, без драмы. Что ты чувствуешь прямо сейчас, представляя это?
           </div>
           <div class="q-options">
-            <div class="q-opt" onclick="ans(10,'red',this)">
+            <div class="q-opt" onclick="ans(10,'a',this)">
+              <span class="q-opt-letter">А</span>
               <div class="q-opt-text">
-                «Зачем загадывать, давай просто кайфовать». На третий месяц — ни
-                одного плана дальше выходных.
+                Я хочу этого. Всем сердцем. Но что-то внутри шепчет: «Это не для
+                тебя. Тебе так не бывает.»
               </div>
             </div>
-            <div class="q-opt" onclick="ans(10,'green',this)">
+            <div class="q-opt" onclick="ans(10,'b',this)">
+              <span class="q-opt-letter">Б</span>
               <div class="q-opt-text">
-                «Хочу показать тебе одно место летом…» Ты в его картине мира, и
-                он не боится это произнести.
+                Страх. Потому что если с ним спокойно, как я пойму, что это
+                любовь? Я привыкла, что любовь это когда болит.
+              </div>
+            </div>
+            <div class="q-opt" onclick="ans(10,'c',this)">
+              <span class="q-opt-letter">В</span>
+              <div class="q-opt-text">
+                Тепло. Спокойствие. Это то, что я хочу, и то, чего я заслуживаю.
+                Без «но».
               </div>
             </div>
           </div>
         </div>
 
-        <!-- ===== RESULT ===== -->
+        <!-- RESULT -->
         <div class="q-result" id="qResult">
           <div class="res-card">
-            <div class="res-top">
-              <div class="res-score" id="resScore">0</div>
-              <div class="res-of">зелёных маркеров из 10</div>
-              <div class="res-title" id="resTitle"></div>
-              <p class="res-desc" id="resDesc"></p>
+            <div class="res-type-header" id="resHeader">
+              <span class="res-type-icon" id="resIcon"></span>
+              <div class="res-type-label">Твой паттерн</div>
+              <div class="res-type-name" id="resTypeName"></div>
             </div>
-            <div class="res-personal" id="resPersonal"></div>
-            <div class="res-hook">
-              Ты увидела счёт. Но самое важное — понять
-              <strong>почему</strong> ты выбираешь именно так. И что с этим
-              делать.
-              <span class="res-hook-bridge"
-                >Знать маркеры — это 20%. Остальные 80% — изменить то, что
-                внутри ↓</span
-              >
+            <div class="res-body">
+              <div class="res-desc" id="resDesc"></div>
+              <div class="res-personal" id="resPersonal"></div>
+              <div class="res-hook">
+                Ты увидела свой паттерн. Но увидеть это 20%.
+                <strong
+                  >Паттерн живёт не в голове. Он живёт в нейронных связях,
+                  которые сформировались до 7 лет.</strong
+                >
+                Ты можешь всё понимать и всё равно выбирать по-старому. Потому
+                что решение принимает не та часть мозга, которая думает. А та,
+                которая чувствует.
+                <span class="res-hook-bridge"
+                  >Чтобы изменить выбор, нужно изменить саму программу выбора.
+                  Это возможно. Забери бонусы и узнай как ↓</span
+                >
+              </div>
             </div>
             <div class="res-gate">
               <span class="res-gate-title"
-                >Забери подробный разбор + 2 бонуса</span
+                >Забери свой персональный разбор + 3 бонуса</span
               >
               <span class="res-gate-sub">Бесплатно, в Telegram-боте:</span>
               <div class="gate-bonuses">
                 <div class="gate-bonus">
-                  <span class="gate-bonus-icon">📖</span>
-                  <span>
-                    <span class="gate-bonus-label">Бонус 1 — Разбор</span>
-                    <span class="gate-bonus-text"
-                      >Подробный разбор всех 10 маркеров: как проверить, красные
-                      и зелёные флаги, почему важно</span
-                    >
-                  </span>
+                  <span class="gate-bonus-icon">📖</span
+                  ><span
+                    ><span class="gate-bonus-label">Бонус 1 — Твой паттерн</span
+                    ><span class="gate-bonus-text"
+                      >Подробный разбор твоего типа: откуда он взялся, как
+                      проявляется, какие мужчины притягиваются и что с этим
+                      делать</span
+                    ></span
+                  >
                 </div>
                 <div class="gate-bonus">
-                  <span class="gate-bonus-icon">🎬</span>
-                  <span>
-                    <span class="gate-bonus-label"
+                  <span class="gate-bonus-icon">🎬</span
+                  ><span
+                    ><span class="gate-bonus-label"
                       >Бонус 2 — Видео (8 мин)</span
-                    >
-                    <span class="gate-bonus-text"
-                      >3 нейронных ловушки, которые мешают выбрать правильного
-                      мужчину</span
-                    >
-                  </span>
+                    ><span class="gate-bonus-text"
+                      >3 нейронных ловушки, которые включаются автоматически при
+                      выборе мужчины</span
+                    ></span
+                  >
                 </div>
-                               <div class="gate-bonus">
-                  <span class="gate-bonus-icon">🎧</span>
-                  <span>
-                    <span class="gate-bonus-label"
-                      >Бонус 3 — Аудио (10 мин)</span
-                    >
-                    <span class="gate-bonus-text"
-                      >Практика «Роза» — мягко отключает нейронные программы, которые заставляют выбирать не тех. Слушай перед сном</span
-                    >
-                  </span>
+                <div class="gate-bonus">
+                  <span class="gate-bonus-icon">🎧</span
+                  ><span
+                    ><span class="gate-bonus-label"
+                      >Бонус 3 — Аудио «Роза» (10 мин)</span
+                    ><span class="gate-bonus-text"
+                      >Практика, которая мягко отключает старые программы.
+                      Слушай перед сном</span
+                    ></span
+                  >
                 </div>
               </div>
               <div class="gate-no-spam">
                 <span>Бонусы сразу, без ожидания</span>
-                <span>Никакой воды — только конкретика</span>
+                <span>Никакой воды, только конкретика</span>
                 <span>Без навязчивой рассылки</span>
               </div>
               <a
-                href="https://t.me/lumen_bonus_bot?start=quiz"
+                href="#"
                 target="_blank"
                 class="btn-bot"
+                id="botBtn"
                 onclick="trackBot()"
+                >🎁 Забрать бонусы →</a
               >
-                > 🎁 Забрать 3 бонуса бесплатно →
-              </a>
               <span class="res-gate-note"
                 >Telegram-бот · анонимно · выдаём бонусы и всё</span
               >
             </div>
             <div class="res-share">
               <div class="res-share-text">
-                💛 Знаешь подругу, которой стоит пройти этот тест?
+                💛 Знаешь подругу, которая снова выбрала не того?
               </div>
               <button class="btn-share" onclick="shareTest()">
-                Отправить ей ссылку
+                Отправить ей этот тест
               </button>
               <div class="res-share-live">
-                <span class="live-dot"></span>
-                Сейчас проходят тест: <strong id="liveCount">5</strong> человек
+                <span class="live-dot"></span>Сейчас проходят тест:
+                <strong id="liveCount">5</strong> человек
               </div>
             </div>
           </div>
@@ -1518,7 +2269,7 @@
       </div>
     </section>
 
-    <!-- ===== TRUST ===== -->
+    <!-- TRUST -->
     <section class="trust" id="trustBlock" style="display: none">
       <div class="trust-author">
         <img
@@ -1528,20 +2279,10 @@
         <div class="trust-author-info">
           <h3>Юлия Люмен</h3>
           <p>
-            Нейропсихолог. 20 лет в бизнесе. Знает мир состоятельных мужчин
-            изнутри. Помогла сотням женщин перестать притягивать не тех — и
-            наконец выбрать правильного.
-          </p>
-          <p
-            style="
-              margin-top: 8px;
-              font-size: 0.78rem;
-              font-style: italic;
-              color: var(--accent);
-            "
-          >
-            «Я сама прошла этот путь. Всё, чем делюсь — настоящий опыт, а не
-            теория из книжек.»
+            «Я не из тех, кто скажет тебе "просто полюби себя". Я знаю: проблема
+            глубже. Она в нейронных связях, которые формируются до 7 лет. Пока
+            ты пытаешься думать по-другому, мозг выбирает по-старому. Мой
+            протокол меняет не мысли. Он меняет саму программу выбора.»
           </p>
           <div class="trust-stats">
             <span class="trust-stat"><strong>5000+</strong> часов</span>
@@ -1550,101 +2291,75 @@
           </div>
         </div>
       </div>
-
       <div class="mini-reviews">
         <div class="mini-review">
           <div class="mini-review-name">Екатерина, 29 лет</div>
           <div class="mini-review-meta">Москва · за 5 сессий</div>
           <div class="mini-review-text">
-            «Покупка сессий — одна из лучших инвестиций всей моей жизни. Я не
-            ожидала таких быстрых результатов. На 3-й сессии мужчина подарил
-            браслет Cartier за 13 000€.»
+            «На третьей сессии я впервые поняла, почему выбирала мужчин-проекты.
+            Не потому что я глупая, а потому что я была запрограммирована
+            спасать. Когда я это увидела, я больше не могла не видеть.»
           </div>
         </div>
         <div class="mini-review">
           <div class="mini-review-name">Мария, 32 года</div>
           <div class="mini-review-meta">Дубай · за 1 месяц</div>
           <div class="mini-review-text">
-            «Была любовницей 3 года. Не верила, что заслуживаю нормальных
-            отношений. Через месяц после начала работы — встретила будущего
-            мужа. Через 3 месяца — свадьба.»
+            «Была любовницей 3 года. Не потому что не было вариантов, а потому
+            что недоступный мужчина был единственным типом, от которого я
+            чувствовала "любовь". Юлия показала мне, что это дофаминовая петля.
+            Через месяц я встретила мужа.»
           </div>
         </div>
         <div class="mini-review">
           <div class="mini-review-name">Алёна, 38 лет</div>
           <div class="mini-review-meta">Лондон · за 3 сессии</div>
           <div class="mini-review-text">
-            «Притягивала только абьюзеров. За 3 сессии — полностью пропал
-            интерес к токсичным мужчинам. Когда изменилась изнутри — пришли
-            совершенно другие мужчины.»
+            «Три одинаковых отношения подряд. Я думала, не везёт. Оказалось, я
+            была хамелеоном. Становилась удобной и притягивала тех, кому нужна
+            удобная. Когда стала собой, пришли другие мужчины.»
           </div>
         </div>
       </div>
-
       <div class="soft-cta">
         <p>
-          Твой сценарий реально можно изменить. Не надо пытаться менять мужчину
-          — начни с выбора других мужчин. У Юлии есть программа, которая делает
-          это за 41 день.
+          Твой сценарий реально можно изменить. Не надо пытаться менять мужчину.
+          Начни с выбора других мужчин. У Юлии есть протокол, который меняет
+          саму программу выбора.
         </p>
         <a href="https://t.me/lumen_bonus_bot?start=quiz" target="_blank"
           >Узнать подробнее в боте →</a
         >
-        >
       </div>
     </section>
 
-    <!-- ===== EXIT INTENT POPUP ===== -->
+    <!-- EXIT INTENT -->
     <div class="ei-overlay" id="eiOverlay">
       <div class="ei-popup">
         <button class="ei-close" onclick="closeEI()">✕</button>
-        <h3>Подожди —<br /><em>не уходи без бонусов</em></h3>
+        <h3>Подожди,<br /><em>ты почти узнала</em></h3>
         <p>
-          Ты можешь получить подробный разбор своей ситуации — анонимно и
-          бесплатно. Просто перейди в бот.
+          Большинство женщин повторяют один и тот же сценарий годами. Не потому
+          что глупые, а потому что не видят свой паттерн. 3 минуты, и ты увидишь
+          свой.
         </p>
-        <a
-          href="https://t.me/lumen_bonus_bot?start=exit"
-          target="_blank"
-          class="ei-btn"
-          onclick="closeEI()"
-        >
-          >Забрать бонусы бесплатно →</a
+        <a href="#" class="ei-btn" onclick="closeEI();startQuiz();"
+          >Пройти тест →</a
         >
         <button class="ei-skip" onclick="closeEI()">Нет, спасибо</button>
       </div>
     </div>
 
-    <!-- ===== TOAST ===== -->
-    <div class="toast" id="toast">✓ Ссылка скопирована — отправь подруге!</div>
+    <div class="toast" id="toast">✓ Ссылка скопирована, отправь подруге!</div>
 
-    <!-- ===== FOOTER ===== -->
     <footer>
       <p>© 2026 Юлия Люмен · Нейропсихолог</p>
       <p style="margin-top: 8px">
-        <a
-          href="oferta.html"
-          style="
-            color: var(--text-muted);
-            text-decoration: underline;
-            text-underline-offset: 2px;
-            font-size: 0.62rem;
-          "
-          >Публичная оферта</a
-        >
+        <a href="oferta.html">Публичная оферта</a>
         <span style="margin: 0 6px; color: #ddd">·</span>
-        <a
-          href="privacy.html"
-          style="
-            color: var(--text-muted);
-            text-decoration: underline;
-            text-underline-offset: 2px;
-            font-size: 0.62rem;
-          "
-          >Политика конфиденциальности</a
-        >
+        <a href="privacy.html">Политика конфиденциальности</a>
       </p>
-            <p
+      <p
         style="
           margin-top: 10px;
           font-size: 0.58rem;
@@ -1664,159 +2379,357 @@
     </footer>
 
     <script>
-            var T = 10;
-      var A = {};
-      var G = 0;
+      // ============ STATE ============
+      var ctx = "";
+      var axes = {
+        rescuer: 0,
+        pursuer: 0,
+        grayzone: 0,
+        chameleon: 0,
+        secure: 0,
+      };
+      var answered = {};
+      var qNum = 0;
+      var branch = "";
       var quizStarted = false;
       var quizFinished = false;
       var eiShown = false;
       var pageLoadTime = Date.now();
 
+      // ============ SCORING MAP ============
+      var scoring = {
+        "1a": { rescuer: 2 },
+        "1b": { pursuer: 2 },
+        "1c": { secure: 2 },
+        "2a": { chameleon: 2 },
+        "2b": { pursuer: 2 },
+        "2c": { secure: 2 },
+        "3a": { rescuer: 2 },
+        "3b": { grayzone: 2 },
+        "3c": { secure: 2 },
+        "4ra": { rescuer: 3 },
+        "4rb": { rescuer: 2, grayzone: 1 },
+        "4rc": { secure: 2, rescuer: 1 },
+        "5ra": { rescuer: 3 },
+        "5rb": { rescuer: 2, chameleon: 1 },
+        "5rc": { secure: 3 },
+        "6ra": { rescuer: 3 },
+        "6rb": { chameleon: 2, rescuer: 1 },
+        "6rc": { secure: 2 },
+        "7ra": { rescuer: 3 },
+        "7rb": { rescuer: 2, pursuer: 1 },
+        "7rc": { secure: 3 },
+        "4pa": { pursuer: 3 },
+        "4pb": { pursuer: 2, grayzone: 1 },
+        "4pc": { secure: 2, pursuer: 1 },
+        "5pa": { pursuer: 3 },
+        "5pb": { pursuer: 2, secure: 1 },
+        "5pc": { secure: 3 },
+        "6pa": { pursuer: 3 },
+        "6pb": { pursuer: 1, secure: 2 },
+        "6pc": { grayzone: 2 },
+        "7pa": { pursuer: 3 },
+        "7pb": { pursuer: 2, secure: 1 },
+        "7pc": { secure: 3 },
+        "4ga": { grayzone: 3 },
+        "4gb": { grayzone: 2, chameleon: 1 },
+        "4gc": { secure: 3 },
+        "5ga": { grayzone: 3 },
+        "5gb": { grayzone: 2, rescuer: 1 },
+        "5gc": { secure: 3 },
+        "6ga": { grayzone: 3 },
+        "6gb": { grayzone: 2, chameleon: 1 },
+        "6gc": { secure: 3 },
+        "7ga": { grayzone: 3 },
+        "7gb": { secure: 2, grayzone: 1 },
+        "7gc": { secure: 3 },
+        "4ca": { chameleon: 3 },
+        "4cb": { chameleon: 2, grayzone: 1 },
+        "4cc": { secure: 3 },
+        "5ca": { chameleon: 3 },
+        "5cb": { chameleon: 2, pursuer: 1 },
+        "5cc": { secure: 3 },
+        "6ca": { chameleon: 3 },
+        "6cb": { chameleon: 2, grayzone: 1 },
+        "6cc": { secure: 3 },
+        "7ca": { chameleon: 3 },
+        "7cb": { chameleon: 2, grayzone: 1 },
+        "7cc": { secure: 2 },
+        "4sa": { secure: 3 },
+        "4sb": { grayzone: 2, secure: 1 },
+        "4sc": { grayzone: 2 },
+        "5sa": { secure: 3 },
+        "5sb": { secure: 1, pursuer: 2 },
+        "5sc": { grayzone: 2, pursuer: 1 },
+        "6sa": { secure: 3 },
+        "6sb": { secure: 1, chameleon: 2 },
+        "6sc": { chameleon: 2, rescuer: 1 },
+        "7sa": { secure: 3 },
+        "7sb": { secure: 1, pursuer: 1, grayzone: 1 },
+        "7sc": { pursuer: 2, grayzone: 1 },
+        "8a": { pursuer: 2 },
+        "8b": { grayzone: 2 },
+        "8c": { secure: 2 },
+        "9a": { grayzone: 2, rescuer: 1 },
+        "9b": { pursuer: 2, rescuer: 1 },
+        "9c": { secure: 2 },
+        "10a": { pursuer: 2, rescuer: 1 },
+        "10b": { pursuer: 3 },
+        "10c": { secure: 3 },
+      };
+
+      // ============ BRANCH SEQUENCES ============
+      var branchSeq = {
+        rescuer: ["q4r", "q5r", "q6r", "q7r"],
+        pursuer: ["q4p", "q5p", "q6p", "q7p"],
+        grayzone: ["q4g", "q5g", "q6g", "q7g"],
+        chameleon: ["q4c", "q5c", "q6c", "q7c"],
+        secure: ["q4s", "q5s", "q6s", "q7s"],
+      };
+      var finalSeq = ["q8", "q9", "q10"];
+      var fullSeq = [];
+
+      // ============ RESULTS DATA ============
+      var results = {
+        rescuer: {
+          icon: "🩹",
+          name: "Спасательница",
+          cls: "rescuer",
+          desc: "Ты та, кто видит в мужчине не то, что есть, а то, чем он мог бы стать. Ты чувствуешь его боль раньше, чем он сам. Ты берёшь на себя его эмоции, его проблемы, его жизнь и называешь это любовью.\n\nНо вот правда, которую ты уже знаешь, но боишься произнести вслух: <strong>ты не выбираешь мужчин, которых нужно спасать, случайно. Ты выбираешь их, потому что в детстве научилась: любовь это когда ты нужна.</strong> Не когда тебя любят. А когда без тебя не справятся.\n\nЭто не слабость. Это выживание, которое ты освоила в 5 лет и продолжаешь использовать в 30. Но то, что спасало тогда, разрушает сейчас.\n\nТы заслуживаешь мужчину, который не нуждается в спасении. И ты заслуживаешь отношения, в которых можно быть слабой, не только сильной.",
+          ctx: {
+            new: "Ты ещё в начале, и это хорошая новость. Сейчас ты можешь увидеть то, что обычно замечаешь слишком поздно. Спроси себя честно: тебя тянет к нему или к его проблемам? Ты хочешь быть рядом или хочешь быть нужной? Если второе, это не про него. Это про твою программу. И её можно перепрошить до того, как ты снова провалишься.",
+            current:
+              "Ты сейчас внутри этих отношений. И, скорее всего, ты чувствуешь усталость, которую не можешь объяснить. Ты делаешь всё, а он вроде бы ценит, но ничего не меняется. Потому что пока ты спасаешь, ему не нужно взрослеть. Ты держишь его на плаву ценой собственного дна. Вопрос не «как ему помочь». Вопрос: кто поможет тебе?",
+            ex: "Он ушёл. Или ты ушла. Но внутри тебя до сих пор голос: «Может, я недостаточно старалась? Может, если бы я дала больше, он бы изменился?» Нет. Он бы не изменился. Потому что ты брала на себя его работу, и он это чувствовал. Освободись от вины. Ты дала достаточно. Пришло время дать себе.",
+          },
+        },
+        pursuer: {
+          icon: "🎯",
+          name: "Охотница за недоступным",
+          cls: "pursuer",
+          desc: "Ты влюбляешься не в мужчину. Ты влюбляешься в ощущение погони. В момент, когда он наконец пишет после двух дней молчания. В секунду, когда его холод сменяется теплом, и всё тело выдыхает.\n\nТы путаешь тревогу с любовью. <strong>Когда колотит сердце, тебе кажется, что это страсть. Но это не страсть. Это твоя нервная система, которая узнала знакомый паттерн: «Меня не выбирают. Значит, нужно стараться сильнее.»</strong>\n\nЭтот механизм сформировался задолго до него. В детстве ты усвоила: любовь это то, что нужно заслужить. Добиться. Дождаться. И когда рядом оказывается мужчина, который просто рядом, тебе скучно. Потому что спокойствие не похоже на любовь. Оно похоже на пустоту.\n\nНо это не пустота. Это безопасность. Ты просто пока не умеешь её узнавать.",
+          ctx: {
+            new: "Ты на пороге. И прямо сейчас внутри тебя борются два голоса. Один говорит: «Он особенный. С ним другое.» Второй шепчет: «Ты опять.» Послушай второй. Не потому что он прав, а потому что первый голос тебя обманывал уже не раз. Если мужчина заставляет тебя гадать, это не интрига. Это информация.",
+            current:
+              "Ты внутри качелей прямо сейчас. И ты знаешь это, иначе не проходила бы тест. Самое страшное не уйти. Самое страшное признать, что то, что ты чувствуешь, это не любовь. Это зависимость от его одобрения. Он не плохой человек. Но он даёт тебе ровно столько, чтобы ты осталась, и ровно мало, чтобы ты голодала. Ты заслуживаешь отношения, в которых не нужно ждать.",
+            ex: "Он в прошлом, но его призрак до сих пор в твоей голове. Ты прокручиваешь моменты, когда было хорошо. Забываешь те, когда было плохо. Идеализируешь человека, который давал тебе крохи. Это не любовь, это нейронная петля. Твой мозг привык к дофаминовым качелям и теперь скучает по ним. Это пройдёт. Но только если ты перестанешь кормить эту петлю воспоминаниями.",
+          },
+        },
+        grayzone: {
+          icon: "🌫",
+          name: "Серая зона",
+          cls: "grayzone",
+          desc: "Ты не с плохим мужчиной. Ты не с хорошим. Ты с непонятным.\n\nОн не бьёт, не кричит, не исчезает на неделю. Но после встречи с ним ты не можешь понять, тебе было хорошо или плохо. Он говорит правильные слова, но что-то не складывается. Как пазл, в котором все детали на месте, а картинка не собирается.\n\n<strong>Серая зона — самое опасное место в отношениях.</strong> Потому что нет «конкретной причины» уйти. Нет скандала, нет драмы, нет очевидного зла. Есть только тихое, ноющее чувство: «Что-то не так. Но я не могу объяснить что.»\n\nИ ты остаёшься. Потому что уйти «просто потому что чувствую» кажется глупым, капризным, неблагодарным. Тебя научили: если нет конкретной причины, терпи. Но чувство и есть причина. Твоё тело знает раньше, чем голова.",
+          ctx: {
+            new: "Ты ещё не глубоко. И сейчас лучший момент, чтобы прислушаться к тому, что ты чувствуешь. Не к тому, что он говорит. Не к тому, как он выглядит. А к тому, что поднимается в тебе после каждой встречи. Если ты не можешь ответить подруге «да, мне хорошо» без оговорок, без «но», без «ну, в целом», это ответ. Не подвох. Не паранойя. Ответ.",
+            current:
+              "Ты живёшь в тумане. И худшее в тумане не то, что не видно дорогу. А то, что начинаешь верить, будто тумана нет. Что это нормально не понимать, хорошо тебе или плохо. Это не нормально. В здоровых отношениях ты знаешь. Не потому что всё идеально, а потому что ясно. Если ты месяцами не можешь понять, счастлива ли ты, ты не счастлива.",
+            ex: "Он ушёл. Или ты ушла. Но ты до сих пор не уверена, правильно ли. Потому что он не был «плохим». И ты не можешь объяснить, почему тебе было так тяжело. Тебе кажется, что ты преувеличиваешь. Ты не преувеличиваешь. Серая зона оставляет раны, которые не видно, но которые болят не меньше. Разреши себе признать: то, что было, было не ок. Даже если на бумаге выглядело нормально.",
+          },
+        },
+        chameleon: {
+          icon: "🦎",
+          name: "Хамелеон",
+          cls: "chameleon",
+          desc: "Ты умеешь стать идеальной. Для любого. Весёлой, если ему нравятся весёлые. Серьёзной, если ценит глубину. Лёгкой, если боится обязательств. Ты считываешь, что ему нужно, и становишься этим. Быстро, плавно, почти незаметно.\n\nПроблема не в том, что ты это умеешь. Проблема в том, что <strong>ты не знаешь, кто ты без него.</strong> Когда отношения заканчиваются, ты остаёшься не с разбитым сердцем, а с ощущением, что тебя нет. Как будто он забрал ту версию тебя, которую ты под него построила. А настоящую ты где-то потеряла.\n\nЭто началось задолго до него. В детстве ты научилась: быть собой опасно. За настоящую тебя могут не полюбить. За удобную полюбят. И ты выбрала быть удобной. Каждый раз. С каждым мужчиной.\n\nТы не удобная. Ты живая. С углами, с характером, с «нет». И мужчина, которому нужна ты настоящая, не испугается этого. Он этого ждёт.",
+          ctx: {
+            new: "Прямо сейчас ты, скорее всего, уже начала подстраиваться. Ты уже заметила, что ему нравится, и уже скорректировала. Может, убрала яркость. Может, добавила мягкость. Может, перестала говорить «я хочу» и начала говорить «как тебе удобно». Заметь это. Не ругай себя, просто заметь. Это первый шаг к тому, чтобы остаться собой.",
+            current:
+              "Задай себе вопрос: он влюбился в тебя или в ту, которой ты стала для него? Если ты уберёшь подстройку, если начнёшь говорить «нет», если покажешь свои настоящие эмоции, он останется? Если ты не уверена, это не про него. Это про то, что фундамент ваших отношений построен на версии тебя, которая не существует.",
+            ex: "После расставания ты, наверное, долго собирала себя. Не потому что скучала по нему, а потому что не понимала, какая ты без него. Его мнения стали твоими. Его вкусы стали твоими. Его мир стал твоим. И когда он ушёл, мир обвалился. Но это не потеря любви. Это потеря идентичности. И восстановить её важнее, чем найти нового мужчину.",
+          },
+        },
+        secure: {
+          icon: "✨",
+          name: "Открытые глаза",
+          cls: "secure",
+          desc: "Ты видишь. Не идеализируешь, не обесцениваешь, не додумываешь за него. Ты смотришь на мужчину и видишь человека. С его плюсами, его ограничениями, его реальностью.\n\nЭто не значит, что у тебя нет слепых зон. Не значит, что ты не ошибаешься. Но это значит, что <strong>ты не путаешь тревогу с любовью, нужду с близостью, а боль со страстью.</strong>\n\nТы в редком месте. Большинство женщин годами учатся тому, что ты уже умеешь или начала уметь. Ты доверяешь своим ощущениям. Ты знаешь, что «спокойно» это не «скучно». Ты можешь сказать «нет», и мир не рухнет.\n\nНо вот что важно: даже у тебя есть точки, в которых старые программы могут включиться. Стресс, усталость, одиночество, и вдруг ты ловишь себя на мысли, которая пришла не из тебя сегодняшней, а из тебя той, пятнадцатилетней. Не теряй бдительность. Ясность — это не данность. Это практика.",
+          ctx: {
+            new: "Ты смотришь на него без розовых очков, и это прекрасно. Но убедись, что ты смотришь без чёрных тоже. Иногда женщины, которые уже прошли через боль, начинают перестраховываться и видят красные флаги там, где их нет. Теперь ты можешь выбирать с открытыми глазами. Дай ему шанс показать, кто он. Не додумывай. Наблюдай.",
+            current:
+              "Ты в отношениях, и тебе в них спокойно. А тебе действительно комфортно, когда так? Если да, цени это. Не потому что «могло быть хуже». А потому что ты это создала своим выбором, своей ясностью, своей работой над собой. Единственный риск сейчас — привычка. Когда хорошо становится «нормально», легко перестать вкладываться. Не переставай.",
+            ex: "Ты прошла через это и вышла с ясностью. Это дорогого стоит. Ты знаешь, чего не хочешь. Так быть не должно, и ты это поняла. Теперь время понять, чего хочешь. Не от мужчины. От жизни. Потому что когда женщина знает, куда она идёт, правильный мужчина не ищется. Он появляется.",
+          },
+        },
+      };
+
+      // ============ FUNCTIONS ============
       function startQuiz() {
         quizStarted = true;
         document.getElementById("hero").style.display = "none";
-        var quizEl = document.getElementById("quiz");
-        quizEl.style.display = "block";
+        var q = document.getElementById("quiz");
+        q.style.display = "block";
         setTimeout(function () {
-          quizEl.scrollIntoView({ behavior: "smooth", block: "start" });
+          q.scrollIntoView({ behavior: "smooth", block: "start" });
         }, 50);
       }
 
-      function ans(n, type, el) {
-        if (A[n]) return;
-        A[n] = type;
-        G = 0;
-        for (var k in A) {
-          if (A[k] === "green") G++;
-        }
-        document.getElementById("pScore").textContent = G + " 🟢";
-
-        var card = document.getElementById("q" + n);
-        var opts = card.querySelectorAll(".q-opt");
-        for (var i = 0; i < opts.length; i++) {
-          opts[i].classList.add("disabled");
-        }
-        el.classList.remove("disabled");
-        el.classList.add(type === "green" ? "sel-green" : "sel-red");
-
-        setTimeout(function () {
-          if (n < T) {
-            goTo(n + 1);
-          } else {
-            showResult();
-          }
-        }, 400);
+      function setContext(c) {
+        ctx = c;
+        document.getElementById("ctxCard").classList.remove("active");
+        document.getElementById("ctxCard").style.display = "none";
+        qNum = 1;
+        updateProgress();
+        showCard("q1");
       }
 
-      function goTo(n) {
-        for (var i = 1; i <= T; i++) {
-          var c = document.getElementById("q" + i);
-          if (c) c.classList.remove("active");
+      function showCard(id) {
+        var all = document.querySelectorAll(".q-card");
+        for (var i = 0; i < all.length; i++) all[i].classList.remove("active");
+        var card = document.getElementById(id);
+        if (card) {
+          card.classList.add("active");
+          setTimeout(function () {
+            document
+              .getElementById("quiz")
+              .scrollIntoView({ behavior: "smooth", block: "start" });
+          }, 50);
         }
-        var next = document.getElementById("q" + n);
-        if (next) next.classList.add("active");
+      }
 
-        document.getElementById("pCur").textContent = n;
+      function updateProgress() {
+        document.getElementById("pCur").textContent = qNum;
         document.getElementById("pFill").style.width =
-          ((n - 1) / T) * 100 + "%";
+          ((qNum - 1) / 10) * 100 + "%";
+      }
 
-        if (n === 5) {
-          var nudge = document.getElementById("midNudge");
-          if (nudge) nudge.style.display = "block";
+      function determineBranch() {
+        var max = 0;
+        var winner = "grayzone";
+        for (var k in axes) {
+          if (axes[k] > max) {
+            max = axes[k];
+            winner = k;
+          }
+        }
+        return winner;
+      }
+
+      function ans(qId, choice, el) {
+        if (answered[qId] !== undefined) return;
+        answered[qId] = choice;
+
+        var key = "" + qId + choice;
+
+        var s = scoring[key];
+        if (s) {
+          for (var k in s) axes[k] += s[k];
         }
 
-        document
-          .getElementById("quiz")
-          .scrollIntoView({ behavior: "smooth", block: "start" });
+        var card = el.closest(".q-card");
+        var opts = card.querySelectorAll(".q-opt");
+        for (var i = 0; i < opts.length; i++) opts[i].classList.add("disabled");
+        el.classList.remove("disabled");
+        el.classList.add("selected");
+
+        if (qNum === 5) {
+          var nudges = card.querySelectorAll(".q-nudge");
+          for (var j = 0; j < nudges.length; j++)
+            nudges[j].style.display = "block";
+        }
+
+        setTimeout(function () {
+          if (qNum < 3) {
+            qNum++;
+            updateProgress();
+            showCard("q" + qNum);
+            return;
+          }
+
+          if (qNum === 3) {
+            qNum = 4;
+            updateProgress();
+            branch = determineBranch();
+            fullSeq = branchSeq[branch].concat(finalSeq);
+            showCard(fullSeq[0]);
+            return;
+          }
+
+          if (qNum >= 4 && qNum < 10) {
+            qNum++;
+            updateProgress();
+            var idx = qNum - 4;
+            if (idx < fullSeq.length) {
+              showCard(fullSeq[idx]);
+            }
+            return;
+          }
+
+          if (qNum === 10) {
+            qNum++;
+            showResult();
+          }
+        }, 500);
       }
 
       function showResult() {
         quizFinished = true;
-
-        for (var i = 1; i <= T; i++) {
-          var c = document.getElementById("q" + i);
-          if (c) c.classList.remove("active");
-        }
-
         document.getElementById("qProgress").style.display = "none";
 
+        var all = document.querySelectorAll(".q-card");
+        for (var i = 0; i < all.length; i++) all[i].classList.remove("active");
+
+        var winner = determineBranch();
+        var r = results[winner];
+
         setTimeout(function () {
-          var r = document.getElementById("qResult");
-          r.classList.add("active");
+          var el = document.getElementById("qResult");
+          el.classList.add("active");
 
-          document.getElementById("resScore").textContent = G;
-
-          var title, desc, personal;
-
-          if (G >= 8) {
-            title = "Высокий уровень зрелости";
-            desc =
-              "У тебя " +
-              G +
-              " из 10 зелёных маркеров — это редкость. Перед тобой мужчина, который уже готов к серьёзным отношениям.";
-            personal =
-              "<p>Ты — <em>одна из немногих</em>, кто выбирает осознанно. Но даже в этой ситуации есть риск — <strong>саботировать хорошее своими старыми программами</strong>.</p><p>В бонусах — как не упустить то, что уже есть.</p>";
-          } else if (G >= 5) {
-            title = "Есть потенциал — но есть и слепые зоны";
-            desc =
-              "У тебя " +
-              G +
-              " из 10 зелёных маркеров. Есть зоны, которые стоит прояснить до того, как вложишь ещё больше времени и сердца.";
-            personal =
-              "<p>Ты видишь часть картины, но <strong>не всю</strong>. И именно в этих слепых зонах обычно прячется то, что потом причиняет боль.</p><p>В бонусах — разбор каждого маркера + техника, которая помогает <em>увидеть то, что мозг прячет</em>.</p>";
-          } else {
-            title = "Похоже на повторяющийся сценарий";
-            desc =
-              "У тебя " +
-              G +
-              " из 10 зелёных маркеров. Это не приговор — это сигнал. Скорее всего, дело не в нём, а в нейронной программе.";
-            personal =
-              "<p>Ты снова и снова выбираешь похожих мужчин — и это <strong>не случайность</strong>. Это нейронный паттерн, который работает на автомате.</p><p>Хорошая новость: его можно перепрошить. В бонусах — <em>первый шаг к этому</em>.</p>";
-          }
-
-          document.getElementById("resTitle").textContent = title;
-          document.getElementById("resDesc").textContent = desc;
-          document.getElementById("resPersonal").innerHTML = personal;
+          document.getElementById("resIcon").textContent = r.icon;
+          document.getElementById("resTypeName").textContent = r.name;
+          document.getElementById("resHeader").className =
+            "res-type-header " + r.cls;
+          document.getElementById("resDesc").innerHTML = r.desc.replace(
+            /\n/g,
+            "<br>"
+          );
+          document.getElementById("resPersonal").innerHTML =
+            "<p>" + r.ctx[ctx] + "</p>";
+          document.getElementById("botBtn").href =
+            "https://t.me/lumen_bonus_bot?start=quiz_" + winner + "_" + ctx;
 
           document.getElementById("trustBlock").style.display = "block";
-
           updateLiveCount();
 
           setTimeout(function () {
-            r.scrollIntoView({ behavior: "smooth", block: "start" });
+            el.scrollIntoView({ behavior: "smooth", block: "start" });
           }, 50);
-        }, 150);
+        }, 200);
       }
 
       function restart() {
-        G = 0;
+        axes = { rescuer: 0, pursuer: 0, grayzone: 0, chameleon: 0, secure: 0 };
+        answered = {};
+        qNum = 0;
+        branch = "";
+        fullSeq = [];
         quizFinished = false;
-        for (var k in A) {
-          if (A.hasOwnProperty(k)) delete A[k];
-        }
+        ctx = "";
 
-        document.getElementById("pScore").textContent = "0 🟢";
-        document.getElementById("pCur").textContent = "1";
+        document.getElementById("pCur").textContent = "0";
         document.getElementById("pFill").style.width = "0%";
         document.getElementById("qProgress").style.display = "block";
 
-        var nudge = document.getElementById("midNudge");
-        if (nudge) nudge.style.display = "none";
-
-        for (var i = 1; i <= T; i++) {
-          var card = document.getElementById("q" + i);
-          if (card) {
-            card.classList.remove("active");
-            var opts = card.querySelectorAll(".q-opt");
-            for (var j = 0; j < opts.length; j++) {
-              opts[j].classList.remove("sel-green", "sel-red", "disabled");
-            }
+        var cards = document.querySelectorAll(".q-card");
+        for (var i = 0; i < cards.length; i++) {
+          cards[i].classList.remove("active");
+          var opts = cards[i].querySelectorAll(".q-opt");
+          for (var j = 0; j < opts.length; j++) {
+            opts[j].classList.remove("selected", "disabled");
           }
         }
+        var nudges = document.querySelectorAll(".q-nudge");
+        for (var n = 0; n < nudges.length; n++)
+          nudges[n].style.display = "none";
 
         document.getElementById("qResult").classList.remove("active");
         document.getElementById("trustBlock").style.display = "none";
-        document.getElementById("q1").classList.add("active");
+
+        var ctxCard = document.getElementById("ctxCard");
+        ctxCard.style.display = "";
+        ctxCard.classList.add("active");
+
         document
           .getElementById("quiz")
           .scrollIntoView({ behavior: "smooth", block: "start" });
@@ -1825,12 +2738,11 @@
       function shareTest() {
         var url = window.location.origin + window.location.pathname;
         var text =
-          "Проверь его ещё до того, как сердце скажет «да». 10 маркеров зрелого мужчины — бесплатный тест за 3 минуты:";
-
+          "Почему ты снова выбираешь не того? Бесплатный тест от нейропсихолога. 10 вопросов, 5 типов результата:";
         if (navigator.share) {
           navigator
             .share({
-              title: "Он точно готов — или снова кажется?",
+              title: "Почему ты снова выбираешь не того?",
               text: text,
               url: url,
             })
@@ -1849,15 +2761,18 @@
       function updateLiveCount() {
         var el = document.getElementById("liveCount");
         if (!el) return;
-        var num = Math.floor(Math.random() * 6) + 3;
-        el.textContent = num;
-        var next = (Math.floor(Math.random() * 16) + 15) * 1000;
-        setTimeout(updateLiveCount, next);
+        el.textContent = Math.floor(Math.random() * 6) + 3;
+        setTimeout(
+          updateLiveCount,
+          (Math.floor(Math.random() * 16) + 15) * 1000
+        );
       }
 
-      // ========================================
-      // EXIT INTENT
-      // ========================================
+      function trackBot() {
+        console.log("bot_click_" + determineBranch() + "_" + ctx);
+      }
+
+      // ============ EXIT INTENT ============
       function canShowEI() {
         if (eiShown) return false;
         if (sessionStorage.getItem("eiDismissed")) return false;
@@ -1866,62 +2781,45 @@
         if (Date.now() - pageLoadTime < 10000) return false;
         return true;
       }
-
       function showEI() {
         if (!canShowEI()) return;
         document.getElementById("eiOverlay").classList.add("show");
         eiShown = true;
       }
-
       function closeEI() {
         document.getElementById("eiOverlay").classList.remove("show");
         sessionStorage.setItem("eiDismissed", "1");
       }
-
       document.addEventListener("mouseleave", function (e) {
-        if (e.clientY <= 10 && window.innerWidth > 768) {
-          showEI();
-        }
+        if (e.clientY <= 10 && window.innerWidth > 768) showEI();
       });
-
-      if (window.innerWidth <= 768) {
+      if (window.innerWidth <= 768)
         setTimeout(function () {
           showEI();
         }, 90000);
-      }
-
       document.addEventListener("click", function (e) {
         if (e.target === document.getElementById("eiOverlay")) closeEI();
       });
-
       document.addEventListener("keydown", function (e) {
         if (e.key === "Escape") closeEI();
       });
 
-      function trackBot() {
-        console.log("bot_click");
+      // ============ COOKIE ============
+      if (!localStorage.getItem("cookiesAccepted")) {
+        setTimeout(function () {
+          document.getElementById("cookieBanner").classList.add("show");
+        }, 1500);
+      }
+      function acceptCookies() {
+        localStorage.setItem("cookiesAccepted", "1");
+        document.getElementById("cookieBanner").classList.remove("show");
       }
 
+      // ============ URL PARAM ============
       if (window.location.search.indexOf("start=test") > -1) {
         window.addEventListener("load", function () {
           setTimeout(startQuiz, 300);
         });
-      }
-
-      // ========================================
-      // COOKIE BANNER
-      // ========================================
-      (function () {
-        if (!localStorage.getItem("cookiesAccepted")) {
-          setTimeout(function () {
-            document.getElementById("cookieBanner").classList.add("show");
-          }, 1500);
-        }
-      })();
-
-      function acceptCookies() {
-        localStorage.setItem("cookiesAccepted", "1");
-        document.getElementById("cookieBanner").classList.remove("show");
       }
     </script>
   </body>
