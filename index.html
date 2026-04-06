@@ -551,6 +551,42 @@
         color: var(--accent);
         font-weight: 600;
       }
+      .res-cta-mid {
+        margin: 20px 28px 0;
+        padding: 20px 24px;
+        background: var(--bg);
+        border-radius: 10px;
+        text-align: center;
+      }
+      .res-cta-mid p {
+        font-size: 0.82rem;
+        color: var(--text);
+        line-height: 1.7;
+        margin-bottom: 14px;
+      }
+      .btn-bot-inline {
+        background: var(--accent);
+        color: #fff;
+        border: none;
+        padding: 14px 36px;
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
+        cursor: pointer;
+        border-radius: 60px;
+        transition: all 0.3s;
+        font-family: "Inter", sans-serif;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .btn-bot-inline:hover {
+        background: var(--accent-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(212, 87, 74, 0.3);
+      }
       .res-hook {
         font-size: 0.82rem;
         color: var(--text-light);
@@ -1102,6 +1138,10 @@
           margin: 16px 20px 0;
           padding: 16px 18px;
         }
+        .res-cta-mid {
+          margin: 16px 20px 0;
+          padding: 16px 18px;
+        }
         .res-hook {
           margin: 16px 20px 0;
           padding: 14px 16px;
@@ -1165,14 +1205,14 @@
     </div>
 
     <section class="hero" id="hero">
-      <div class="hero-badge">✦ Тест · 3 минуты</div>
+      <div class="hero-badge">Тест · 3 минуты</div>
       <h1>Он точно готов —<em>или снова кажется?</em></h1>
       <p class="hero-sub">
         Эти 10 признаков видны с первой встречи — но почти никто их не замечает.
       </p>
       <div class="hero-features">
-        <span class="hero-feat">🔒 Анонимно</span>
-        <span class="hero-feat">🎁 Бонус в конце</span>
+        <span class="hero-feat">Анонимно</span>
+        <span class="hero-feat">Бонус в конце</span>
       </div>
       <div class="hero-pain">
         Почти каждая влюблялась не в того хотя бы раз. Но есть способ увидеть
@@ -1191,7 +1231,7 @@
           </div>
         </div>
       </div>
-      <button class="btn-start" onclick="startQuiz()">Пройти тест →</button>
+      <button class="btn-start" onclick="startQuiz()">Пройти тест</button>
       <div class="hero-note">Без регистрации · Результат сразу</div>
       <div class="hero-why">
         Лучше 3 минуты сейчас, чем год на восстановление
@@ -1212,6 +1252,7 @@
           </div>
         </div>
 
+        <!-- CONTEXT -->
         <div class="q-context-card active" id="ctxCard">
           <div class="q-context-title">
             Подумай о мужчине, которого хочешь проверить.
@@ -1222,7 +1263,7 @@
           </div>
           <div class="q-context-options">
             <div class="q-ctx-opt" onclick="setContext('new')">
-              <span class="q-ctx-icon">💫</span>
+              <span class="q-ctx-icon">&#10024;</span>
               <div>
                 <div class="q-ctx-text">Новый знакомый</div>
                 <div class="q-ctx-desc">
@@ -1231,19 +1272,10 @@
               </div>
             </div>
             <div class="q-ctx-opt" onclick="setContext('current')">
-              <span class="q-ctx-icon">💑</span>
+              <span class="q-ctx-icon">&#9829;</span>
               <div>
                 <div class="q-ctx-text">Мой мужчина</div>
                 <div class="q-ctx-desc">Вы вместе, но что-то не даёт покоя</div>
-              </div>
-            </div>
-            <div class="q-ctx-opt" onclick="setContext('ex')">
-              <span class="q-ctx-icon">💔</span>
-              <div>
-                <div class="q-ctx-text">Бывший</div>
-                <div class="q-ctx-desc">
-                  Всё закончилось, но хочу разобраться
-                </div>
               </div>
             </div>
           </div>
@@ -1262,21 +1294,21 @@
               <div class="q-opt-text">
                 Начал говорить с раздражением: она неадекватная, он всё делал, а
                 она не ценила. Виновата только она. И тебе стало как-то не по
-                себе от того, как он о ней говорит 😬
+                себе от того, как он о ней говорит.
               </div>
             </div>
             <div class="q-opt" onclick="ans(1,'green',this)">
               <div class="q-opt-text">
-                Сказал спокойно: не сложилось, хотели разного. Без обвинений,
-                без долгих объяснений. Перевёл тему, и ты не почувствовала ни
-                злости, ни тоски в его голосе.
+                Сказал спокойно, что не сложилось. Нет никаких обвинений,
+                сожалений. Возможно, сказал, что благодарен ей, но пути
+                разошлись. И перевёл тему. История закончена. Он живёт дальше.
               </div>
             </div>
             <div class="q-opt" onclick="ans(1,'yellow',this)">
               <div class="q-opt-text">
                 Рассказал подробно и даже признал свою вину. Но тема затянулась,
                 и ты поймала себя на мысли, что он говорит об этом слишком
-                вовлечённо. Вроде всё правильно, а осадок остался 🤔
+                вовлечённо. Вроде всё правильно, а осадок остался.
               </div>
             </div>
           </div>
@@ -1304,7 +1336,7 @@
               <div class="q-opt-text">
                 «Давай на связи» и всё. Может написать за час, что не получится.
                 Или вообще не написать. Ты каждый раз не знаешь, будет встреча
-                или нет, и уже устала от этого 😤
+                или нет, и уже устала от этого.
               </div>
             </div>
             <div class="q-opt" onclick="ans(2,'green',this)">
@@ -1332,21 +1364,21 @@
               <div class="q-opt-text">
                 Обрадовался и сразу предложил время. А если среда не подходит,
                 сам назвал другой день, потому что хочет увидеться. Ты
-                чувствуешь, что встреча с тобой для него важна 🥰
+                чувствуешь, что встреча с тобой для него важна.
               </div>
             </div>
             <div class="q-opt" onclick="ans(3,'red',this)">
               <div class="q-opt-text">
                 «На неделе вряд ли, может в выходные» и тишина. Ты уже привыкла
                 не предлагать. Проще подождать, пока он сам напишет, когда ему
-                удобно 😔
+                удобно.
               </div>
             </div>
             <div class="q-opt" onclick="ans(3,'yellow',this)">
               <div class="q-opt-text">
                 Сказал, что попробует, но точно не знает. Не отказал, но и не
                 подтвердил. Знакомое ощущение: вроде не отказал, а ты всё равно
-                подвисла 🫠
+                подвисла.
               </div>
             </div>
           </div>
@@ -1365,9 +1397,9 @@
           <div class="q-options">
             <div class="q-opt" onclick="ans(4,'yellow',this)">
               <div class="q-opt-text">
-                Видно, что напрягся и немного раздражён, но сдержался. Попросил
-                заменить чуть суше, чем обычно. Ничего страшного, но ты
-                заметила, что его это задело.
+                Вежливо высказал недовольство. Попросил заменить заказ, но ты
+                почувствовала в нём сдерживаемое раздражение. Ты поняла, что это
+                его задело. Ты тоже почувствовала дискомфорт.
               </div>
             </div>
             <div class="q-opt" onclick="ans(4,'green',this)">
@@ -1379,9 +1411,10 @@
             </div>
             <div class="q-opt" onclick="ans(4,'red',this)">
               <div class="q-opt-text">
-                Закатил глаза или тяжело вздохнул. Или стал подчёркнуто
-                вежливым, как будто делает одолжение. Тебе стало неловко и
-                захотелось, чтобы этот момент поскорее закончился 😣
+                Открыто выразил своё недовольство. Оскорбил официанта, повысил
+                голос, начал возмущаться, что никто не умеет нормально работать.
+                Ты почувствовала неловкость. Хотелось, чтобы эта ситуация
+                поскорее закончилась.
               </div>
             </div>
           </div>
@@ -1396,23 +1429,24 @@
           <div class="q-options">
             <div class="q-opt" onclick="ans(5,'red',this)">
               <div class="q-opt-text">
-                Или постоянно рассказывает, сколько что стоит и куда потратил.
-                Или наоборот, при упоминании денег закрывается и напрягается.
-                Тема денег с ним всегда непростая.
+                Он или постоянно рассказывает, сколько что стоит и куда
+                потратил. Или наоборот, при упоминании денег закрывается и
+                напрягается. Тема денег с ним всегда непростая.
               </div>
             </div>
             <div class="q-opt" onclick="ans(5,'yellow',this)">
               <div class="q-opt-text">
-                В целом нормально, но иногда проскальзывает: то про дорогую
-                покупку, то куда летал. Не грубо, но ты замечаешь, что ему
-                хочется, чтобы ты оценила.
+                Платит за тебя, но делает это демонстративно, подчеркивает
+                сколько он потратил. Любит рассказать о своих дорогих покупках,
+                или статусных знакомых.
               </div>
             </div>
             <div class="q-opt" onclick="ans(5,'green',this)">
               <div class="q-opt-text">
-                Спокоен. Не хвастается, не жалуется. Просто платит или
-                предлагает разделить, и в этом нет никакой драмы. Деньги для
-                него не способ впечатлить и не больная тема.
+                Спокойно относится к деньгам. Нужно платить-платит. Считает, что
+                покупка бессмысленная, спокойно об этом говорит и предлагает
+                альтернативу. Не обсуждает свой, или чей-то доход. Деньги для
+                него-это инструмент, а не способ понравиться
               </div>
             </div>
           </div>
@@ -1440,7 +1474,7 @@
               <div class="q-opt-text">
                 Через пару минут уже придумал, куда поехать. Для него это не
                 катастрофа, а приключение. Вечер пошёл по-другому и оказалось
-                даже лучше 🌈
+                даже лучше.
               </div>
             </div>
             <div class="q-opt" onclick="ans(6,'yellow',this)">
@@ -1453,7 +1487,7 @@
               <div class="q-opt-text">
                 Замолчал или начал раздражаться. И ты вдруг почувствовала, что
                 теперь тебе нужно спасать этот вечер. Виноват вроде дождь, а
-                ощущение такое, как будто виновата ты 😞
+                ощущение такое, как будто виновата ты.
               </div>
             </div>
           </div>
@@ -1473,23 +1507,24 @@
           <div class="q-options">
             <div class="q-opt" onclick="ans(7,'red',this)">
               <div class="q-opt-text">
-                После твоего «нет» всё изменилось. Пауза, холодный взгляд или
-                колкая шутка. И каждый раз после отказа тебе почему-то хочется
-                извиниться 💔
+                Тебе сложно сказать ему нет. После твоего « нет», он делает
+                что-то такое, что ты чувствуешь себя виноватой. Лучше
+                согласиться на его предложение, которое тебе не нравится, либо,
+                не вовремя, чем портить отношения.
               </div>
             </div>
             <div class="q-opt" onclick="ans(7,'green',this)">
               <div class="q-opt-text">
-                Сказал «хорошо» и пошёл дальше. Без обиды, без холода, без
-                намёков. Ты сказала «нет» и ничего не сломалось. Ты
-                почувствовала себя в безопасности 🤍
+                Он сказал хорошо, и спросил, а как ты хочешь? Либо, сам
+                предложил альтернативу. Ты с ним можешь спокойно говорить о
+                своих чувствах и желаниях, и чувствуешь себя в безопасности
               </div>
             </div>
             <div class="q-opt" onclick="ans(7,'yellow',this)">
               <div class="q-opt-text">
-                Сказал «ладно», но ты почувствовала, что что-то изменилось. Не
-                давит, но в воздухе повисло напряжение. И ты ловишь себя на
-                мысли: может, лучше было согласиться?
+                Он ответил « ладно», но какое-то напряжение повисло в воздухе. И
+                ты думаешь, может, лучше бы я согласилась? Лёгкое чувство
+                досады, и ощущение что ты наклсячила.
               </div>
             </div>
           </div>
@@ -1517,13 +1552,13 @@
               <div class="q-opt-text">
                 Дослушал до середины и перешёл к себе: «А у меня было
                 похожее...» Дальше полчаса про него. Ты так и не договорила свою
-                историю 🙄
+                историю.
               </div>
             </div>
             <div class="q-opt" onclick="ans(8,'green',this)">
               <div class="q-opt-text">
                 Молча слушает, не перебивает. А потом спрашивает: «И как ты с
-                этим?» Тебе не нужно просить его выслушать, он и так рядом 💛
+                этим?» Тебе не нужно просить его выслушать, он и так рядом.
               </div>
             </div>
           </div>
@@ -1551,7 +1586,7 @@
               <div class="q-opt-text">
                 Говорил минут пятнадцать, а ты сидела одна. Или вообще не берёт
                 трубку, и по голосу слышно, что мама для него болезненная и
-                нерешённая тема 😟
+                нерешённая тема.
               </div>
             </div>
             <div class="q-opt" onclick="ans(9,'yellow',this)">
@@ -1585,18 +1620,19 @@
               <div class="q-opt-text">
                 Спокойно говорит о вещах, в которых ты есть. «Летом покажу тебе
                 одно место», «В следующие выходные пойдём туда-то». Ты
-                чувствуешь, что ты в его жизни не на один вечер 💕
+                чувствуешь, что ты в его жизни не на один вечер.
               </div>
             </div>
             <div class="q-opt" onclick="ans(10,'red',this)">
               <div class="q-opt-text">
                 «Зачем загадывать? Давай просто наслаждаться.» Красиво звучит.
                 Но три месяца вместе, а дальше субботы вы ничего не обсуждали. И
-                ты чувствуешь, что для него это «момент», а не отношения 🥀
+                ты чувствуешь, что для него это «момент», а не отношения.
               </div>
             </div>
           </div>
         </div>
+
         <!-- RESULT -->
         <div class="q-result" id="qResult">
           <div class="res-card">
@@ -1606,50 +1642,70 @@
               <div class="res-title" id="resTitle"></div>
               <p class="res-desc" id="resDesc"></p>
             </div>
+
             <div class="res-personal" id="resPersonal"></div>
-            <div class="res-hook">
-              Ты увидела счёт. Но самое важное — понять
-              <strong>почему</strong> ты выбираешь именно так и что с этим
-              делать.
-              <span class="res-hook-bridge"
-                >Знать маркеры — это 20%. Остальные 80% — изменить саму
-                программу выбора ↓</span
+
+            <!-- CTA 1 — сразу после персонального текста -->
+            <div class="res-cta-mid">
+              <p>
+                Получи полную расшифровку всех паттернов поведения и определись,
+                стоит ли работать над этими отношениями, или лучше не тратить
+                ещё один год впустую.
+              </p>
+              <a
+                href="#"
+                target="_blank"
+                class="btn-bot-inline"
+                id="botBtn1"
+                onclick="trackBot()"
               >
+                Получить расшифровку
+              </a>
             </div>
+
+            <div class="res-hook">
+              <span class="res-hook-bridge">
+                Знать маркеры — это 20%. Остальные 80% — изменить саму программу
+                выбора
+              </span>
+            </div>
+
             <div class="res-gate">
               <span class="res-gate-title"
-                >Забери подробный разбор + 3 бонуса</span
+                >Забери подробный разбор всех маркеров и 3 бонуса — совершенно
+                бесплатно</span
               >
-              <span class="res-gate-sub">Бесплатно, в Telegram-боте:</span>
-              <div class="gate-bonuses">
+              <div class="gate-bonuses" style="margin-top: 24px">
                 <div class="gate-bonus">
-                  <span class="gate-bonus-icon">📖</span>
+                  <span class="gate-bonus-icon">&#128214;</span>
                   <span>
                     <span class="gate-bonus-label">Бонус 1 — Разбор</span>
-                    <span class="gate-bonus-text"
-                      >Подробный разбор всех 10 маркеров: как проверить, на что
-                      обращать внимание, красные и зелёные флаги</span
-                    >
+                    <span class="gate-bonus-text">
+                      Подробный разбор всех 10 маркеров: как проверить, на что
+                      обращать внимание, красные и зелёные флаги
+                    </span>
                   </span>
                 </div>
                 <div class="gate-bonus">
-                  <span class="gate-bonus-icon">🎬</span>
+                  <span class="gate-bonus-icon">&#127916;</span>
                   <span>
                     <span class="gate-bonus-label">Бонус 2 — Видео</span>
-                    <span class="gate-bonus-text"
-                      >3 ловушки мышления, которые мешают выбрать правильного
-                      мужчину</span
-                    >
+                    <span class="gate-bonus-text">
+                      3 ловушки мышления, которые мешают выбрать правильного
+                      мужчину
+                    </span>
                   </span>
                 </div>
                 <div class="gate-bonus">
-                  <span class="gate-bonus-icon">🎧</span>
+                  <span class="gate-bonus-icon">&#127911;</span>
                   <span>
-                    <span class="gate-bonus-label">Бонус 3 — Аудио «Роза»</span>
-                    <span class="gate-bonus-text"
-                      >Практика, которая мягко отключает старые программы
-                      выбора. Слушай перед сном</span
+                    <span class="gate-bonus-label"
+                      >Бонус 3 — Аудиопрактика</span
                     >
+                    <span class="gate-bonus-text">
+                      Терапевтическая практика по методике Символдрама, которая
+                      мягко отключает старые программы выбора. Слушай перед сном
+                    </span>
                   </span>
                 </div>
               </div>
@@ -1662,17 +1718,18 @@
                 href="#"
                 target="_blank"
                 class="btn-bot"
-                id="botBtn"
+                id="botBtn2"
                 onclick="trackBot()"
-                >🎁 Забрать бонусы →</a
+                >Забрать бонусы</a
               >
               <span class="res-gate-note"
                 >Telegram-бот · анонимно · выдаём бонусы и всё</span
               >
             </div>
+
             <div class="res-share">
               <div class="res-share-text">
-                💛 Знаешь подругу, которой стоит пройти этот тест?
+                Знаешь подругу, которой стоит пройти этот тест?
               </div>
               <button class="btn-share" onclick="shareTest()">
                 Отправить ей ссылку
@@ -1684,7 +1741,7 @@
             </div>
           </div>
           <div class="q-restart">
-            <button onclick="restart()">↩ Пройти тест заново</button>
+            <button onclick="restart()">Пройти тест заново</button>
           </div>
         </div>
       </div>
@@ -1757,15 +1814,15 @@
           — начни с того, чтобы выбирать других мужчин. У Юлии есть программа,
           которая помогает это сделать.
         </p>
-        <a href="https://t.me/lumen_bonus_bot?start=quiz" target="_blank"
-          >Узнать подробнее в боте →</a
-        >
+        <a href="https://t.me/lumen_bonus_bot?start=quiz" target="_blank">
+          Узнать подробнее в боте
+        </a>
       </div>
     </section>
 
     <div class="ei-overlay" id="eiOverlay">
       <div class="ei-popup">
-        <button class="ei-close" onclick="closeEI()">✕</button>
+        <button class="ei-close" onclick="closeEI()">&#10005;</button>
         <h3>Подожди,<br /><em>не уходи без бонусов</em></h3>
         <p>
           Ты можешь получить подробный разбор своей ситуации — анонимно. Просто
@@ -1776,19 +1833,19 @@
           target="_blank"
           class="ei-btn"
           onclick="closeEI()"
-          >Забрать бонусы →</a
+          >Забрать бонусы</a
         >
         <button class="ei-skip" onclick="closeEI()">Нет, спасибо</button>
       </div>
     </div>
 
-    <div class="toast" id="toast">✓ Ссылка скопирована — отправь подруге!</div>
+    <div class="toast" id="toast">Ссылка скопирована — отправь подруге!</div>
 
     <footer>
-      <p>© 2026 Юлия Люмен · Психолог</p>
+      <p>&copy; 2026 Юлия Люмен · Психолог</p>
       <p style="margin-top: 8px">
         <a href="oferta.html">Публичная оферта</a>
-        <span style="margin: 0 6px; color: #ddd">·</span>
+        <span style="margin: 0 6px; color: #ddd">&middot;</span>
         <a href="privacy.html">Политика конфиденциальности</a>
       </p>
       <p
@@ -1898,7 +1955,6 @@
         var prev = n - 1;
 
         if (prev === 0) {
-          // Вернуться к выбору контекста
           for (var i = 1; i <= T; i++) {
             var c = document.getElementById("q" + i);
             if (c) c.classList.remove("active");
@@ -1934,11 +1990,9 @@
           return;
         }
 
-        // Убираем текущую карточку
         var currentCard = document.getElementById("q" + n);
         if (currentCard) currentCard.classList.remove("active");
 
-        // Сбрасываем ответ на текущий вопрос если был
         if (A[n]) {
           delete A[n];
           var optsN = currentCard.querySelectorAll(".q-opt");
@@ -1952,7 +2006,6 @@
           }
         }
 
-        // Сбрасываем ответ на предыдущий вопрос
         if (A[prev]) {
           delete A[prev];
           var prevCard = document.getElementById("q" + prev);
@@ -1967,20 +2020,17 @@
           }
         }
 
-        // Скрываем nudge если вернулись до Q5
         if (prev <= 5) {
           var nudge = document.getElementById("midNudge");
           if (nudge) nudge.style.display = "none";
         }
 
-        // Пересчитываем счёт
         G = 0;
         for (var k2 in A) {
           if (A.hasOwnProperty(k2)) G += scoreMap[A[k2]] || 0;
         }
         document.getElementById("pScore").textContent = G + " из 10";
 
-        // Показываем предыдущий вопрос
         var prevCardShow = document.getElementById("q" + prev);
         if (prevCardShow) prevCardShow.classList.add("active");
 
@@ -2023,11 +2073,6 @@
               mid: "<p>Ты с ним, но что-то внутри не даёт покоя. <strong>Эти сомнения не мелочь, но и не приговор.</strong></p><p>В бонусах ты разберёшься, стоит ли работать над этими отношениями или пора честно посмотреть правде в глаза.</p>",
               low: "<p>Ты сейчас внутри этих отношений и, скорее всего, чувствуешь то, что пока не можешь объяснить словами. <strong>Так быть не должно.</strong></p><p>В бонусах тебя ждёт первый шаг к ясности.</p>",
             },
-            ex: {
-              high: "<p>Он набрал высокий балл, и, возможно, дело было не в нём. <strong>Иногда мы уходим от хороших мужчин, потому что нам непривычно и страшно, когда всё хорошо.</strong></p><p>В бонусах ты поймёшь, почему так происходит и как это изменить.</p>",
-              mid: "<p>Не всё было плохо и не всё было хорошо. <strong>Именно такие отношения сложнее всего отпустить, потому что нет однозначного ответа.</strong></p><p>В бонусах ты узнаешь, как перестать прокручивать прошлое и двигаться дальше.</p>",
-              low: "<p>Ты уже ушла, и это было правильное решение. <strong>Но важно понять, почему ты его выбрала, чтобы не повторить тот же сценарий с новым мужчиной.</strong></p><p>В бонусах ты найдёшь способ изменить свою программу выбора.</p>",
-            },
           };
 
           if (G >= 8) {
@@ -2059,11 +2104,13 @@
           document.getElementById("resDesc").textContent = desc;
           document.getElementById("resPersonal").innerHTML = personal;
 
-          document.getElementById("botBtn").href =
+          var botLink =
             "https://t.me/lumen_bonus_bot?start=quiz_" +
             ctx +
             "_" +
             displayScore;
+          document.getElementById("botBtn1").href = botLink;
+          document.getElementById("botBtn2").href = botLink;
 
           document.getElementById("trustBlock").style.display = "block";
           updateLiveCount();
