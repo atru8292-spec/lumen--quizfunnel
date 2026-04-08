@@ -56,6 +56,8 @@
         font-weight: 400;
         color: var(--dark);
       }
+
+      /* === HERO === */
       .hero {
         min-height: 100svh;
         display: flex;
@@ -67,20 +69,6 @@
         background: var(--card);
         position: relative;
         overflow: hidden;
-      }
-      .hero::before {
-        content: "";
-        position: absolute;
-        top: -150px;
-        right: -150px;
-        width: 400px;
-        height: 400px;
-        background: radial-gradient(
-          circle,
-          rgba(212, 87, 74, 0.06) 0%,
-          transparent 70%
-        );
-        pointer-events: none;
       }
       .hero-badge {
         display: inline-flex;
@@ -131,26 +119,10 @@
       .hero-sub {
         font-size: 0.85rem;
         color: var(--text-light);
-        margin-bottom: 16px;
+        margin-bottom: 20px;
         max-width: 420px;
         line-height: 1.65;
         animation: fadeUp 0.6s ease 0.2s both;
-      }
-      .hero-features {
-        display: flex;
-        gap: 8px;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin-bottom: 20px;
-        animation: fadeUp 0.6s ease 0.25s both;
-      }
-      .hero-feat {
-        background: var(--cream);
-        padding: 6px 14px;
-        border-radius: 8px;
-        font-size: 0.72rem;
-        color: var(--text-light);
-        font-weight: 500;
       }
       .hero-pain {
         font-size: 0.82rem;
@@ -162,12 +134,7 @@
         background: var(--cream);
         padding: 14px 20px;
         border-radius: 10px;
-        border-left: 3px solid var(--accent);
         text-align: left;
-      }
-      .hero-pain strong {
-        color: var(--accent);
-        font-weight: 600;
       }
       .hero-author {
         display: flex;
@@ -211,34 +178,11 @@
         transition: all 0.3s;
         font-family: "Inter", sans-serif;
         animation: fadeUp 0.6s ease 0.4s both;
-        position: relative;
-        overflow: hidden;
       }
       .btn-start:hover {
         background: var(--accent-hover);
         transform: translateY(-2px);
         box-shadow: 0 8px 25px rgba(212, 87, 74, 0.3);
-      }
-      .btn-start::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          rgba(255, 255, 255, 0.15),
-          transparent
-        );
-        animation: shimmer 2.5s infinite;
-        pointer-events: none;
-      }
-      @keyframes shimmer {
-        0% {
-          transform: translateX(-100%);
-        }
-        100% {
-          transform: translateX(100%);
-        }
       }
       .hero-note {
         font-size: 0.72rem;
@@ -248,11 +192,14 @@
       }
       .hero-why {
         font-size: 0.72rem;
-        color: var(--accent);
+        color: var(--text-light);
         margin-top: 6px;
-        font-weight: 500;
+        font-weight: 400;
+        font-style: italic;
         animation: fadeUp 0.6s ease 0.55s both;
       }
+
+      /* === QUIZ === */
       .quiz-section {
         padding: 40px 20px 80px;
         background: var(--bg);
@@ -276,9 +223,7 @@
         font-weight: 500;
       }
       .q-progress-score {
-        font-size: 0.72rem;
-        color: var(--accent);
-        font-weight: 600;
+        display: none;
       }
       .q-progress-bar {
         height: 4px;
@@ -479,10 +424,8 @@
         line-height: 1.6;
         display: none;
       }
-      .q-nudge strong {
-        color: var(--accent);
-        font-weight: 600;
-      }
+
+      /* === RESULT === */
       .q-result {
         display: none;
       }
@@ -523,20 +466,12 @@
         margin-bottom: 12px;
         line-height: 1.25;
       }
-      .res-desc {
-        font-size: 0.9rem;
-        color: var(--text-light);
-        line-height: 1.8;
-        max-width: 440px;
-        margin: 0 auto;
-      }
       .res-personal {
         margin: 20px 28px 0;
         padding: 20px 24px;
         background: linear-gradient(135deg, var(--cream), #fff5f0);
         border-radius: 10px;
         text-align: left;
-        border-left: 3px solid var(--accent);
       }
       .res-personal p {
         font-size: 0.85rem;
@@ -551,25 +486,33 @@
         color: var(--accent);
         font-weight: 600;
       }
-      .res-cta-mid {
-        margin: 20px 28px 0;
-        padding: 20px 24px;
+
+      /* === NEXT STEPS === */
+      .res-next {
+        margin: 24px 28px 0;
+        padding: 24px;
         background: var(--bg);
         border-radius: 10px;
         text-align: center;
       }
-      .res-cta-mid p {
-        font-size: 0.82rem;
-        color: var(--text);
-        line-height: 1.7;
-        margin-bottom: 14px;
+      .res-next-title {
+        font-family: "DM Serif Display", serif;
+        font-size: 1.1rem;
+        color: var(--dark);
+        margin-bottom: 12px;
       }
-      .btn-bot-inline {
+      .res-next p {
+        font-size: 0.82rem;
+        color: var(--text-light);
+        line-height: 1.7;
+        margin-bottom: 16px;
+      }
+      .btn-bot-main {
         background: var(--accent);
         color: #fff;
         border: none;
-        padding: 14px 36px;
-        font-size: 0.78rem;
+        padding: 16px 40px;
+        font-size: 0.8rem;
         font-weight: 600;
         letter-spacing: 0.8px;
         text-transform: uppercase;
@@ -582,170 +525,51 @@
         align-items: center;
         gap: 8px;
       }
-      .btn-bot-inline:hover {
+      .btn-bot-main:hover {
         background: var(--accent-hover);
         transform: translateY(-2px);
         box-shadow: 0 8px 25px rgba(212, 87, 74, 0.3);
       }
-      .res-hook {
-        font-size: 0.82rem;
-        color: var(--text-light);
-        line-height: 1.7;
-        text-align: center;
-        margin: 20px 28px 0;
-        padding: 16px 20px;
-        background: var(--bg);
-        border-radius: 8px;
-      }
-      .res-hook strong {
-        color: var(--dark);
-        font-weight: 600;
-      }
-      .res-hook-bridge {
-        display: block;
-        font-size: 0.82rem;
-        color: var(--accent);
-        font-weight: 600;
-        margin-top: 10px;
-      }
-      .res-gate {
-        background: linear-gradient(135deg, #2d2117 0%, #1a1a1a 100%);
-        padding: 36px 28px;
-        text-align: center;
-        margin-top: 20px;
-      }
-      .res-gate-title {
-        font-family: "DM Serif Display", serif;
-        font-size: 1.2rem;
-        color: #fff;
-        margin-bottom: 8px;
-        font-style: italic;
-        line-height: 1.3;
-        display: block;
-      }
-      .res-gate-sub {
-        font-size: 0.78rem;
-        color: rgba(255, 255, 255, 0.5);
-        margin-bottom: 20px;
-        display: block;
-      }
-      .gate-bonuses {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        max-width: 400px;
-        margin: 0 auto 24px;
-        text-align: left;
-      }
-      .gate-bonus {
-        display: flex;
-        align-items: flex-start;
-        gap: 14px;
-        font-size: 0.82rem;
-        color: rgba(255, 255, 255, 0.85);
-        line-height: 1.55;
-        background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 10px;
-        padding: 16px 18px;
-        transition: all 0.3s;
-      }
-      .gate-bonus:hover {
-        background: rgba(255, 255, 255, 0.1);
-        border-color: rgba(255, 255, 255, 0.2);
-        transform: translateY(-1px);
-      }
-      .gate-bonus-icon {
-        font-size: 1.3rem;
-        flex-shrink: 0;
-        width: 32px;
-        height: 32px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: rgba(255, 255, 255, 0.08);
-        border-radius: 8px;
-      }
-      .gate-bonus-label {
-        display: block;
-        font-size: 0.6rem;
-        font-weight: 700;
-        letter-spacing: 1.5px;
-        text-transform: uppercase;
-        color: rgba(243, 229, 205, 0.7);
-        margin-bottom: 4px;
-      }
-      .gate-bonus-text {
-        display: block;
-        color: rgba(255, 255, 255, 0.85);
-      }
-      .gate-no-spam {
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-        max-width: 300px;
-        margin: 0 auto 24px;
-        font-size: 0.7rem;
-        color: rgba(255, 255, 255, 0.4);
-        text-align: left;
-      }
-      .gate-no-spam span {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-      }
-      .gate-no-spam span::before {
-        content: "✓";
-        color: rgba(46, 204, 113, 0.6);
-        font-weight: 700;
+      .res-next-alt {
         font-size: 0.75rem;
-      }
-      .btn-bot {
-        background: #f3e5cd;
-        color: #1a1a1a;
-        border: none;
-        padding: 18px 44px;
-        font-size: 0.82rem;
-        font-weight: 700;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        cursor: pointer;
-        border-radius: 60px;
-        transition: all 0.3s;
-        font-family: "Inter", sans-serif;
-        text-decoration: none;
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        animation: btnPulse 2s infinite;
-      }
-      @keyframes btnPulse {
-        0% {
-          box-shadow: 0 0 0 0 rgba(243, 229, 205, 0.4);
-        }
-        70% {
-          box-shadow: 0 0 0 12px rgba(243, 229, 205, 0);
-        }
-        100% {
-          box-shadow: 0 0 0 0 rgba(243, 229, 205, 0);
-        }
-      }
-      .btn-bot:hover {
-        background: #e8d5b8;
-        transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-        animation: none;
-      }
-      .res-gate-note {
-        font-size: 0.62rem;
-        color: rgba(255, 255, 255, 0.3);
+        color: var(--text-muted);
         margin-top: 14px;
-        letter-spacing: 0.5px;
-        display: block;
+        line-height: 1.6;
       }
+      .res-next-alt a {
+        color: var(--accent);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+      .res-next-consult {
+        margin-top: 20px;
+        padding-top: 16px;
+        border-top: 1px solid var(--border);
+        text-align: center;
+      }
+      .res-next-consult p {
+        font-size: 0.78rem;
+        color: var(--text-light);
+        line-height: 1.65;
+        margin-bottom: 10px;
+      }
+      .res-consult-link {
+        font-size: 0.75rem;
+        color: var(--accent);
+        font-weight: 500;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(212, 87, 74, 0.3);
+        padding-bottom: 1px;
+        transition: border-color 0.3s;
+      }
+      .res-consult-link:hover {
+        border-color: var(--accent);
+      }
+
       .res-share {
         padding: 24px 28px;
-        background: var(--cream);
+        margin-top: 24px;
+        background: var(--bg);
         text-align: center;
         border-radius: 0 0 var(--radius) var(--radius);
         border-top: 1px solid var(--border-light);
@@ -817,6 +641,8 @@
       .q-restart button:hover {
         color: var(--dark);
       }
+
+      /* === TRUST === */
       .trust {
         max-width: 600px;
         margin: 40px auto 0;
@@ -876,7 +702,6 @@
         border-radius: var(--radius);
         padding: 20px 24px;
         box-shadow: var(--shadow);
-        border-left: 3px solid var(--accent);
       }
       .mini-review-name {
         font-weight: 600;
@@ -916,6 +741,8 @@
         text-decoration: underline;
         text-underline-offset: 3px;
       }
+
+      /* === EXIT INTENT === */
       .ei-overlay {
         position: fixed;
         inset: 0;
@@ -965,13 +792,9 @@
       .ei-popup h3 {
         font-family: "DM Serif Display", serif;
         font-size: 1.35rem;
-        font-style: italic;
         color: var(--dark);
         margin-bottom: 12px;
         line-height: 1.3;
-      }
-      .ei-popup h3 em {
-        color: var(--accent);
       }
       .ei-popup p {
         font-size: 0.85rem;
@@ -1011,6 +834,7 @@
         text-underline-offset: 3px;
         font-family: "Inter", sans-serif;
       }
+
       .toast {
         position: fixed;
         bottom: -60px;
@@ -1086,6 +910,7 @@
         text-underline-offset: 2px;
         font-size: 0.62rem;
       }
+
       @media (max-width: 640px) {
         .hero {
           padding: 40px 16px 32px;
@@ -1132,26 +957,18 @@
           font-size: 4rem;
         }
         .res-title {
-          font-size: 1.25rem;
+          font-size: 1.15rem;
         }
         .res-personal {
           margin: 16px 20px 0;
           padding: 16px 18px;
         }
-        .res-cta-mid {
+        .res-next {
           margin: 16px 20px 0;
           padding: 16px 18px;
         }
-        .res-hook {
-          margin: 16px 20px 0;
-          padding: 14px 16px;
-          font-size: 0.78rem;
-        }
-        .res-gate {
-          padding: 28px 20px;
-        }
-        .btn-bot {
-          padding: 16px 36px;
+        .btn-bot-main {
+          padding: 14px 28px;
           font-size: 0.75rem;
         }
         .res-share {
@@ -1204,20 +1021,19 @@
       <button class="cookie-accept" onclick="acceptCookies()">Принять</button>
     </div>
 
+    <!-- ========== HERO ========== -->
     <section class="hero" id="hero">
       <div class="hero-badge">Тест · 3 минуты</div>
       <h1>Он точно готов —<em>или снова кажется?</em></h1>
       <p class="hero-sub">
-        Эти 10 признаков видны с первой встречи — но почти никто их не замечает.
+        10 ситуаций, которые покажут, какой он на самом деле. И где ты,
+        возможно, снова закрываешь глаза.
       </p>
-      <div class="hero-features">
-        <span class="hero-feat">Анонимно</span>
-        <span class="hero-feat">Бонус в конце</span>
-      </div>
       <div class="hero-pain">
-        Почти каждая влюблялась не в того хотя бы раз. Но есть способ увидеть
-        правду <strong>до того, как сердце скажет «да»</strong>. Проверь — не
-        наступаешь ли на те же грабли прямо сейчас.
+        Знакомое чувство: вроде всё неплохо, но внутри что-то сжимается. Ты
+        ждёшь его сообщение, оправдываешь странные моменты, а потом снова
+        оказываешься в той же точке. Этот тест поможет увидеть это раньше, чем
+        обычно.
       </div>
       <div class="hero-author">
         <img
@@ -1232,12 +1048,13 @@
         </div>
       </div>
       <button class="btn-start" onclick="startQuiz()">Пройти тест</button>
-      <div class="hero-note">Без регистрации · Результат сразу</div>
+      <div class="hero-note">3 минуты · Результат сразу · Без регистрации</div>
       <div class="hero-why">
-        Лучше 3 минуты сейчас, чем год на восстановление
+        Иногда одной честной проверки достаточно, чтобы не зайти слишком далеко.
       </div>
     </section>
 
+    <!-- ========== QUIZ ========== -->
     <section class="quiz-section" id="quiz" style="display: none">
       <div class="quiz-inner">
         <div class="q-progress" id="qProgress">
@@ -1255,27 +1072,26 @@
         <!-- CONTEXT -->
         <div class="q-context-card active" id="ctxCard">
           <div class="q-context-title">
-            Подумай о мужчине, которого хочешь проверить.
+            Подумай о нём — и выбери, где вы сейчас
           </div>
           <div class="q-context-sub">
-            Кто он для тебя сейчас? От этого зависит, какой разбор ты получишь в
-            конце.
+            Так я смогу говорить с тобой точнее, а не слишком общо.
           </div>
           <div class="q-context-options">
             <div class="q-ctx-opt" onclick="setContext('new')">
               <span class="q-ctx-icon">&#10024;</span>
               <div>
-                <div class="q-ctx-text">Новый знакомый</div>
+                <div class="q-ctx-text">Новый мужчина — присматриваюсь</div>
                 <div class="q-ctx-desc">
-                  Недавно познакомились, ты присматриваешься
+                  Хочу понять, что передо мной, пока не зашла слишком далеко
                 </div>
               </div>
             </div>
             <div class="q-ctx-opt" onclick="setContext('current')">
               <span class="q-ctx-icon">&#9829;</span>
               <div>
-                <div class="q-ctx-text">Мой мужчина</div>
-                <div class="q-ctx-desc">Вы вместе, но что-то не даёт покоя</div>
+                <div class="q-ctx-text">Мой мужчина — уже вместе</div>
+                <div class="q-ctx-desc">Мы вместе, но внутри есть сомнение</div>
               </div>
             </div>
           </div>
@@ -1451,11 +1267,9 @@
             </div>
           </div>
           <div class="q-nudge" id="midNudge">
-            Ты на полпути. Осталось 5 вопросов — и ты увидишь честный
-            результат.<br /><strong
-              >Почти все повторяют одни и те же ошибки, потому что не знают один
-              секрет. Он ждёт тебя в бонусах после теста.</strong
-            >
+            Ты уже видишь не просто отдельные ответы, а общий рисунок. Осталось
+            ещё 5 вопросов — и станет понятнее, почему такие истории вообще
+            повторяются.
           </div>
         </div>
 
@@ -1633,99 +1447,44 @@
           </div>
         </div>
 
-        <!-- RESULT -->
+        <!-- ========== RESULT ========== -->
         <div class="q-result" id="qResult">
           <div class="res-card">
             <div class="res-top">
               <div class="res-score" id="resScore">0</div>
               <div class="res-of">из 10 маркеров зрелости</div>
               <div class="res-title" id="resTitle"></div>
-              <p class="res-desc" id="resDesc"></p>
             </div>
 
             <div class="res-personal" id="resPersonal"></div>
 
-            <!-- CTA 1 — сразу после персонального текста -->
-            <div class="res-cta-mid">
+            <!-- NEXT STEPS -->
+            <div class="res-next">
+              <div class="res-next-title">Что будет дальше</div>
               <p>
-                Получи полную расшифровку всех паттернов поведения и определись,
-                стоит ли работать над этими отношениями, или лучше не тратить
-                ещё один год впустую.
+                Я собрала для тебя продолжение этого разбора. Там я разложу, что
+                ты уже увидела, и дам следующий шаг.
               </p>
               <a
                 href="#"
                 target="_blank"
-                class="btn-bot-inline"
+                class="btn-bot-main"
                 id="botBtn1"
                 onclick="trackBot()"
+                >Забрать подробный разбор в Telegram</a
               >
-                Получить расшифровку
-              </a>
-            </div>
-
-            <div class="res-hook">
-              <span class="res-hook-bridge">
-                Знать маркеры — это 20%. Остальные 80% — изменить саму программу
-                выбора
-              </span>
-            </div>
-
-            <div class="res-gate">
-              <span class="res-gate-title"
-                >Забери подробный разбор всех маркеров и 3 бонуса — совершенно
-                бесплатно</span
-              >
-              <div class="gate-bonuses" style="margin-top: 24px">
-                <div class="gate-bonus">
-                  <span class="gate-bonus-icon">&#128214;</span>
-                  <span>
-                    <span class="gate-bonus-label">Бонус 1 — Разбор</span>
-                    <span class="gate-bonus-text">
-                      Подробный разбор всех 10 маркеров: как проверить, на что
-                      обращать внимание, красные и зелёные флаги
-                    </span>
-                  </span>
-                </div>
-                <div class="gate-bonus">
-                  <span class="gate-bonus-icon">&#127916;</span>
-                  <span>
-                    <span class="gate-bonus-label">Бонус 2 — Видео</span>
-                    <span class="gate-bonus-text">
-                      3 ловушки мышления, которые мешают выбрать правильного
-                      мужчину
-                    </span>
-                  </span>
-                </div>
-                <div class="gate-bonus">
-                  <span class="gate-bonus-icon">&#127911;</span>
-                  <span>
-                    <span class="gate-bonus-label"
-                      >Бонус 3 — Аудиопрактика</span
-                    >
-                    <span class="gate-bonus-text">
-                      Терапевтическая практика по методике Символдрама, которая
-                      мягко отключает старые программы выбора. Слушай перед сном
-                    </span>
-                  </span>
-                </div>
+              <div class="res-next-alt">
+                Или напиши мне напрямую:
+                <a href="https://t.me/JuliaEnergopraktika" target="_blank"
+                  >@JuliaEnergopraktika</a
+                >
               </div>
-              <div class="gate-no-spam">
-                <span>Бонусы сразу, без ожидания</span>
-                <span>Никакой воды — только конкретика</span>
-                <span>Без навязчивой рассылки</span>
+              <div class="res-next-consult" id="resConsult" style="display:none">
+                <p>
+                  Если чувствуешь, что хочешь разобраться именно в своей ситуации — можешь оставить заявку на короткий разбор с Юлией. 20 минут, бесплатно. Мест немного.
+                </p>
+                <a href="razbor.html" target="_blank" class="res-consult-link">Оставить заявку →</a>
               </div>
-              <a
-                href="#"
-                target="_blank"
-                class="btn-bot"
-                id="botBtn2"
-                onclick="trackBot()"
-                >Забрать бонусы</a
-              >
-              <span class="res-gate-note"
-                >Telegram-бот · анонимно · выдаём бонусы и всё</span
-              >
-            </div>
 
             <div class="res-share">
               <div class="res-share-text">
@@ -1747,6 +1506,7 @@
       </div>
     </section>
 
+    <!-- ========== TRUST ========== -->
     <section class="trust" id="trustBlock" style="display: none">
       <div class="trust-author">
         <img
@@ -1756,8 +1516,8 @@
         <div class="trust-author-info">
           <h3>Юлия Люмен</h3>
           <p>
-            Психолог. Эксперт по выбору партнёра. Помогла сотням женщин
-            перестать притягивать не тех и наконец выбрать правильного мужчину.
+            Я помогаю женщинам перестать выбирать тех, от кого потом больно. Не
+            советами — а через изменение самого механизма выбора.
           </p>
           <p
             style="
@@ -1810,30 +1570,30 @@
       </div>
       <div class="soft-cta">
         <p>
-          Твой сценарий реально можно изменить. Не надо пытаться менять мужчину
-          — начни с того, чтобы выбирать других мужчин. У Юлии есть программа,
-          которая помогает это сделать.
+          Твой сценарий можно изменить. Не надо пытаться менять мужчину — начни
+          с того, чтобы увидеть, почему тянет именно к таким.
         </p>
-        <a href="https://t.me/lumen_bonus_bot?start=quiz" target="_blank">
-          Узнать подробнее в боте
-        </a>
+        <a href="https://t.me/lumen_bonus_bot?start=quiz" target="_blank"
+          >Перейти в Telegram →</a
+        >
       </div>
     </section>
 
+    <!-- ========== EXIT INTENT ========== -->
     <div class="ei-overlay" id="eiOverlay">
       <div class="ei-popup">
         <button class="ei-close" onclick="closeEI()">&#10005;</button>
-        <h3>Подожди,<br /><em>не уходи без бонусов</em></h3>
+        <h3>Если сейчас не хочешь проходить тест</h3>
         <p>
-          Ты можешь получить подробный разбор своей ситуации — анонимно. Просто
-          перейди в бот.
+          Можешь просто забрать разбор и вернуться позже. Иногда достаточно
+          сначала спокойно посмотреть на картину целиком.
         </p>
         <a
           href="https://t.me/lumen_bonus_bot?start=exit"
           target="_blank"
           class="ei-btn"
           onclick="closeEI()"
-          >Забрать бонусы</a
+          >Перейти в Telegram</a
         >
         <button class="ei-skip" onclick="closeEI()">Нет, спасибо</button>
       </div>
@@ -1867,16 +1627,16 @@
       </p>
     </footer>
 
+    <!-- ========== SCRIPT ========== -->
     <script>
-      var T = 10;
-      var A = {};
-      var G = 0;
-      var ctx = "";
-      var quizStarted = false;
-      var quizFinished = false;
-      var eiShown = false;
-      var pageLoadTime = Date.now();
-
+      var T = 10,
+        A = {},
+        G = 0,
+        ctx = "",
+        quizStarted = false,
+        quizFinished = false,
+        eiShown = false,
+        pageLoadTime = Date.now();
       var scoreMap = { green: 1, yellow: 0.5, red: 0 };
 
       function startQuiz() {
@@ -1903,14 +1663,10 @@
       function ans(n, type, el) {
         if (A[n]) return;
         A[n] = type;
-
         G = 0;
         for (var k in A) {
-          if (A.hasOwnProperty(k)) {
-            G += scoreMap[A[k]] || 0;
-          }
+          if (A.hasOwnProperty(k)) G += scoreMap[A[k]] || 0;
         }
-        document.getElementById("pScore").textContent = G + " из 10";
 
         var card = document.getElementById("q" + n);
         var opts = card.querySelectorAll(".q-opt");
@@ -1941,11 +1697,9 @@
         }
         var next = document.getElementById("q" + n);
         if (next) next.classList.add("active");
-
         document.getElementById("pCur").textContent = n;
         document.getElementById("pFill").style.width =
           ((n - 1) / T) * 100 + "%";
-
         document
           .getElementById("quiz")
           .scrollIntoView({ behavior: "smooth", block: "start" });
@@ -1953,7 +1707,6 @@
 
       function goBack(n) {
         var prev = n - 1;
-
         if (prev === 0) {
           for (var i = 1; i <= T; i++) {
             var c = document.getElementById("q" + i);
@@ -1976,10 +1729,8 @@
           for (var k in A) {
             if (A.hasOwnProperty(k)) G += scoreMap[A[k]] || 0;
           }
-          document.getElementById("pScore").textContent = G + " из 10";
           document.getElementById("pCur").textContent = "0";
           document.getElementById("pFill").style.width = "0%";
-
           ctx = "";
           var ctxCard = document.getElementById("ctxCard");
           ctxCard.style.display = "";
@@ -1989,10 +1740,8 @@
             .scrollIntoView({ behavior: "smooth", block: "start" });
           return;
         }
-
         var currentCard = document.getElementById("q" + n);
         if (currentCard) currentCard.classList.remove("active");
-
         if (A[n]) {
           delete A[n];
           var optsN = currentCard.querySelectorAll(".q-opt");
@@ -2005,7 +1754,6 @@
             );
           }
         }
-
         if (A[prev]) {
           delete A[prev];
           var prevCard = document.getElementById("q" + prev);
@@ -2019,25 +1767,19 @@
             );
           }
         }
-
         if (prev <= 5) {
           var nudge = document.getElementById("midNudge");
           if (nudge) nudge.style.display = "none";
         }
-
         G = 0;
         for (var k2 in A) {
           if (A.hasOwnProperty(k2)) G += scoreMap[A[k2]] || 0;
         }
-        document.getElementById("pScore").textContent = G + " из 10";
-
         var prevCardShow = document.getElementById("q" + prev);
         if (prevCardShow) prevCardShow.classList.add("active");
-
         document.getElementById("pCur").textContent = prev;
         document.getElementById("pFill").style.width =
           ((prev - 1) / T) * 100 + "%";
-
         document
           .getElementById("quiz")
           .scrollIntoView({ behavior: "smooth", block: "start" });
@@ -2045,12 +1787,10 @@
 
       function showResult() {
         quizFinished = true;
-
         for (var i = 1; i <= T; i++) {
           var c = document.getElementById("q" + i);
           if (c) c.classList.remove("active");
         }
-
         document.getElementById("qProgress").style.display = "none";
 
         setTimeout(function () {
@@ -2060,48 +1800,54 @@
           var displayScore = G % 1 === 0 ? G : G.toFixed(1);
           document.getElementById("resScore").textContent = displayScore;
 
-          var title, desc, personal;
+          var title, personal;
 
           var ctxTexts = {
             new: {
-              high: "<p>Теперь ты можешь выбирать с открытыми глазами. <strong>Ты видишь его таким, какой он есть, а не таким, каким хочется его видеть.</strong></p><p>В бонусах ты узнаешь, как не потерять эту ясность, когда чувства станут сильнее.</p>",
-              mid: "<p>Ты присматриваешься, и это правильно. <strong>Некоторые вещи пока непонятны, и это нормально, когда вы только узнаёте друг друга.</strong></p><p>В бонусах ты найдёшь подсказки, на что обратить внимание на следующих встречах.</p>",
-              low: "<p>Хорошая новость в том, что ты ещё в самом начале и <strong>можешь уйти до того, как вложишь в эти отношения своё сердце</strong>.</p><p>В бонусах ты поймёшь, почему тебя тянет именно к таким мужчинам и как это изменить.</p>",
+              high:
+                "<p>У него " +
+                displayScore +
+                " из 10 признаков зрелости. Ты смотришь на него трезво — и пока картина выглядит хорошо. <strong>Но даже хороший мужчина рядом не гарантия спокойных отношений, если внутри всё ещё включается старый сценарий.</strong></p><p>В Telegram я разложу подробнее, что ты увидела, и покажу, на что обратить внимание дальше.</p>",
+              mid:
+                "<p>У него " +
+                displayScore +
+                " из 10 признаков зрелости. Ты присматриваешься — и правильно делаешь. <strong>Тут не всё однозначно: есть тёплые сигналы, а есть моменты, которые уже нельзя не замечать.</strong></p><p>В Telegram я помогу разобраться, на что обратить внимание на следующих встречах.</p>",
+              low:
+                "<p>У него " +
+                displayScore +
+                " из 10 признаков зрелости. Это не приговор и не ярлык, но это серьёзный сигнал. <strong>Хорошая новость — ты ещё в самом начале и можешь уйти до того, как вложишь в эти отношения своё сердце.</strong></p><p>В Telegram я покажу, почему тебя тянет именно к таким мужчинам и что с этим можно сделать.</p>",
             },
             current: {
-              high: "<p>А тебе правда комфортно, когда всё хорошо? <strong>Иногда женщины сами разрушают хорошие отношения, потому что привыкли к драме и не верят, что может быть спокойно.</strong></p><p>В бонусах ты узнаешь, как не сломать то, что уже есть.</p>",
-              mid: "<p>Ты с ним, но что-то внутри не даёт покоя. <strong>Эти сомнения не мелочь, но и не приговор.</strong></p><p>В бонусах ты разберёшься, стоит ли работать над этими отношениями или пора честно посмотреть правде в глаза.</p>",
-              low: "<p>Ты сейчас внутри этих отношений и, скорее всего, чувствуешь то, что пока не можешь объяснить словами. <strong>Так быть не должно.</strong></p><p>В бонусах тебя ждёт первый шаг к ясности.</p>",
+              high:
+                "<p>У него " +
+                displayScore +
+                " из 10 признаков зрелости. А тебе правда комфортно, когда всё хорошо? <strong>Иногда женщины сами разрушают хорошие отношения, потому что привыкли к драме и не верят, что может быть спокойно.</strong></p><p>В Telegram я помогу разобраться, как не сломать то, что уже есть.</p>",
+              mid:
+                "<p>У него " +
+                displayScore +
+                " из 10 признаков зрелости. Ты с ним, но что-то внутри не даёт покоя. <strong>Эти сомнения — не мелочь, но и не приговор.</strong></p><p>В Telegram разберёмся, стоит ли работать над этими отношениями или пора честно посмотреть правде в глаза.</p>",
+              low:
+                "<p>У него " +
+                displayScore +
+                " из 10 признаков зрелости. Ты сейчас внутри этих отношений и, скорее всего, чувствуешь то, что пока не можешь назвать словами. <strong>Так быть не должно.</strong></p><p>В Telegram — первый шаг к ясности. Я помогу увидеть, что происходит на самом деле.</p>",
             },
           };
 
           if (G >= 8) {
-            title = "Высокий уровень зрелости";
-            desc =
-              "У него " +
-              displayScore +
-              " из 10 маркеров зрелости. Это встречается редко. Перед тобой мужчина, который действительно готов к серьёзным отношениям.";
+            title = "Здесь правда больше опоры, чем тревоги";
             personal = ctxTexts[ctx]
               ? ctxTexts[ctx].high
               : ctxTexts["new"].high;
           } else if (G >= 5) {
-            title = "Есть потенциал, но есть и слепые зоны";
-            desc =
-              "У него " +
-              displayScore +
-              " из 10 маркеров зрелости. Кое-что вызывает вопросы, и стоит разобраться в этом до того, как ты вложишь ещё больше времени и чувств.";
+            title =
+              "Не всё однозначно — но уже есть, что не стоит игнорировать";
             personal = ctxTexts[ctx] ? ctxTexts[ctx].mid : ctxTexts["new"].mid;
           } else {
-            title = "Похоже на повторяющийся сценарий";
-            desc =
-              "У него " +
-              displayScore +
-              " из 10 маркеров зрелости. Это не приговор, но это серьёзный сигнал. Скорее всего, есть паттерн, который стоит увидеть и осознать.";
+            title = "Похоже, ты снова подходишь к знакомой боли";
             personal = ctxTexts[ctx] ? ctxTexts[ctx].low : ctxTexts["new"].low;
           }
 
           document.getElementById("resTitle").textContent = title;
-          document.getElementById("resDesc").textContent = desc;
           document.getElementById("resPersonal").innerHTML = personal;
 
           var botLink =
@@ -2110,7 +1856,11 @@
             "_" +
             displayScore;
           document.getElementById("botBtn1").href = botLink;
-          document.getElementById("botBtn2").href = botLink;
+
+          // Show consult block only for low score
+          if (G < 5) {
+            document.getElementById("resConsult").style.display = "block";
+          }
 
           document.getElementById("trustBlock").style.display = "block";
           updateLiveCount();
@@ -2126,15 +1876,12 @@
         A = {};
         ctx = "";
         quizFinished = false;
-
-        document.getElementById("pScore").textContent = "0 из 10";
         document.getElementById("pCur").textContent = "0";
         document.getElementById("pFill").style.width = "0%";
         document.getElementById("qProgress").style.display = "block";
-
         var nudge = document.getElementById("midNudge");
         if (nudge) nudge.style.display = "none";
-
+        document.getElementById("resConsult").style.display = "none";
         for (var i = 1; i <= T; i++) {
           var card = document.getElementById("q" + i);
           if (card) {
@@ -2150,14 +1897,11 @@
             }
           }
         }
-
         document.getElementById("qResult").classList.remove("active");
         document.getElementById("trustBlock").style.display = "none";
-
         var ctxCard = document.getElementById("ctxCard");
         ctxCard.style.display = "";
         ctxCard.classList.add("active");
-
         document
           .getElementById("quiz")
           .scrollIntoView({ behavior: "smooth", block: "start" });
