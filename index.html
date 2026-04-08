@@ -1483,7 +1483,7 @@
                 <p>
                   Если чувствуешь, что хочешь разобраться именно в своей ситуации — можешь оставить заявку на короткий разбор с Юлией. 20 минут, бесплатно. Мест немного.
                 </p>
-                <a href="razbor.html" target="_blank" class="res-consult-link">Оставить заявку →</a>
+<a href="#" target="_blank" class="res-consult-link" id="razborLink">Оставить заявку →</a>
               </div>
 
             <div class="res-share">
@@ -1856,6 +1856,16 @@
             "_" +
             displayScore;
           document.getElementById("botBtn1").href = botLink;
+          var answersStr = '';
+for (var k in A) {
+  if (A.hasOwnProperty(k)) {
+    if (answersStr) answersStr += ',';
+    answersStr += k + ':' + A[k];
+  }
+}
+var razborHref = 'razbor.html?score=' + displayScore + '&ctx=' + ctx + '&a=' + encodeURIComponent(answersStr);
+var rl = document.getElementById("razborLink");
+if (rl) rl.href = razborHref;
 
           // Show consult block only for low score
           if (G < 5) {
