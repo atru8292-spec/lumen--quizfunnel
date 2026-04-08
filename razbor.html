@@ -375,13 +375,13 @@
       </p>
     </footer>
 
-    <script>
+   <script>
   function getParam(name) {
     var url = new URL(window.location.href);
     return url.searchParams.get(name) || "";
   }
 
-  function submitForm(e) {
+  async function submitForm(e) {
     e.preventDefault();
 
     var btn = document.getElementById("submitBtn");
@@ -400,30 +400,33 @@
       source: "quiz_razbor"
     };
 
-   var webhookURL = "https://neiro-arina.ru/webhook/4106c996-cf23-4014-aaf2-06dd26d65be2";
+    var webhookURL = "https://neiro-arina.ru/webhook/4106c996-cf23-4014-aaf2-06dd26d65be2";
 
-    // Отправляем и показываем успех в любом случае
-    // Не ждём ответа — данные уходят, пользователь видит "спасибо"
     try {
-      navigator.sendBeacon(webhookURL, new Blob([JSON.stringify(data)], {type: "application/json"}));
-    } catch(e) {
-      // fallback если sendBeacon не сработал
-      fetch(webhookURL, {
+      const res = await fetch(webhookURL, {
         method: "POST",
         headers: {"Content-Type": "application/json"},
-        body: JSON.stringify(data),
-        keepalive: true
-      }).catch(function(){});
-    }
+        body: JSON.stringify(data)
+      });
 
-    // Сразу показываем успех
-    showSuccess();
+      const text = await res.text();
+      console.log("STATUS:", res.status);
+      console.log("BODY:", text);
+
+      if (!res.ok) throw new Error(text || ("HTTP " + res.status));
+
+      showSuccess();
+    } catch (err) {
+      console.error("Webhook error:", err);
+      alert("Не удалось отправить заявку. Открой консоль (Cmd+Opt+J) и пришли скрин.");
+      btn.disabled = false;
+      btn.textContent = "Отправить";
+    }
   }
 
   function showSuccess() {
     document.getElementById("formView").style.display = "none";
-    var s = document.getElementById("successView");
-    s.classList.add("active");
+    document.getElementById("successView").classList.add("active");
   }
 </script>
   </body>
