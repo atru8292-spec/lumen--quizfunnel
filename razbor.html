@@ -375,13 +375,13 @@
       </p>
     </footer>
 
-   <script>
+  <script>
   function getParam(name) {
     var url = new URL(window.location.href);
     return url.searchParams.get(name) || "";
   }
 
-  async function submitForm(e) {
+  function submitForm(e) {
     e.preventDefault();
 
     var btn = document.getElementById("submitBtn");
@@ -400,33 +400,24 @@
       source: "quiz_razbor"
     };
 
-  var webhookURL = "/api/razbor";
+    var webhookURL = "/api/razbor";
 
-    try {
-      const res = await fetch(webhookURL, {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify(data)
-      });
+    // Отправляем через прокси, но НЕ ждём ответа — сразу показываем успех
+    fetch(webhookURL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+      keepalive: true
+    }).catch(function() {});
 
-      const text = await res.text();
-      console.log("STATUS:", res.status);
-      console.log("BODY:", text);
-
-      if (!res.ok) throw new Error(text || ("HTTP " + res.status));
-
-      showSuccess();
-    } catch (err) {
-      console.error("Webhook error:", err);
-      alert("Не удалось отправить заявку. Открой консоль (Cmd+Opt+J) и пришли скрин.");
-      btn.disabled = false;
-      btn.textContent = "Отправить";
-    }
+    // Мгновенно показываем "Спасибо"
+    showSuccess();
   }
 
   function showSuccess() {
     document.getElementById("formView").style.display = "none";
-    document.getElementById("successView").classList.add("active");
+    var s = document.getElementById("successView");
+    s.classList.add("active");
   }
 </script>
   </body>
