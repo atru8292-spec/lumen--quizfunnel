@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Заявка на разбор | Юлия Люмен</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      :root {
+        --accent: #d4574a;
+        --accent-hover: #b8463b;
+        --accent-light: #fff5f3;
+        --bg: #fafafa;
+        --cream: #fff8f0;
+        --card: #ffffff;
+        --dark: #222;
+        --text: #333;
+        --text-light: #666;
+        --text-muted: #999;
+        --border: #ebebeb;
+        --shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+        --radius: 12px;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.7;
+        font-size: 16px;
+        -webkit-font-smoothing: antialiased;
+        min-height: 100svh;
+        display: flex;
+        flex-direction: column;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: "DM Serif Display", serif;
+        font-weight: 400;
+        color: var(--dark);
+      }
+      .page {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 40px 20px;
+      }
+      .form-card {
+        background: var(--card);
+        border-radius: var(--radius);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        max-width: 480px;
+        width: 100%;
+        overflow: hidden;
+      }
+      .form-header {
+        padding: 36px 32px 24px;
+        text-align: center;
+        border-bottom: 1px solid var(--border);
+      }
+      .form-header-badge {
+        display: inline-block;
+        background: var(--accent-light);
+        color: var(--accent);
+        padding: 4px 14px;
+        border-radius: 50px;
+        font-size: 0.65rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        margin-bottom: 16px;
+      }
+      .form-header h1 {
+        font-size: 1.5rem;
+        line-height: 1.25;
+        margin-bottom: 10px;
+      }
+      .form-header-text {
+        font-size: 0.82rem;
+        color: var(--text-light);
+        line-height: 1.65;
+        max-width: 380px;
+        margin: 0 auto;
+        text-align: left;
+      }
+      .form-header-text p {
+        margin-bottom: 8px;
+      }
+      .form-header-text p:last-child {
+        margin-bottom: 0;
+      }
+      .form-author {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        justify-content: center;
+        margin-bottom: 16px;
+      }
+      .form-author img {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: center top;
+        border: 2px solid var(--border);
+      }
+      .form-author-name {
+        font-family: "DM Serif Display", serif;
+        font-size: 0.85rem;
+        color: var(--dark);
+      }
+      .form-author-role {
+        font-size: 0.62rem;
+        color: var(--text-muted);
+      }
+      .form-body {
+        padding: 28px 32px 32px;
+      }
+      .form-group {
+        margin-bottom: 20px;
+      }
+      .form-label {
+        display: block;
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--dark);
+        margin-bottom: 6px;
+        letter-spacing: 0.2px;
+      }
+      .form-label-hint {
+        font-weight: 400;
+        color: var(--text-muted);
+        font-size: 0.68rem;
+        margin-left: 4px;
+      }
+      .form-input {
+        width: 100%;
+        padding: 14px 16px;
+        border: 2px solid var(--border);
+        border-radius: 10px;
+        font-size: 0.85rem;
+        font-family: "Inter", sans-serif;
+        color: var(--text);
+        background: var(--card);
+        transition: border-color 0.3s;
+        outline: none;
+      }
+      .form-input:focus {
+        border-color: var(--accent);
+      }
+      .form-input::placeholder {
+        color: var(--text-muted);
+      }
+      .form-textarea {
+        resize: vertical;
+        min-height: 100px;
+        max-height: 200px;
+      }
+      .form-submit {
+        width: 100%;
+        background: var(--accent);
+        color: #fff;
+        border: none;
+        padding: 16px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
+        cursor: pointer;
+        border-radius: 60px;
+        transition: all 0.3s;
+        font-family: "Inter", sans-serif;
+        margin-top: 4px;
+      }
+      .form-submit:hover {
+        background: var(--accent-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(212, 87, 74, 0.3);
+      }
+      .form-submit:disabled {
+        opacity: 0.5;
+        cursor: default;
+        transform: none;
+        box-shadow: none;
+      }
+      .form-note {
+        text-align: center;
+        font-size: 0.68rem;
+        color: var(--text-muted);
+        margin-top: 14px;
+        line-height: 1.5;
+      }
+      .form-success {
+        display: none;
+        padding: 48px 32px;
+        text-align: center;
+      }
+      .form-success.active {
+        display: block;
+      }
+      .form-success-icon {
+        font-size: 3rem;
+        margin-bottom: 16px;
+      }
+      .form-success h2 {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+        line-height: 1.3;
+      }
+      .form-success p {
+        font-size: 0.82rem;
+        color: var(--text-light);
+        line-height: 1.65;
+        max-width: 340px;
+        margin: 0 auto 8px;
+      }
+      .form-success p:last-of-type {
+        margin-bottom: 20px;
+      }
+      .form-success-link {
+        font-size: 0.75rem;
+        color: var(--accent);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+      footer {
+        text-align: center;
+        padding: 24px 20px;
+        font-size: 0.62rem;
+        color: var(--text-muted);
+      }
+      footer a {
+        color: var(--text-muted);
+        text-decoration: none;
+      }
+      @media (max-width: 640px) {
+        .page {
+          padding: 24px 16px;
+          align-items: flex-start;
+          padding-top: 40px;
+        }
+        .form-header {
+          padding: 28px 24px 20px;
+        }
+        .form-header h1 {
+          font-size: 1.3rem;
+        }
+        .form-body {
+          padding: 24px 24px 28px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <div class="form-card">
+        <!-- FORM -->
+        <div id="formView">
+          <div class="form-header">
+            <div class="form-author">
+              <img
+                src="https://i.ibb.co/WpB6TzVr/1-37-resized.jpg"
+                alt="Юлия Люмен"
+              />
+              <div>
+                <div class="form-author-name">Юлия Люмен</div>
+                <div class="form-author-role">
+                  Психолог · Эксперт по выбору партнёра
+                </div>
+              </div>
+            </div>
+            <h1>Давай разберёмся в твоей ситуации</h1>
+            <div class="form-header-text">
+              <p>
+                Я видела твой результат теста. Такой расклад обычно означает,
+                что внутри уже давно есть напряжение — просто пока не было
+                повода остановиться и посмотреть на это честно.
+              </p>
+              <p>
+                Я провожу несколько коротких разборов в неделю — 20 минут,
+                бесплатно, голосом или перепиской. Расскажи коротко, что
+                происходит, и я отвечу, смогу ли помочь именно тебе.
+              </p>
+            </div>
+          </div>
+          <div class="form-body">
+            <form id="razborForm" onsubmit="submitForm(event)">
+              <div class="form-group">
+                <label class="form-label">Как тебя зовут?</label>
+                <input
+                  type="text"
+                  class="form-input"
+                  name="name"
+                  placeholder="Имя"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label">
+                  Куда написать?
+                  <span class="form-label-hint"
+                    >Telegram — самый удобный способ</span
+                  >
+                </label>
+                <input
+                  type="text"
+                  class="form-input"
+                  name="telegram"
+                  placeholder="@username или номер телефона"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label">
+                  Что сейчас происходит?
+                  <span class="form-label-hint">своими словами, коротко</span>
+                </label>
+                <textarea
+                  class="form-input form-textarea"
+                  name="situation"
+                  placeholder="Например: мы вместе полгода, но я чувствую, что он отдаляется. Хочу понять — это мои страхи или реальный сигнал."
+                  required
+                ></textarea>
+              </div>
+              <button type="submit" class="form-submit" id="submitBtn">
+                Отправить
+              </button>
+              <div class="form-note">
+                Без обязательств. Отвечаю в течение 24 часов — лично, не бот.
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- SUCCESS -->
+        <div class="form-success" id="successView">
+          <div class="form-success-icon">🤍</div>
+          <h2>Спасибо. Я получила твоё сообщение.</h2>
+          <p>
+            Отвечу тебе в Telegram в течение 24 часов. Если не увидишь ответ —
+            загляни в папку «Запросы на переписку».
+          </p>
+          <p>
+            А пока можешь забрать подробный разбор результатов теста — он уже
+            ждёт тебя в боте.
+          </p>
+          <a
+            href="https://t.me/lumen_bonus_bot?start=quiz"
+            target="_blank"
+            class="form-success-link"
+            >Забрать разбор в Telegram →</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2026 Юлия Люмен · Психолог</p>
+      <p style="margin-top: 4px">
+        <a href="https://t.me/JuliaEnergopraktika" target="_blank"
+          >Telegram: @JuliaEnergopraktika</a
+        >
+      </p>
+    </footer>
+
+    <script>
+      // Читаем параметры теста из URL
+      function getParam(name) {
+        var url = new URL(window.location.href);
+        return url.searchParams.get(name) || "";
+      }
+
+      function submitForm(e) {
+        e.preventDefault();
+
+        var btn = document.getElementById("submitBtn");
+        btn.disabled = true;
+        btn.textContent = "Отправляю...";
+
+        var form = document.getElementById("razborForm");
+        var data = {
+          // Данные формы
+          name: form.name.value,
+          telegram: form.telegram.value,
+          situation: form.situation.value,
+          // Результаты теста
+          quiz_score: getParam("score"),
+          quiz_context: getParam("ctx"),
+          quiz_answers: getParam("a"),
+          // Мета
+          timestamp: new Date().toISOString(),
+          source: "quiz_razbor",
+        };
+
+        // === ЗАГЛУШКА: замени URL на свой n8n webhook ===
+        var webhookURL =
+          "https://neiro-arina.ru/webhook/4106c996-cf23-4014-aaf2-06dd26d65be2";
+
+        fetch(webhookURL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        })
+          .then(function () {
+            showSuccess();
+          })
+          .catch(function () {
+            showSuccess();
+          });
+      }
+
+      function showSuccess() {
+        document.getElementById("formView").style.display = "none";
+        var s = document.getElementById("successView");
+        s.classList.add("active");
+      }
+    </script>
+  </body>
+</html>
