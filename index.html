@@ -1459,7 +1459,7 @@
             <div class="res-personal" id="resPersonal"></div>
 
             <!-- NEXT STEPS -->
-            <div class="res-next">
+                        <div class="res-next">
               <div class="res-next-title">Что будет дальше</div>
               <p>
                 Я собрала для тебя продолжение этого разбора. Там я разложу, что
@@ -1485,13 +1485,12 @@
                 </p>
                 <a href="#" target="_blank" class="res-consult-link" id="razborLink">Оставить заявку →</a>
               </div>
-
               <div class="res-program-hint" id="resProgramHint" style="display:none; margin-top:20px; padding-top:16px; border-top:1px solid var(--border); text-align:center;">
                 <p id="programText" style="font-size:0.82rem; color:var(--text); line-height:1.7; margin-bottom:6px; font-weight:500;"></p>
                 <p id="programDesc" style="font-size:0.78rem; color:var(--text-light); line-height:1.65; margin-bottom:12px;"></p>
                 <a href="https://lumen-protocol.vercel.app/#tariffs" target="_blank" id="programLink" style="font-size:0.78rem; color:var(--accent); font-weight:600; text-decoration:none; border-bottom:1.5px solid rgba(212,87,74,0.3); padding-bottom:2px; transition: border-color 0.3s;"></a>
-              </div>ass="res-consult-link" id="razborLink">Оставить заявку →</a>
               </div>
+            </div>
 
             <div class="res-share">
               <div class="res-share-text">
@@ -1874,9 +1873,37 @@ var razborHref = 'razbor.html?score=' + displayScore + '&ctx=' + ctx + '&a=' + e
 var rl = document.getElementById("razborLink");
 if (rl) rl.href = razborHref;
 
-          // Show consult block only for low score
+                   // Show consult block for low score
           if (G < 5) {
             document.getElementById("resConsult").style.display = "block";
+          }
+
+          // Program hint — only 3 hottest segments
+          var showProgram = false;
+          var pt = document.getElementById("programText");
+          var pd = document.getElementById("programDesc");
+          var pl = document.getElementById("programLink");
+          var hint = document.getElementById("resProgramHint");
+
+          if (G < 5 && ctx === 'current') {
+            showProgram = true;
+            pt.textContent = 'Ты уже видишь, что происходит. Вопрос — что с этим делать.';
+            pd.textContent = 'Протокол «Любовь с открытыми глазами» — 41 день, чтобы разобрать механизм, который раз за разом приводит к одной и той же боли. Не коучинг — нейропсихологическая перепрошивка паттерна выбора.';
+            pl.textContent = 'Посмотреть программу →';
+          } else if (G < 5 && ctx === 'new') {
+            showProgram = true;
+            pt.textContent = 'Хорошо, что ты увидела это сейчас, а не через год.';
+            pd.textContent = 'Если хочешь понять, почему тебя тянет именно к таким — есть протокол «Любовь с открытыми глазами». 41 день нейропсихологической работы, которая меняет сам механизм выбора.';
+            pl.textContent = 'Узнать подробнее →';
+          } else if (G >= 5 && G < 8 && ctx === 'current') {
+            showProgram = true;
+            pt.textContent = 'Сомнения — это не слабость. Это сигнал, что пора разобраться.';
+            pd.textContent = 'Если хочешь не просто думать об этом, а реально изменить то, как ты выбираешь и остаёшься — посмотри протокол «Любовь с открытыми глазами». 41 день глубокой работы с паттерном.';
+            pl.textContent = 'Посмотреть программу →';
+          }
+
+          if (showProgram && hint) {
+            hint.style.display = 'block';
           }
 
           document.getElementById("trustBlock").style.display = "block";
@@ -1888,7 +1915,7 @@ if (rl) rl.href = razborHref;
         }, 150);
       }
 
-      function restart() {
+          function restart() {
         G = 0;
         A = {};
         ctx = "";
@@ -1899,6 +1926,8 @@ if (rl) rl.href = razborHref;
         var nudge = document.getElementById("midNudge");
         if (nudge) nudge.style.display = "none";
         document.getElementById("resConsult").style.display = "none";
+        var progHint = document.getElementById("resProgramHint");
+        if (progHint) progHint.style.display = "none";
         for (var i = 1; i <= T; i++) {
           var card = document.getElementById("q" + i);
           if (card) {
