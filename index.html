@@ -425,7 +425,7 @@
         display: none;
       }
 
-      /* === RESULT === */
+      /* === RESULT — REDESIGNED === */
       .q-result {
         display: none;
       }
@@ -433,87 +433,131 @@
         display: block;
         animation: cardSlide 0.4s ease;
       }
+
       .res-card {
         background: var(--card);
-        border-radius: var(--radius);
+        border-radius: 16px;
         overflow: hidden;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        box-shadow: 0 12px 48px rgba(0, 0, 0, 0.1),
+          0 2px 8px rgba(0, 0, 0, 0.04);
       }
+
+      /* --- Score header with gradient --- */
       .res-top {
-        padding: 40px 28px 28px;
+        padding: 48px 32px 36px;
         text-align: center;
-        background: var(--card);
+        background: var(--cream);
+        border-bottom: 1px solid var(--border-light);
+        position: relative;
       }
+      .res-top::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 3px;
+        background: var(--accent);
+        border-radius: 3px;
+        opacity: 0.4;
+      }
+
       .res-score {
         font-family: "DM Serif Display", serif;
-        font-size: 5rem;
+        font-size: 5.5rem;
         color: var(--accent);
         line-height: 1;
-        margin-bottom: 4px;
+        margin-bottom: 6px;
+        letter-spacing: -2px;
+        text-shadow: 0 2px 20px rgba(212, 87, 74, 0.12);
       }
       .res-of {
-        font-size: 0.68rem;
+        font-size: 0.7rem;
         color: var(--text-muted);
-        font-weight: 500;
-        letter-spacing: 1px;
+        font-weight: 600;
+        letter-spacing: 1.5px;
         text-transform: uppercase;
-        margin-bottom: 20px;
+        margin-bottom: 24px;
       }
       .res-title {
         font-family: "DM Serif Display", serif;
-        font-size: 1.5rem;
+        font-size: 1.45rem;
         color: var(--dark);
-        margin-bottom: 12px;
-        line-height: 1.25;
+        margin-bottom: 0;
+        line-height: 1.3;
+        max-width: 440px;
+        margin-left: auto;
+        margin-right: auto;
       }
+
+      /* --- Personal analysis block --- */
       .res-personal {
-        margin: 20px 28px 0;
-        padding: 20px 24px;
-        background: linear-gradient(135deg, var(--cream), #fff5f0);
-        border-radius: 10px;
+        margin: 28px 28px 0;
+        padding: 24px 24px 24px 28px;
+        background: linear-gradient(135deg, #fff8f0, #fff5f3);
+        border-radius: 12px;
         text-align: left;
+        border-left: 4px solid var(--accent);
+        position: relative;
+      }
+      .res-personal::before {
+        content: "💡";
+        position: absolute;
+        top: -12px;
+        left: 20px;
+        font-size: 1.2rem;
+        background: var(--card);
+        padding: 0 6px;
+        border-radius: 50%;
       }
       .res-personal p {
-        font-size: 0.85rem;
+        font-size: 0.88rem;
         color: var(--text);
-        line-height: 1.7;
-        margin-bottom: 8px;
+        line-height: 1.75;
+        margin-bottom: 10px;
       }
       .res-personal p:last-child {
         margin-bottom: 0;
       }
       .res-personal strong {
         color: var(--accent);
-        font-weight: 600;
+        font-weight: 700;
       }
 
-      /* === NEXT STEPS === */
+      /* --- Next steps — main CTA block --- */
       .res-next {
-        margin: 24px 28px 0;
-        padding: 24px;
-        background: var(--bg);
-        border-radius: 10px;
+        margin: 32px 28px 0;
+        padding: 32px 28px;
+        background: linear-gradient(135deg, #fafafa, #f5f0ea);
+        border-radius: 14px;
         text-align: center;
+        border: 1px solid var(--border-light);
       }
       .res-next-title {
         font-family: "DM Serif Display", serif;
-        font-size: 1.1rem;
+        font-size: 1.2rem;
         color: var(--dark);
-        margin-bottom: 12px;
+        margin-bottom: 10px;
       }
-      .res-next p {
-        font-size: 0.82rem;
+      .res-next > p {
+        font-size: 0.84rem;
         color: var(--text-light);
-        line-height: 1.7;
-        margin-bottom: 16px;
+        line-height: 1.75;
+        margin-bottom: 24px;
+        max-width: 380px;
+        margin-left: auto;
+        margin-right: auto;
       }
+
+      /* CTA button with pulse */
       .btn-bot-main {
         background: var(--accent);
         color: #fff;
         border: none;
-        padding: 16px 40px;
-        font-size: 0.8rem;
-        font-weight: 600;
+        padding: 18px 44px;
+        font-size: 0.82rem;
+        font-weight: 700;
         letter-spacing: 0.8px;
         text-transform: uppercase;
         cursor: pointer;
@@ -524,68 +568,100 @@
         display: inline-flex;
         align-items: center;
         gap: 8px;
+        box-shadow: 0 6px 24px rgba(212, 87, 74, 0.25);
+        animation: ctaPulse 2.5s ease-in-out infinite;
+        position: relative;
       }
       .btn-bot-main:hover {
         background: var(--accent-hover);
-        transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(212, 87, 74, 0.3);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 32px rgba(212, 87, 74, 0.35);
+        animation: none;
       }
+      @keyframes ctaPulse {
+        0%,
+        100% {
+          box-shadow: 0 6px 24px rgba(212, 87, 74, 0.25);
+        }
+        50% {
+          box-shadow: 0 6px 32px rgba(212, 87, 74, 0.4);
+        }
+      }
+
       .res-next-alt {
-        font-size: 0.75rem;
+        font-size: 0.74rem;
         color: var(--text-muted);
-        margin-top: 14px;
+        margin-top: 18px;
         line-height: 1.6;
       }
       .res-next-alt a {
         color: var(--accent);
         text-decoration: underline;
         text-underline-offset: 3px;
+        font-weight: 500;
       }
+
+      /* --- Consult card --- */
       .res-next-consult {
-        margin-top: 20px;
-        padding-top: 16px;
-        border-top: 1px solid var(--border);
+        margin-top: 24px;
+        padding: 20px 24px;
+        background: var(--card);
+        border-radius: 12px;
+        border: 1.5px solid var(--border);
         text-align: center;
       }
       .res-next-consult p {
-        font-size: 0.78rem;
+        font-size: 0.8rem;
         color: var(--text-light);
-        line-height: 1.65;
-        margin-bottom: 10px;
+        line-height: 1.7;
+        margin-bottom: 12px;
       }
       .res-consult-link {
-        font-size: 0.75rem;
+        font-size: 0.78rem;
         color: var(--accent);
-        font-weight: 500;
+        font-weight: 600;
         text-decoration: none;
-        border-bottom: 1px solid rgba(212, 87, 74, 0.3);
-        padding-bottom: 1px;
-        transition: border-color 0.3s;
+        border-bottom: 1.5px solid rgba(212, 87, 74, 0.3);
+        padding-bottom: 2px;
+        transition: all 0.3s;
       }
       .res-consult-link:hover {
         border-color: var(--accent);
+        color: var(--accent-hover);
       }
 
+      /* --- Program hint card --- */
+      .res-program-hint {
+        margin-top: 20px;
+        padding: 20px 24px !important;
+        background: var(--card) !important;
+        border-radius: 12px !important;
+        border: 1.5px dashed rgba(212, 87, 74, 0.25) !important;
+        border-top: 1.5px dashed rgba(212, 87, 74, 0.25) !important;
+        text-align: center;
+      }
+
+      /* --- Share block --- */
       .res-share {
-        padding: 24px 28px;
-        margin-top: 24px;
+        padding: 28px 28px;
+        margin-top: 32px;
         background: var(--bg);
         text-align: center;
-        border-radius: 0 0 var(--radius) var(--radius);
-        border-top: 1px solid var(--border-light);
+        border-radius: 0 0 16px 16px;
+        border-top: 1px solid var(--border);
       }
       .res-share-text {
-        font-size: 0.82rem;
-        color: var(--text);
-        margin-bottom: 12px;
-        font-weight: 500;
+        font-size: 0.85rem;
+        color: var(--dark);
+        margin-bottom: 14px;
+        font-weight: 600;
       }
       .btn-share {
         background: var(--card);
-        border: 1.5px solid var(--border);
+        border: 2px solid var(--border);
         color: var(--text);
-        padding: 12px 28px;
-        font-size: 0.75rem;
+        padding: 14px 32px;
+        font-size: 0.78rem;
         font-weight: 600;
         cursor: pointer;
         border-radius: 60px;
@@ -596,152 +672,236 @@
         border-color: var(--accent);
         color: var(--accent);
         background: var(--accent-light);
-        transform: translateY(-1px);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
       }
       .res-share-live {
-        font-size: 0.68rem;
+        font-size: 0.7rem;
         color: var(--text-muted);
-        margin-top: 10px;
+        margin-top: 12px;
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 6px;
       }
       .live-dot {
-        width: 6px;
-        height: 6px;
+        width: 7px;
+        height: 7px;
         border-radius: 50%;
         background: var(--green);
         animation: livePulse 1.5s infinite;
       }
-      @keyframes livePulse {
-        0%,
-        100% {
-          opacity: 1;
-        }
-        50% {
-          opacity: 0.3;
-        }
-      }
+
+      /* --- Restart --- */
       .q-restart {
         text-align: center;
-        margin-top: 16px;
+        margin-top: 20px;
       }
       .q-restart button {
         background: none;
         border: none;
         color: var(--text-muted);
-        font-size: 0.72rem;
+        font-size: 0.74rem;
         cursor: pointer;
         text-decoration: underline;
         text-underline-offset: 3px;
         font-family: "Inter", sans-serif;
         transition: color 0.3s;
+        padding: 8px 16px;
       }
       .q-restart button:hover {
         color: var(--dark);
       }
 
-      /* === TRUST === */
+      /* === TRUST — REDESIGNED === */
       .trust {
         max-width: 600px;
-        margin: 40px auto 0;
+        margin: 48px auto 0;
         padding: 0 20px 60px;
       }
+      .trust::before {
+        content: "Кто стоит за этим тестом";
+        display: block;
+        font-family: "DM Serif Display", serif;
+        font-size: 1.15rem;
+        color: var(--dark);
+        text-align: center;
+        margin-bottom: 20px;
+        padding-top: 8px;
+      }
+
       .trust-author {
         display: flex;
-        gap: 16px;
+        gap: 18px;
         align-items: flex-start;
         background: var(--card);
-        border-radius: var(--radius);
-        padding: 24px;
-        box-shadow: var(--shadow);
+        border-radius: 14px;
+        padding: 28px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
         margin-bottom: 20px;
+        border: 1px solid var(--border-light);
       }
       .trust-author img {
-        width: 80px;
-        height: 80px;
+        width: 84px;
+        height: 84px;
         border-radius: 50%;
         object-fit: cover;
         object-position: center top;
         flex-shrink: 0;
-        border: 2px solid var(--border-light);
+        border: 3px solid var(--border-light);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
       }
       .trust-author-info h3 {
-        font-size: 1.05rem;
-        margin-bottom: 4px;
+        font-size: 1.1rem;
+        margin-bottom: 6px;
       }
       .trust-author-info p {
-        font-size: 0.8rem;
+        font-size: 0.82rem;
         color: var(--text-light);
-        line-height: 1.6;
+        line-height: 1.65;
       }
       .trust-stats {
         display: flex;
-        gap: 12px;
-        margin-top: 10px;
+        gap: 10px;
+        margin-top: 12px;
         flex-wrap: wrap;
       }
       .trust-stat {
         background: var(--cream);
-        padding: 4px 12px;
+        padding: 5px 14px;
         border-radius: 50px;
-        font-size: 0.68rem;
+        font-size: 0.7rem;
         color: var(--text-light);
         font-weight: 500;
+        border: 1px solid var(--border-light);
       }
       .trust-stat strong {
         color: var(--accent);
+        font-weight: 700;
       }
+
       .mini-reviews {
         display: grid;
-        gap: 12px;
+        gap: 14px;
       }
       .mini-review {
         background: var(--card);
-        border-radius: var(--radius);
-        padding: 20px 24px;
-        box-shadow: var(--shadow);
+        border-radius: 14px;
+        padding: 22px 24px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+        border: 1px solid var(--border-light);
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+      .mini-review:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
       }
       .mini-review-name {
-        font-weight: 600;
-        font-size: 0.78rem;
+        font-weight: 700;
+        font-size: 0.82rem;
         color: var(--dark);
-        margin-bottom: 2px;
+        margin-bottom: 3px;
       }
       .mini-review-meta {
-        font-size: 0.65rem;
+        font-size: 0.67rem;
         color: var(--text-muted);
-        margin-bottom: 8px;
+        margin-bottom: 10px;
+        font-weight: 500;
       }
       .mini-review-text {
-        font-size: 0.85rem;
+        font-size: 0.86rem;
         color: var(--text-light);
-        line-height: 1.7;
+        line-height: 1.75;
         font-style: italic;
       }
+
       .soft-cta {
         background: var(--card);
-        border-radius: var(--radius);
-        padding: 24px;
-        box-shadow: var(--shadow);
+        border-radius: 14px;
+        padding: 28px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
         text-align: center;
         margin-top: 20px;
+        border: 1px solid var(--border-light);
       }
       .soft-cta p {
-        font-size: 0.85rem;
-        color: var(--text-light);
-        margin-bottom: 12px;
-        line-height: 1.6;
+        font-size: 0.86rem;
+        color: var(--text);
+        margin-bottom: 16px;
+        line-height: 1.7;
+        font-weight: 500;
       }
       .soft-cta a {
-        font-size: 0.78rem;
+        font-size: 0.82rem;
         color: var(--accent);
-        font-weight: 500;
-        text-decoration: underline;
-        text-underline-offset: 3px;
+        font-weight: 600;
+        text-decoration: none;
+        border-bottom: 2px solid rgba(212, 87, 74, 0.3);
+        padding-bottom: 2px;
+        transition: all 0.3s;
+      }
+      .soft-cta a:hover {
+        border-color: var(--accent);
       }
 
+      /* Mobile overrides for result */
+      @media (max-width: 640px) {
+        .res-top {
+          padding: 36px 20px 28px;
+        }
+        .res-score {
+          font-size: 4.5rem;
+        }
+        .res-title {
+          font-size: 1.2rem;
+        }
+        .res-personal {
+          margin: 20px 16px 0;
+          padding: 20px 18px 20px 22px;
+        }
+        .res-personal::before {
+          top: -10px;
+          left: 14px;
+          font-size: 1rem;
+        }
+        .res-next {
+          margin: 24px 16px 0;
+          padding: 24px 18px;
+        }
+        .res-next-title {
+          font-size: 1.05rem;
+        }
+        .btn-bot-main {
+          padding: 16px 32px;
+          font-size: 0.76rem;
+        }
+        .res-next-consult {
+          padding: 16px 18px;
+        }
+        .res-share {
+          padding: 22px 16px;
+          margin-top: 24px;
+        }
+        .trust {
+          padding: 0 16px 40px;
+          margin-top: 36px;
+        }
+        .trust::before {
+          font-size: 1.05rem;
+        }
+        .trust-author {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          padding: 22px 18px;
+        }
+        .trust-stats {
+          justify-content: center;
+        }
+        .mini-review {
+          padding: 18px 20px;
+        }
+      }
       /* === EXIT INTENT === */
       .ei-overlay {
         position: fixed;
@@ -1459,7 +1619,7 @@
             <div class="res-personal" id="resPersonal"></div>
 
             <!-- NEXT STEPS -->
-                        <div class="res-next">
+            <div class="res-next">
               <div class="res-next-title">Что будет дальше</div>
               <p>
                 Я собрала для тебя продолжение этого разбора. Там я разложу, что
@@ -1479,16 +1639,68 @@
                   >@JuliaEnergopraktika</a
                 >
               </div>
-              <div class="res-next-consult" id="resConsult" style="display:none">
+              <div
+                class="res-next-consult"
+                id="resConsult"
+                style="display: none"
+              >
                 <p>
-                  Если чувствуешь, что хочешь разобраться именно в своей ситуации — можешь оставить заявку на короткий разбор с мной. 20 минут, бесплатно. Мест немного.
+                  Если чувствуешь, что хочешь разобраться именно в своей
+                  ситуации — можешь оставить заявку на короткий разбор с мной.
+                  20 минут, бесплатно. Мест немного.
                 </p>
-                <a href="#" target="_blank" class="res-consult-link" id="razborLink">Оставить заявку →</a>
+                <a
+                  href="#"
+                  target="_blank"
+                  class="res-consult-link"
+                  id="razborLink"
+                  >Оставить заявку →</a
+                >
               </div>
-              <div class="res-program-hint" id="resProgramHint" style="display:none; margin-top:20px; padding-top:16px; border-top:1px solid var(--border); text-align:center;">
-                <p id="programText" style="font-size:0.82rem; color:var(--text); line-height:1.7; margin-bottom:6px; font-weight:500;"></p>
-                <p id="programDesc" style="font-size:0.78rem; color:var(--text-light); line-height:1.65; margin-bottom:12px;"></p>
-                <a href="https://lumen-protocol.vercel.app/#tariffs" target="_blank" id="programLink" style="font-size:0.78rem; color:var(--accent); font-weight:600; text-decoration:none; border-bottom:1.5px solid rgba(212,87,74,0.3); padding-bottom:2px; transition: border-color 0.3s;"></a>
+              <div
+                class="res-program-hint"
+                id="resProgramHint"
+                style="
+                  display: none;
+                  margin-top: 20px;
+                  padding-top: 16px;
+                  border-top: 1px solid var(--border);
+                  text-align: center;
+                "
+              >
+                <p
+                  id="programText"
+                  style="
+                    font-size: 0.82rem;
+                    color: var(--text);
+                    line-height: 1.7;
+                    margin-bottom: 6px;
+                    font-weight: 500;
+                  "
+                ></p>
+                <p
+                  id="programDesc"
+                  style="
+                    font-size: 0.78rem;
+                    color: var(--text-light);
+                    line-height: 1.65;
+                    margin-bottom: 12px;
+                  "
+                ></p>
+                <a
+                  href="https://lumen-protocol.vercel.app/#tariffs"
+                  target="_blank"
+                  id="programLink"
+                  style="
+                    font-size: 0.78rem;
+                    color: var(--accent);
+                    font-weight: 600;
+                    text-decoration: none;
+                    border-bottom: 1.5px solid rgba(212, 87, 74, 0.3);
+                    padding-bottom: 2px;
+                    transition: border-color 0.3s;
+                  "
+                ></a>
               </div>
             </div>
 
@@ -1862,18 +2074,24 @@
             "_" +
             displayScore;
           document.getElementById("botBtn1").href = botLink;
-          var answersStr = '';
-for (var k in A) {
-  if (A.hasOwnProperty(k)) {
-    if (answersStr) answersStr += ',';
-    answersStr += k + ':' + A[k];
-  }
-}
-var razborHref = 'razbor.html?score=' + displayScore + '&ctx=' + ctx + '&a=' + encodeURIComponent(answersStr);
-var rl = document.getElementById("razborLink");
-if (rl) rl.href = razborHref;
+          var answersStr = "";
+          for (var k in A) {
+            if (A.hasOwnProperty(k)) {
+              if (answersStr) answersStr += ",";
+              answersStr += k + ":" + A[k];
+            }
+          }
+          var razborHref =
+            "razbor.html?score=" +
+            displayScore +
+            "&ctx=" +
+            ctx +
+            "&a=" +
+            encodeURIComponent(answersStr);
+          var rl = document.getElementById("razborLink");
+          if (rl) rl.href = razborHref;
 
-                   // Show consult block for low score
+          // Show consult block for low score
           if (G < 5) {
             document.getElementById("resConsult").style.display = "block";
           }
@@ -1885,25 +2103,31 @@ if (rl) rl.href = razborHref;
           var pl = document.getElementById("programLink");
           var hint = document.getElementById("resProgramHint");
 
-          if (G < 5 && ctx === 'current') {
+          if (G < 5 && ctx === "current") {
             showProgram = true;
-            pt.textContent = 'Ты уже видишь, что происходит. Вопрос — что с этим делать.';
-            pd.textContent = 'Протокол «Любовь с открытыми глазами» — 41 день, чтобы разобрать механизм, который раз за разом приводит к одной и той же боли. Не коучинг — нейропсихологическая перепрошивка паттерна выбора.';
-            pl.textContent = 'Посмотреть программу →';
-          } else if (G < 5 && ctx === 'new') {
+            pt.textContent =
+              "Ты уже видишь, что происходит. Вопрос — что с этим делать.";
+            pd.textContent =
+              "Протокол «Любовь с открытыми глазами» — 41 день, чтобы разобрать механизм, который раз за разом приводит к одной и той же боли. Не коучинг — нейропсихологическая перепрошивка паттерна выбора.";
+            pl.textContent = "Посмотреть программу →";
+          } else if (G < 5 && ctx === "new") {
             showProgram = true;
-            pt.textContent = 'Хорошо, что ты увидела это сейчас, а не через год.';
-            pd.textContent = 'Если хочешь понять, почему тебя тянет именно к таким — есть протокол «Любовь с открытыми глазами». 41 день нейропсихологической работы, которая меняет сам механизм выбора.';
-            pl.textContent = 'Узнать подробнее →';
-          } else if (G >= 5 && G < 8 && ctx === 'current') {
+            pt.textContent =
+              "Хорошо, что ты увидела это сейчас, а не через год.";
+            pd.textContent =
+              "Если хочешь понять, почему тебя тянет именно к таким — есть протокол «Любовь с открытыми глазами». 41 день нейропсихологической работы, которая меняет сам механизм выбора.";
+            pl.textContent = "Узнать подробнее →";
+          } else if (G >= 5 && G < 8 && ctx === "current") {
             showProgram = true;
-            pt.textContent = 'Сомнения — это не слабость. Это сигнал, что пора разобраться.';
-            pd.textContent = 'Если хочешь не просто думать об этом, а реально изменить то, как ты выбираешь и остаёшься — посмотри протокол «Любовь с открытыми глазами». 41 день глубокой работы с паттерном.';
-            pl.textContent = 'Посмотреть программу →';
+            pt.textContent =
+              "Сомнения — это не слабость. Это сигнал, что пора разобраться.";
+            pd.textContent =
+              "Если хочешь не просто думать об этом, а реально изменить то, как ты выбираешь и остаёшься — посмотри протокол «Любовь с открытыми глазами». 41 день глубокой работы с паттерном.";
+            pl.textContent = "Посмотреть программу →";
           }
 
           if (showProgram && hint) {
-            hint.style.display = 'block';
+            hint.style.display = "block";
           }
 
           document.getElementById("trustBlock").style.display = "block";
@@ -1915,7 +2139,7 @@ if (rl) rl.href = razborHref;
         }, 150);
       }
 
-          function restart() {
+      function restart() {
         G = 0;
         A = {};
         ctx = "";
