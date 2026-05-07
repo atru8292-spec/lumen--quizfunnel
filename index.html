@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="ru">
   <head>
-  <meta property="og:title" content="Он точно готов — или снова кажется? | Тест">
-  <meta property="og:description" content="10 маркеров зрелого мужчины. Тест от психолога. 3 минуты.">
+<meta property="og:title" content="Он точно твой — или ты снова себя обманываешь? | Тест об отношениях">
+<meta property="og:description" content="10 ситуаций, по которым видно — этот мужчина для отношений или ты опять закрываешь глаза. Тест от психолога Юлии Люмен, 3 минуты.">
   <meta property="og:image" content="https://example.com/blank.png">
   <meta property="og:url" content="https://example.com/your-page-url">
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Он точно готов — или снова кажется? | Тест</title>
-    <meta
-      name="description"
-      content="10 маркеров зрелого мужчины. Тест от психолога. 3 минуты."
-    />
+  <title>Он точно твой — или ты снова себя обманываешь? | Тест об отношениях</title>
+<meta
+  name="description"
+  content="10 ситуаций, по которым видно — этот мужчина для отношений или ты опять закрываешь глаза. Тест от психолога Юлии Люмен, 3 минуты."
+/>
     <link
       href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
@@ -1189,11 +1189,12 @@
     <!-- ========== HERO ========== -->
     <section class="hero" id="hero">
       <div class="hero-badge">Тест · 3 минуты</div>
-      <h1>Он точно готов —<em>или снова кажется?</em></h1>
-      <p class="hero-sub">
-        10 ситуаций, которые покажут, какой он на самом деле. И где ты,
-        возможно, снова закрываешь глаза.
-      </p>
+     <div class="hero-badge">Тест об отношениях · 3 минуты</div>
+<h1>Он точно твой —<em>или ты снова себя обманываешь?</em></h1>
+<p class="hero-sub">
+  10 ситуаций, по которым видно — этот мужчина для отношений
+  или ты опять закрываешь глаза на красные флаги.
+</p>
       <div class="hero-pain">
         Знакомое чувство: вроде всё неплохо, но внутри что-то сжимается. Ты
         ждёшь его сообщение, оправдываешь странные моменты, а потом снова
@@ -2184,15 +2185,15 @@
 
       function shareTest() {
         var url = window.location.origin + window.location.pathname;
-        var text =
-          "Проверь его ещё до того, как сердце скажет «да». 10 маркеров зрелого мужчины — тест за 3 минуты:";
-        if (navigator.share) {
-          navigator
-            .share({
-              title: "Он точно готов — или снова кажется?",
-              text: text,
-              url: url,
-            })
+     var text =
+  "Он точно твой — или ты снова себя обманываешь? Тест об отношениях, 3 минуты:";
+if (navigator.share) {
+  navigator
+    .share({
+      title: "Он точно твой — или ты снова себя обманываешь?",
+      text: text,
+      url: url,
+    })
             .catch(function () {});
         } else {
           navigator.clipboard.writeText(text + " " + url).then(function () {
